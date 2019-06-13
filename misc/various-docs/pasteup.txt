@@ -1,0 +1,4 @@
+Pasteup is a program to combine different ucad drawings and print them out on
+the graphics device of choice.
+
+Views must be rotated and/or scaled to fit the output page.

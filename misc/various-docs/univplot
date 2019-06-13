@@ -1,0 +1,17 @@
+Universal Plotter Output Subroutine Call Interface
+
+Program calls driver setup - driver returns:
+
+	driver structure version - for upward compatible structure upgrades
+	pointer to driver structure which contains:
+
+		capabilities masks - describing high to low level caps
+		ptrs - different output driver routines
+		ptrs - to various gadgets for device dependant configuration
+		ptrs and lengths - of various device dependant configuration
+			data structures which may be saved to disk
+			for stored setups and defaults
+
+
+struct	Plot_Attribs_V10 {
+	

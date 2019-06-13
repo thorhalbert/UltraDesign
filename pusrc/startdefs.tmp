@@ -1,0 +1,69 @@
+/*
+ *	UltraCAD - WURBsoft Inc., Integrated Drafting/Composition Package
+ *
+ *	UCAD - Drawing/Library Editor
+ *
+ *	File:	pasteup.c - paste up main program
+ *
+ */
+
+/*
+ *	Copyright (C) 1986, 1987 by WURBsoft Inc., and Scott Halbert.
+ *
+ *	No portion of this product in any form (this includes but is not
+ *	limited to code sources, binaries, documentation, data or other), 
+ *	may be used, transferred, or kept by any parties other than the 
+ *	owners (WURBsoft Inc. and Scott Halbert),  unless the proper 
+ *	licenses have been executed between the user and WURBsoft Inc.
+ *
+ *	Any use not covered by a legal software license is considered 
+ *	by us to be Software Piracy, and constitutes a violation of our 
+ *	rights.  Don't get us mad.
+ *
+ */
+
+/*
+ *	Modification History
+ *
+ *	0	11-Jan-87 SH	Create new template
+ *	1	18-Sep-88 SH	Invention
+ *
+ */
+
+/*-------------------------------Include Files-------------------------------*/
+
+#include "plotsetup.h"
+#include <exec/memory.h>
+#include <graphics/gfxmacros.h>
+
+/*----------------------------------Macros-----------------------------------*/
+
+/*-----------------------------Forward References----------------------------*/
+
+/*-------------------------External Symbol Definitions-----------------------*/
+
+/*-------------------------Global Variable Definitions-----------------------*/
+
+BOOL stoall();
+BOOL stored();
+
+#define SA stoall
+#define SE stored
+
+struct startlist {
+	BOOL	(*service)();
+	UBYTE	*accesskey;
+	UBYTE	*default;
+	UBYTE	*setdata;
+	
+	
+} startups[] = {
+	{ SE,"VIEW_DRAWER",	"UltraCAD:Drawings",	ViewPath },
+	{ SE,"FONT_DRAWER",	"UltraCAD:Stroke_Lib",	StrokePath },
+	{ SE,"TEMPLATE_DRAWER",	"UltraCAD:Templates",	TemplatePath },
+	{ SE,"DRIVER_DRAWER",	"UltraCAD:Drivers",	DrivPath },
+	{ SE,"DEFS_DRAWER",	"UltraCAD:Definitions",	DefsPath },
+	{ SE,"PASTEUP_DEF",	"UltraCAD:Definitions/PrefDefault.upd", DefName },
+	{ SE,"PASTEUP_UNITS",	"INCHES" },
+};
+

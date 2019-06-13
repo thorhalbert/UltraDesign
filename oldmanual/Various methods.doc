@@ -1,0 +1,115 @@
+.lm=10
+.rm=70
+
+Various methodologies for getting around in Udesign.
+
+
+                         *    *    *
+
+
+     Here's a method for doing a bit of time saving with C„l„o„n„e„ m„o„d„e„ and X„ and Y„ „f„l„i„p„ „on a radialy symmetrical drawing;
+
+
+1) Set your center point.(Centerpoint should be on a snap intersection) For this process a fairly coarse snap is best.
+
+2) Construct one quarter of the drawing in relation to the center.
+
+3) B„o„x„ o„u„t„ „the quarter you have drawn. 
+
+4) Now, this is just a tad tricky, place the cross hairs D„i„r„e„c„t„l„y„     o„v„e„r„ „the center point. (you can check this by watching the cross hairs sort of lock themselves onto the X and Y coordinates of the center point.)
+
+5) Using the keyboard, command a C„l„o„n„e„ operation to take place. Udesign will prompt you to "set the handle point" on the C„u„r„r„e„n„t„ „S„t„a„t„u„s„ „L„i„n„e„ at the top of the  screen. Since the mouse cross hairs are a„l„r„e„a„d„y„ „ at the center point, click the left button once D„o„ „n„o„t„ „m„o„v„e„ „t„h„e„ „m„o„u„s„e„ „o„f„f„ „t„h„e„s„e„ „c„o„o„r„d„i„n„a„t„e„s„!„ it will cause your cloned sections to be reproduced somewhere other than precisely where you want them to be... The CSL at the top will then prompt you to "Place items, right button to stop" click  the left button once, (this will cause the quarter drawing you have made to be overwritten by the cloned image.T„h„i„s„ „h„o„w„e„v„e„r„,„ „d„o„e„s„ „ n„o„t„ „m„e„a„n„ „t„h„a„t„ „t„h„e„ „u„n„d„e„r„w„r„i„t„t„e„n„ „i„n„f„o„r„m„a„t„i„o„n„ „i„s„ „l„o„s„t„.„ „It will  „not be displayed until you repaint the screen) After you do this, click the right button once. This frees the clip to perform the next steps...
+
+6) Using the keyboard, command an X„ „f„l„i„p„ to take place. the CSL will prompt you to "Set center flip point" again, since the mouse is already at the center merely click the left button once, this will flip the entire clipboard about the x axis as defined by the center of the drawing. 
+
+7) Repeat steps 5 and 6 except do a Y„ „f„l„i„p„.„
+
+8) Now, another X„ „f„l„i„p„.
+
+9) And finally r„e„p„a„i„n„t„ and c„l„e„a„r„ „c„l„i„p„b„o„a„r„d„.
+
+     Whether or not you wish to do these operations in clockwise or counter clockwise order is of course your choice.  Experiment with it before you do anything really large so that you can get used to seeing it happen.
+             
+
+
+                       *       *       *
+
+
+Creating a new Library;
+
+First, a word about libraries.
+
+     Libraries are composed of A„s„s„e„m„b„l„i„e„s„,„ „G„r„o„u„p„s„ and D„r„a„w„i„n„g„ „O„b„j„e„c„t„s„. Drawing Objects are the actual lines, circles, arrows and what have you that make up the lowest level in the library hierarchy. Usually they form a piece of a greater drawing. Like a  nut or a bolt or a wire or a piece of plumbing. An A„s„s„e„m„b„l„y„ can be made up of either and/or both drawing objects and other assemblies, a„d„ „i„n„f„i„n„i„t„u„m„.„ So in light of this, we have used the term G„r„o„u„p„ to distinguish between branches in the hierarchial tree.„ The G„r„o„u„p„ „R„o„o„t„ is the ultimate resting place of all groups in that particular library and of itself h„a„s„ „n„o„ „d„r„a„w„i„n„g„ „o„b„j„e„c„t„s„ o„r„ „a„s„s„e„m„b„l„i„e„s„. Its pretty much like a title page/table of contents.
+         
+1) In the library menu is the operation called C„r„e„a„t„e„. This sets up the computer to recognize your input as a library, highlight this and click the left mouse button once.
+
+2) Using either the mouse or the keyboard, command the group requester to appear.
+
+3) Chances are, you will want to assign a generic label to this library. To do this, click the A„d„d„ button on the group requester. Since this is just a label and not a drawing d„o„ „n„o„t„ set the assembly icon to its active position (this is the nut and bolt icon on the group requester. The primary reason for this is that you may want to create more than one library  under the Group Root. If not, then you can disregard this part of step 3.)
+
+4) Step three will command the A„d„d„ „N„e„w„ „G„r„o„u„p„ requester to pop out. At the bottom of this requester is an "Entry" box with a cursor at the far left end. Using the mouse, click on the cursor to activate it then enter the name of the library that you are creating and hit Return. This will pop up a group requester with the name of your library on it.
+
+5) Now it's time to start putting together groups,  assemblies and drawing objects. In your library group requester, click the A„d„d„ „button again and perform step three once more, name the assembly that you are going to make in the entry box and when you return to the group requester with the assembly name on it, S„e„t„ „t„h„e„ „A„s„s„e„m„b„l„y„ „I„c„o„n„. this tells Udesign to regard the following input as a discrete set of information. Including all of the layers, pen styles, text fonts ect. that you include it it.
+
+6) An important point to remember is that the H„a„n„d„l„e„ „ of every assembly is at the 0,0 coordinate. Therefore, you will want to set up your margins with this in mind. In a library of related assemblies, T„he L„a„r„g„e„s„t„ „o„b„j„e„c„t„ „i„n„ „t„h„e„ „l„i„b„r„a„r„y„ „s„h„o„u„l„d„ „d„e„t„e„r„m„i„n„e„ „t„h„e„ „m„a„r„g„i„n„s„ „f„o„r„ „t„h„e„ „e„n„t„i„r„e„ „l„i„b„r„a„r„y„.„ „
+
+7) After you have completed the assembly you started in step 5, you are ready to start on your next assembly. To do this,it is necessary to return to the title page of your library. Command the C„u„r„r„a„n„t„ „G„r„o„u„p„ „R„e„q„u„e„s„t„e„r„ to pop out and click the P„a„r„e„n„t„ „button once. this will cause the group requester with your title on it to appear. (note: these instructions are for creating library assemblies that are D„i„s„c„r„e„t„e„ from one another but within the same library. If you wish to create N„e„s„t„e„d„ „assemblies ie. those that are i„n„s„i„d„e„ „each other, disregard the second half of this step.) once you are at the title level of your library click the A„d„d„ „button once more and repeat step 5.
+
+8) When you have finished adding everything that you wish to in that library. Command the S„a„v„e„ operation from the library menu and enter the name you have chosen into the entry box on the S„a„v„e„ „L„i„b„r„a„r„y„ „A„s„. requester that pops out. Then hit Return or click the S„a„v„e„ „button at the bottom.
+
+     The creation and use of libraries is one of the best ways to speed up the production of drawings that have large quantities of the same kind of part or parts. As in any kind of repetitive task, the more time you can save by not worrying about reinventing the wheel for the umpteenth time the easier it is to finish the entire job.
+
+
+                         *      *      *
+
+
+       A neat way of making everything in the view into one group in library mode is to do the following;
+
+1) Using the b„o„x„ „o„u„t„ „function of the clipboard, describe a small box somewhere unused on the view. (when this operation is completed, you should see all of the drawing objects on the screen pulsing blue)
+
+2) In the Clipboard menu there is a submenu called G„r„o„u„p„. The operation  you want is called „C„l„i„p„=„c„u„r„ „g„r„o„u„p„. This can be performed either with the mouse or the key commands. After using this there will be no outward changes on the screen but internally all of the drawing objects from any other group or set  
+of groups will now be included into the drawing objects file. When done, go ahead and clear the clipboard.
+               
+3) Ok, now you may want to get rid of the vestigial elements of previous group structures that were used to make your consolidated library assembly. To do this, use the E„x„p„u„n„g„e„ „button on your group requester. On very large assemblies this can end up saving you alot of memory...
+
+
+                       *        *        *
+
+
+     The next process I wish to talk about is the creation of P„e„n„ „    S„t„y„l„e„s„. This is the key to outputting your work onto hardcopy, whether that be printer or plotter. As well as adding items like C„u„s„t„o„m„i„z„a„b„l„e„ „D„o„t„t„e„d„ „L„i„n„e„s„. Pen styles are just like Layers but totally separate. Y„o„u„ decide where „and if there are to be connections between the two. Many users will not need the extra facility that layers can provide and so  may prefer to use the C„o„l„o„r„ „b„y„ „P„e„n„ „feature exclusively when they create their drawings. Rather than the C„o„l„o„r„ „B„y„ „L„a„y„e„r„, as this may tend to alleviate confusion „when it comes time to output.( For the purpose of ease of explanation, the first part of these instructions will assume 
+that the C„o„l„o„r„ „B„y„ „P„e„n„ „feature has been flagged.)
+
+1) Using the mouse or the keyboard, command the C„u„r„r„e„n„t„ „P„e„n„ „S„t„y„l„e„       „   requester to appear.
+
+2) As you can see, this is a rather busy requester. OK, the first thing you want to do is to pick a C„o„l„o„r„ for your pen. Do this by dragging the mouse pointer over to the area just to the „r„i„g„h„t„ of the "Color:" entry on the requester and clicking the left button once. A color palette will pop out. When this happens,  choose the color that you wish ( or that best represents the pen you are using) and click the left button once. The mix area on the palette will assume the color you have chosen. hit "OK" or "Return" to redisplay the pen requester. The color you have chosen will now be shown  to the right of the "Color:" entry.
+
+3) If you are setting your drawing up to be run by a plotter or by a color printer you are going to need to specify the P„e„n„ „O„r„d„e„r„ „on this requester. To do this, click the mouse pointer on the black box to the right of the "O„r„d„e„r„:„" „designation and type in the number that you choose to give this particular pen. if your plotter has autopens or carousels these numbers can be entered in the same fashion in their respective boxes.
+
+4) The P„e„n„:„ „box near the top of the requester displays the C„u„r„r„e„n„t„ „P„e„n„ „S„t„y„l„e„. Clicking on this box will allow you to choose from among the pens available on this particular drawing.
+
+5) Should you have a large number of pen styles, you may feel the need to organize them according to some sort of name. This works just like L„a„y„e„r„s„ „and is accomplished by the A„d„d„/„R„e„n„a„m„e„ „buttons on this requester. Simply choose which operation that you wish to perform and click the correct button.  A requester will pop up that will prompt you to either add or rename the pen style of your choice. Also, when you A„d„d„ „a pen, you have the option of configuring it in any manner available to you on the current pen requester. One of the options  is the L„i„n„e„ „S„t„y„l„e„ „option.  Which appears as a series of blue boxes near the bottom of the requester. Each one of these is   a G„a„d„g„e„t„ which can be toggled on or off. The black line immediately below them is a representation of what the line will look like when in use. as with Layers, Groups and Lettering styles these Additions to your view are completely separate from the other styles you have set up and are retained when you save the view.
+
+6) It is in this requester that the N„o„ „P„l„o„t„ icon comes into play. This is the farthest right of the four icons in the center. It shows a plotter pen in it's holder on a page in the active position and a d„o„ „n„o„t„ „symbol on a grey field in the inactive position. The primary purpose is to enable the user to turn off any extraneous layers, or pens when rendering a view to hardcopy.
+
+     OK, that is a basic overview of this part of Udesign. Now for a process that combines L„a„y„e„r„s„ „with P„e„n„s„.„.„.„
+
+     If your drawing is constructed with L„a„y„e„r„s„ instead of P„e„n„s„ and it comes time to output your work, it will be necessary to set up multiple pens if your intention is to use a  color plotter            or printer. This is a fairly straightforward procedure and once you are used to it, fairly fast as well.
+
+1) Using the mouse or the keyboard, flag the P„a„i„n„t„ „b„y„ „P„e„n„ feature. (Default color is grey) 
+
+2) Using the mouse or the keyboard, bring up the layer that you wish to combine first.(Click "OK" when done.)
+
+3) Now, bring up the Pen style you wish the layer assigned to as current.
+
+4) Using the mouse or the keyboard, flag the S„c„a„n„ „b„y„ „L„a„y„e„r„ „feature in the S„c„a„n„ S„c„o„p„e„ „submenu.
+
+5) This next step uses the C„l„i„p„b„o„a„r„d„.„ The command you want is B„o„x„ „A„l„l„. This will enter the contents of o„n„l„y„ „t„h„e„ „c„u„r„r„e„n„t„ „l„a„y„e„r„ in the clip.
+
+6) „And to complete the process, use the C„l„i„p„ „=„ „C„u„r„ „P„e„n„ „feature in    the G„r„o„u„p„ submenu. This assigns all of the objects in the clipped  „layer into the pen style you have selected as current.
+
+7) Repeat steps 2,3,5,&6 I„n„ „t„h„a„t„ „o„r„d„e„r„ for as many layers and pens as you need.
+
+     If you have more layers than pens you may need to M„e„r„g„e„ „some layers into some pens. These functions work just like A„d„d„,„ „R„e„n„a„m„e„ „a„n„d„ „ „K„i„l„l„.„ However I would suggest that you perform your merge operations b„e„f„o„r„e„ „using this process.
+
+                         *       *       *
+ „

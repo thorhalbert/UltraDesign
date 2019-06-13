@@ -1,0 +1,22 @@
+Roland DXY-101	Fixed Pen Plotter
+Roland DXY-800	8 Pen Plotter
+
+	Resolution Step 	x=0.1mm 	y=0.1mm
+
+	Limits (Units)		x=0		x=3700
+				y=0		y=2600
+
+	Slewing Rates Not Settable
+	Pen Pressure Not Settable
+
+		H			Return to (0,0)
+		Dx1,y1,x2,y2,...,xn,yn	Draw Lines Between Abs Points
+		Mx,y			Move to x,y with pen up
+		Idx1,dy1,dx2,dy2...	Draw lines with delta values
+		Rdx,dy			Move delta
+		L0			Draw straight line
+		L1			Draw dashed line
+		Bn			n is dash length (in units)
+		ESC0			Set plotter Mode
+		Jn			Pick Pen n (DXY-800 only)
+		Cx,y,r,a1,a2		Draw Circle (a1, a2 is even degrees)

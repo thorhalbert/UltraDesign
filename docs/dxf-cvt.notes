@@ -1,0 +1,49 @@
+Incompatibilities between DXF files and UltraDesign Files:
+
+	Blocks embedded in blocks which are stretch scaled (x not
+	scaled same as y) can produce curved objects which are no longer
+	elliptical.  The converter will try to simulate this, but these
+	types of curves cannot be represented in UltraDesign 1.0
+	
+	Fonts in different CAD systems are almost never directly compatible.
+	Assumptions about character names, default aspects and character
+	widths are only tentatively accurate at best.  UltraDesign 
+	styles are created for all heights and font types so that the
+	user may doctor these for best fit.
+	
+	UltraDesign does not have the %% special code notation in text and
+	does not have fully centered or aligned text types.  It also does not
+	have vertical fonts.
+	
+	UltraDesign V1.0 does not have polylines.  The vectors which make up
+	the DXF polyline are copied, but the polyline setup data is not kept.
+	
+	UltraDesign V1.0 does not have a block concept.  Use of blocks will
+	cause the data to be copied each time they are inserted.
+	
+	UltraDesign V1.0 does not support the on/off line segment length 
+	of the DXF line type.  This information is not copied.  A linestyle
+	is created for each line type in the DXF file, but the user must
+	set the bits in the pen style requester to simulate the original
+	dashing pattern.
+	
+	Only variable settings which have an equivalent (or similar) 
+	concept in UltraDesign are brought over from the DXF file, all others
+	are ignored.
+	
+Conversion Notes:
+
+	A trace is represented as a filled rectangle.
+	
+	A solid is represented as a filled triangle or rectangle.
+	
+	A linestyle is created for each line type in the DXF file and each
+	color used on actual output.  The pen order number is set to the
+	color number.
+	
+	The first 8 color numbers in DXF are copied to similar colors 
+	in UltraDesign, but the rest of the colors (>8) are mapped to 
+	a few of the remaining color registers.
+
+	The colors are "by pen".  This is because items can be colored 
+	independently of their layer in the DXF file.

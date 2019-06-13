@@ -1,0 +1,38 @@
+X-Snap		Y-Snap
+X-Offset	Y-Offset
+
+X-Min		Y-Min
+X-Max		Y-Max
+
+X-Grid		Y-Grid
+X-GridOffset	Y-GridOffset
+X-GridDivs	Y-GridDivs
+
+ArrowAngle
+ArrowLength
+Qtext Height (pixels)
+Scale:	Paper Unit
+	View Unit
+
+Temporary Items:
+
+	X-Position	Y-Position
+	X-ViewSize	Y-ViewSize
+	X-Origin	Y-Origin
+	X-TSnap		Y-TSnap
+
+
+	xsnap			ysnap
+	xoffset			yoffset
+	xgrid			ygrid
+	xgridoff		ygridoff
+	xgriddiv		ygriddiv
+	xviewmin		yviewmin
+	xviewmax		yviewmax
+	paperunit		viewunit
+	arrowang		arrowlen
+	lintolerance		angtolerance
+	linpoints		angpoints
+	qtextlim
+
+	CANCEL			OK

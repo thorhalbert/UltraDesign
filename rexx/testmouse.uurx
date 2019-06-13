@@ -1,0 +1,19 @@
+/* Ultradesign Arexx program fetch mouse click from screen */
+
+	'$$DEBUG = 1'
+			
+	options				/* Turn off returned results */
+	
+	'$$INTERN_UNIT = 0'		/* Set units to user units */
+	
+	options results			/* Turn on returned results */
+	
+	'RESULT @'			/* Get mouse click from udesign */
+	
+	parse var result type xv ',' yv
+		/* Parse the result, the variable type goes in 'type',
+		   and your value goes into xv and yv (note the comma) */
+		   
+	options				/* Turn off return results again */
+
+	say xv yv

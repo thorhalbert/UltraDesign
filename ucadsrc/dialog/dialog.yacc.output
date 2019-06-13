@@ -1,0 +1,3636 @@
+State 37 contains 8 shift/reduce conflicts.
+State 47 contains 8 reduce/reduce conflicts.
+State 48 contains 8 reduce/reduce conflicts.
+State 49 contains 8 reduce/reduce conflicts.
+State 50 contains 8 reduce/reduce conflicts.
+State 53 contains 8 shift/reduce conflicts and 12 reduce/reduce conflicts.
+State 54 contains 12 shift/reduce conflicts.
+State 67 contains 8 shift/reduce conflicts.
+State 80 contains 8 shift/reduce conflicts.
+State 82 contains 12 shift/reduce conflicts.
+State 89 contains 12 shift/reduce conflicts.
+State 91 contains 14 shift/reduce conflicts.
+State 115 contains 8 shift/reduce conflicts.
+State 158 contains 18 shift/reduce conflicts.
+State 196 contains 1 reduce/reduce conflict.
+State 199 contains 1 reduce/reduce conflict.
+
+
+token types:
+ type -1 is $
+ type 1 is error
+ type 2 is $illegal.
+ type 3 is SLASH_LOG
+ type 4 is SLASH_NOLOG
+ type 5 is SLASH_QUIET
+ type 6 is SLASH_NOQUIET
+ type 7 is SLASH_CONFIRM
+ type 8 is SLASH_NOCONFIRM
+ type 9 is SLASH_POPOUT
+ type 10 is SLASH_NOPOPOUT
+ type 11 is SLASH_VIEW
+ type 12 is SLASH_LIBRARY
+ type 13 is SLASH_FONT
+ type 14 is SLASH_HATCH
+ type 15 is SLASH_GROUP
+ type 16 is SLASH_LAYER
+ type 17 is SLASH_PEN
+ type 18 is SLASH_STYLE
+ type 19 is SLASH_ROOT
+ type 20 is SLASH_CURRENT
+ type 21 is SLASH_ASSEMBLY
+ type 22 is SLASH_NOASSEMBLY
+ type 23 is SLASH_LOCK
+ type 24 is SLASH_NOLOCK
+ type 25 is SLASH_GHOST
+ type 26 is SLASH_NOGHOST
+ type 27 is SLASH_PLOT
+ type 28 is SLASH_NOPLOT
+ type 29 is SLASH_DISPLAY
+ type 30 is SLASH_NODISPLAY
+ type 31 is SLASH_COMMENT
+ type 32 is SLASH_COLOR
+ type 33 is SLASH_HEIGHT
+ type 34 is SLASH_SHEET
+ type 35 is SLASH_SLANT
+ type 36 is SLASH_ASPECT
+ type 37 is SLASH_TEMPLATE
+ type 38 is SLASH_HARDCOLOR
+ type 39 is EQUALS
+ type 40 is LOAD
+ type 41 is SAVE
+ type 42 is MERGE
+ type 43 is USE
+ type 44 is NEW
+ type 45 is SET
+ type 46 is GROUP
+ type 47 is LAYER
+ type 48 is PEN
+ type 49 is STYLE
+ type 50 is RENAME
+ type 51 is EXPUNGE
+ type 52 is DELETE
+ type 53 is COLOR
+ type 54 is CREATE
+ type 55 is CURRENT
+ type 56 is STRING
+ type 57 is SIMPLE_NUMBER
+ type 58 is FLOAT_NUMBER
+ type 59 is HEX_NUMBER
+ type 60 is TEXT_STRING
+ type 61 is ERROR_TEXT
+
+
+state 0
+
+    LOAD	shift  1
+    SAVE	shift  2
+    MERGE	shift  3
+    USE 	shift  4
+    NEW 	shift  5
+    SET 	shift  6
+    RENAME	shift  7
+    EXPUNGE	shift  8
+    DELETE	shift  9
+    CREATE	shift  10
+    loadfile	shift  11
+    mainloop	shift  200
+    savefile	shift  12
+    mergefile	shift  13
+    usefile	shift  14
+    new 	shift  15
+    setcurrent	shift  16
+    createattrib	shift  17
+    changes	shift  18
+    setcolor	shift  19
+
+
+
+state 1
+
+    loadfile  ->  LOAD . fileswitch file_name fileswitch   (54)
+    loadfile  ->  LOAD . file_name fileswitch   (55)
+    loadfile  ->  LOAD . fileswitch file_name   (56)
+    loadfile  ->  LOAD . file_name   (57)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  36
+    infoflags	shift  37
+    fileswitch	shift  38
+
+
+
+state 2
+
+    savefile  ->  SAVE . fileswitch file_name fileswitch   (58)
+    savefile  ->  SAVE . file_name fileswitch   (59)
+    savefile  ->  SAVE . fileswitch file_name   (60)
+    savefile  ->  SAVE . file_name   (61)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  39
+    infoflags	shift  37
+    fileswitch	shift  40
+
+
+
+state 3
+
+    mergefile  ->  MERGE . mergeswitch file_name mergeswitch   (62)
+    mergefile  ->  MERGE . file_name mergeswitch   (63)
+    mergefile  ->  MERGE . mergeswitch file_name   (64)
+    mergefile  ->  MERGE . file_name   (65)
+    changes  ->  MERGE . attribswitch attrib_name attribswitch attrib_name attribswitch   (128)
+    changes  ->  MERGE . attrib_name attribswitch attrib_name attribswitch   (129)
+    changes  ->  MERGE . attribswitch attrib_name attrib_name attribswitch   (130)
+    changes  ->  MERGE . attribswitch attrib_name attribswitch attrib_name   (131)
+    changes  ->  MERGE . attrib_name attrib_name attribswitch   (132)
+    changes  ->  MERGE . attribswitch attrib_name attrib_name   (133)
+    changes  ->  MERGE . attrib_name attrib_name   (134)
+    changes  ->  MERGE . attrib_name attribswitch attrib_name   (135)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    STRING	shift  47
+    SIMPLE_NUMBER	shift  48
+    HEX_NUMBER	shift  49
+    TEXT_STRING	shift  50
+    file_name	shift  51
+    attrib_name	shift  52
+    infoflags	shift  53
+    fileswitch	shift  54
+    attribswitch	shift  55
+    mergeswitch	shift  56
+
+
+
+state 4
+
+    usefile  ->  USE . fileswitch file_name fileswitch   (70)
+    usefile  ->  USE . file_name fileswitch   (71)
+    usefile  ->  USE . fileswitch file_name   (72)
+    usefile  ->  USE . file_name   (73)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  57
+    infoflags	shift  37
+    fileswitch	shift  58
+
+
+
+state 5
+
+    new  ->  NEW . fileswitch   (74)
+    new  ->  NEW .   (75)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  59
+
+    $default	reduce  75  (new)
+
+
+
+state 6
+
+    setcurrent  ->  SET . CURRENT attribswitch attrib_name attribswitch   (76)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec infoflags   (142)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec   (143)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec infoflags   (144)
+    setcolor  ->  SET . COLOR infoflags color_number colorspec   (145)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec infoflags   (146)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec   (147)
+    setcolor  ->  SET . COLOR infoflags color_number infoflags colorspec infoflags   (148)
+    setcolor  ->  SET . COLOR color_number colorspec   (149)
+
+    COLOR	shift  60
+    CURRENT	shift  61
+
+
+
+state 7
+
+    changes  ->  RENAME . attribswitch attrib_name attribswitch attrib_name attribswitch   (120)
+    changes  ->  RENAME . attrib_name attribswitch attrib_name attribswitch   (121)
+    changes  ->  RENAME . attribswitch attrib_name attrib_name attribswitch   (122)
+    changes  ->  RENAME . attribswitch attrib_name attribswitch attrib_name   (123)
+    changes  ->  RENAME . attrib_name attrib_name attribswitch   (124)
+    changes  ->  RENAME . attribswitch attrib_name attrib_name   (125)
+    changes  ->  RENAME . attrib_name attrib_name   (126)
+    changes  ->  RENAME . attrib_name attribswitch attrib_name   (127)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  66
+    infoflags	shift  67
+    attribswitch	shift  68
+
+
+
+state 8
+
+    changes  ->  EXPUNGE . attribswitch   (136)
+    changes  ->  EXPUNGE .   (137)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  69
+
+    $default	reduce  137  (changes)
+
+
+
+state 9
+
+    changes  ->  DELETE . attribswitch attrib_name attribswitch   (138)
+    changes  ->  DELETE . attrib_name attribswitch   (139)
+    changes  ->  DELETE . attribswitch attrib_name   (140)
+    changes  ->  DELETE . attrib_name   (141)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  70
+    infoflags	shift  67
+    attribswitch	shift  71
+
+
+
+state 10
+
+    createattrib  ->  CREATE . template attrib_name template   (114)
+    createattrib  ->  CREATE . attrib_name template   (115)
+    createattrib  ->  CREATE . template attrib_name   (116)
+    createattrib  ->  CREATE . attrib_name   (117)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  76
+    attribtype	shift  77
+    template	shift  78
+
+
+
+state 11
+
+    mainloop  ->  loadfile .   (7)
+
+    $default	reduce  7  (mainloop)
+
+
+
+state 12
+
+    mainloop  ->  savefile .   (8)
+
+    $default	reduce  8  (mainloop)
+
+
+
+state 13
+
+    mainloop  ->  mergefile .   (9)
+
+    $default	reduce  9  (mainloop)
+
+
+
+state 14
+
+    mainloop  ->  usefile .   (4)
+
+    $default	reduce  4  (mainloop)
+
+
+
+state 15
+
+    mainloop  ->  new .   (5)
+
+    $default	reduce  5  (mainloop)
+
+
+
+state 16
+
+    mainloop  ->  setcurrent .   (6)
+
+    $default	reduce  6  (mainloop)
+
+
+
+state 17
+
+    mainloop  ->  createattrib .   (3)
+
+    $default	reduce  3  (mainloop)
+
+
+
+state 18
+
+    mainloop  ->  changes .   (1)
+
+    $default	reduce  1  (mainloop)
+
+
+
+state 19
+
+    mainloop  ->  setcolor .   (2)
+
+    $default	reduce  2  (mainloop)
+
+
+
+state 20
+
+    infoflags  ->  SLASH_LOG .   (34)
+
+    $default	reduce  34  (infoflags)
+
+
+
+state 21
+
+    infoflags  ->  SLASH_NOLOG .   (35)
+
+    $default	reduce  35  (infoflags)
+
+
+
+state 22
+
+    infoflags  ->  SLASH_QUIET .   (37)
+
+    $default	reduce  37  (infoflags)
+
+
+
+state 23
+
+    infoflags  ->  SLASH_NOQUIET .   (36)
+
+    $default	reduce  36  (infoflags)
+
+
+
+state 24
+
+    infoflags  ->  SLASH_CONFIRM .   (38)
+
+    $default	reduce  38  (infoflags)
+
+
+
+state 25
+
+    infoflags  ->  SLASH_NOCONFIRM .   (39)
+
+    $default	reduce  39  (infoflags)
+
+
+
+state 26
+
+    infoflags  ->  SLASH_POPOUT .   (40)
+
+    $default	reduce  40  (infoflags)
+
+
+
+state 27
+
+    infoflags  ->  SLASH_NOPOPOUT .   (41)
+
+    $default	reduce  41  (infoflags)
+
+
+
+state 28
+
+    fileswitch  ->  SLASH_VIEW .   (44)
+
+    $default	reduce  44  (fileswitch)
+
+
+
+state 29
+
+    fileswitch  ->  SLASH_LIBRARY .   (45)
+
+    $default	reduce  45  (fileswitch)
+
+
+
+state 30
+
+    fileswitch  ->  SLASH_FONT .   (46)
+
+    $default	reduce  46  (fileswitch)
+
+
+
+state 31
+
+    fileswitch  ->  SLASH_HATCH .   (47)
+
+    $default	reduce  47  (fileswitch)
+
+
+
+state 32
+
+    file_name  ->  STRING .   (11)
+
+    $default	reduce  11  (file_name)
+
+
+
+state 33
+
+    file_name  ->  SIMPLE_NUMBER .   (12)
+
+    $default	reduce  12  (file_name)
+
+
+
+state 34
+
+    file_name  ->  HEX_NUMBER .   (13)
+
+    $default	reduce  13  (file_name)
+
+
+
+state 35
+
+    file_name  ->  TEXT_STRING .   (10)
+
+    $default	reduce  10  (file_name)
+
+
+
+state 36
+
+    loadfile  ->  LOAD file_name . fileswitch   (55)
+    loadfile  ->  LOAD file_name .   (57)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  79
+
+    $default	reduce  57  (loadfile)
+
+
+
+state 37
+
+    infoflags  ->  infoflags . infoflags   (33)
+    fileswitch  ->  infoflags .   (42)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    SLASH_LOG	[reduce  42  (fileswitch)]
+    SLASH_NOLOG	[reduce  42  (fileswitch)]
+    SLASH_QUIET	[reduce  42  (fileswitch)]
+    SLASH_NOQUIET	[reduce  42  (fileswitch)]
+    SLASH_CONFIRM	[reduce  42  (fileswitch)]
+    SLASH_NOCONFIRM	[reduce  42  (fileswitch)]
+    SLASH_POPOUT	[reduce  42  (fileswitch)]
+    SLASH_NOPOPOUT	[reduce  42  (fileswitch)]
+    $default	reduce  42  (fileswitch)
+
+
+
+state 38
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    loadfile  ->  LOAD fileswitch . file_name fileswitch   (54)
+    loadfile  ->  LOAD fileswitch . file_name   (56)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  81
+    infoflags	shift  37
+    fileswitch	shift  82
+
+
+
+state 39
+
+    savefile  ->  SAVE file_name . fileswitch   (59)
+    savefile  ->  SAVE file_name .   (61)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  83
+
+    $default	reduce  61  (savefile)
+
+
+
+state 40
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    savefile  ->  SAVE fileswitch . file_name fileswitch   (58)
+    savefile  ->  SAVE fileswitch . file_name   (60)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  84
+    infoflags	shift  37
+    fileswitch	shift  82
+
+
+
+state 41
+
+    attribswitch  ->  SLASH_GROUP .   (50)
+
+    $default	reduce  50  (attribswitch)
+
+
+
+state 42
+
+    attribswitch  ->  SLASH_LAYER .   (51)
+
+    $default	reduce  51  (attribswitch)
+
+
+
+state 43
+
+    attribswitch  ->  SLASH_PEN .   (52)
+
+    $default	reduce  52  (attribswitch)
+
+
+
+state 44
+
+    attribswitch  ->  SLASH_STYLE .   (53)
+
+    $default	reduce  53  (attribswitch)
+
+
+
+state 45
+
+    mergeswitch  ->  SLASH_ROOT .   (68)
+
+    $default	reduce  68  (mergeswitch)
+
+
+
+state 46
+
+    mergeswitch  ->  SLASH_CURRENT .   (69)
+
+    $default	reduce  69  (mergeswitch)
+
+
+
+state 47
+
+    file_name  ->  STRING .   (11)
+    attrib_name  ->  STRING .   (15)
+
+    SLASH_LOG	reduce  11  (file_name)
+    SLASH_LOG	[reduce  15  (attrib_name)]
+    SLASH_NOLOG	reduce  11  (file_name)
+    SLASH_NOLOG	[reduce  15  (attrib_name)]
+    SLASH_QUIET	reduce  11  (file_name)
+    SLASH_QUIET	[reduce  15  (attrib_name)]
+    SLASH_NOQUIET	reduce  11  (file_name)
+    SLASH_NOQUIET	[reduce  15  (attrib_name)]
+    SLASH_CONFIRM	reduce  11  (file_name)
+    SLASH_CONFIRM	[reduce  15  (attrib_name)]
+    SLASH_NOCONFIRM	reduce  11  (file_name)
+    SLASH_NOCONFIRM	[reduce  15  (attrib_name)]
+    SLASH_POPOUT	reduce  11  (file_name)
+    SLASH_POPOUT	[reduce  15  (attrib_name)]
+    SLASH_NOPOPOUT	reduce  11  (file_name)
+    SLASH_NOPOPOUT	[reduce  15  (attrib_name)]
+    SLASH_GROUP	reduce  15  (attrib_name)
+    SLASH_LAYER	reduce  15  (attrib_name)
+    SLASH_PEN	reduce  15  (attrib_name)
+    SLASH_STYLE	reduce  15  (attrib_name)
+    STRING	reduce  15  (attrib_name)
+    SIMPLE_NUMBER	reduce  15  (attrib_name)
+    HEX_NUMBER	reduce  15  (attrib_name)
+    TEXT_STRING	reduce  15  (attrib_name)
+    $default	reduce  11  (file_name)
+
+
+
+state 48
+
+    file_name  ->  SIMPLE_NUMBER .   (12)
+    attrib_name  ->  SIMPLE_NUMBER .   (16)
+
+    SLASH_LOG	reduce  12  (file_name)
+    SLASH_LOG	[reduce  16  (attrib_name)]
+    SLASH_NOLOG	reduce  12  (file_name)
+    SLASH_NOLOG	[reduce  16  (attrib_name)]
+    SLASH_QUIET	reduce  12  (file_name)
+    SLASH_QUIET	[reduce  16  (attrib_name)]
+    SLASH_NOQUIET	reduce  12  (file_name)
+    SLASH_NOQUIET	[reduce  16  (attrib_name)]
+    SLASH_CONFIRM	reduce  12  (file_name)
+    SLASH_CONFIRM	[reduce  16  (attrib_name)]
+    SLASH_NOCONFIRM	reduce  12  (file_name)
+    SLASH_NOCONFIRM	[reduce  16  (attrib_name)]
+    SLASH_POPOUT	reduce  12  (file_name)
+    SLASH_POPOUT	[reduce  16  (attrib_name)]
+    SLASH_NOPOPOUT	reduce  12  (file_name)
+    SLASH_NOPOPOUT	[reduce  16  (attrib_name)]
+    SLASH_GROUP	reduce  16  (attrib_name)
+    SLASH_LAYER	reduce  16  (attrib_name)
+    SLASH_PEN	reduce  16  (attrib_name)
+    SLASH_STYLE	reduce  16  (attrib_name)
+    STRING	reduce  16  (attrib_name)
+    SIMPLE_NUMBER	reduce  16  (attrib_name)
+    HEX_NUMBER	reduce  16  (attrib_name)
+    TEXT_STRING	reduce  16  (attrib_name)
+    $default	reduce  12  (file_name)
+
+
+
+state 49
+
+    file_name  ->  HEX_NUMBER .   (13)
+    attrib_name  ->  HEX_NUMBER .   (17)
+
+    SLASH_LOG	reduce  13  (file_name)
+    SLASH_LOG	[reduce  17  (attrib_name)]
+    SLASH_NOLOG	reduce  13  (file_name)
+    SLASH_NOLOG	[reduce  17  (attrib_name)]
+    SLASH_QUIET	reduce  13  (file_name)
+    SLASH_QUIET	[reduce  17  (attrib_name)]
+    SLASH_NOQUIET	reduce  13  (file_name)
+    SLASH_NOQUIET	[reduce  17  (attrib_name)]
+    SLASH_CONFIRM	reduce  13  (file_name)
+    SLASH_CONFIRM	[reduce  17  (attrib_name)]
+    SLASH_NOCONFIRM	reduce  13  (file_name)
+    SLASH_NOCONFIRM	[reduce  17  (attrib_name)]
+    SLASH_POPOUT	reduce  13  (file_name)
+    SLASH_POPOUT	[reduce  17  (attrib_name)]
+    SLASH_NOPOPOUT	reduce  13  (file_name)
+    SLASH_NOPOPOUT	[reduce  17  (attrib_name)]
+    SLASH_GROUP	reduce  17  (attrib_name)
+    SLASH_LAYER	reduce  17  (attrib_name)
+    SLASH_PEN	reduce  17  (attrib_name)
+    SLASH_STYLE	reduce  17  (attrib_name)
+    STRING	reduce  17  (attrib_name)
+    SIMPLE_NUMBER	reduce  17  (attrib_name)
+    HEX_NUMBER	reduce  17  (attrib_name)
+    TEXT_STRING	reduce  17  (attrib_name)
+    $default	reduce  13  (file_name)
+
+
+
+state 50
+
+    file_name  ->  TEXT_STRING .   (10)
+    attrib_name  ->  TEXT_STRING .   (14)
+
+    SLASH_LOG	reduce  10  (file_name)
+    SLASH_LOG	[reduce  14  (attrib_name)]
+    SLASH_NOLOG	reduce  10  (file_name)
+    SLASH_NOLOG	[reduce  14  (attrib_name)]
+    SLASH_QUIET	reduce  10  (file_name)
+    SLASH_QUIET	[reduce  14  (attrib_name)]
+    SLASH_NOQUIET	reduce  10  (file_name)
+    SLASH_NOQUIET	[reduce  14  (attrib_name)]
+    SLASH_CONFIRM	reduce  10  (file_name)
+    SLASH_CONFIRM	[reduce  14  (attrib_name)]
+    SLASH_NOCONFIRM	reduce  10  (file_name)
+    SLASH_NOCONFIRM	[reduce  14  (attrib_name)]
+    SLASH_POPOUT	reduce  10  (file_name)
+    SLASH_POPOUT	[reduce  14  (attrib_name)]
+    SLASH_NOPOPOUT	reduce  10  (file_name)
+    SLASH_NOPOPOUT	[reduce  14  (attrib_name)]
+    SLASH_GROUP	reduce  14  (attrib_name)
+    SLASH_LAYER	reduce  14  (attrib_name)
+    SLASH_PEN	reduce  14  (attrib_name)
+    SLASH_STYLE	reduce  14  (attrib_name)
+    STRING	reduce  14  (attrib_name)
+    SIMPLE_NUMBER	reduce  14  (attrib_name)
+    HEX_NUMBER	reduce  14  (attrib_name)
+    TEXT_STRING	reduce  14  (attrib_name)
+    $default	reduce  10  (file_name)
+
+
+
+state 51
+
+    mergefile  ->  MERGE file_name . mergeswitch   (63)
+    mergefile  ->  MERGE file_name .   (65)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  85
+
+    $default	reduce  65  (mergefile)
+
+
+
+state 52
+
+    changes  ->  MERGE attrib_name . attribswitch attrib_name attribswitch   (129)
+    changes  ->  MERGE attrib_name . attrib_name attribswitch   (132)
+    changes  ->  MERGE attrib_name . attrib_name   (134)
+    changes  ->  MERGE attrib_name . attribswitch attrib_name   (135)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  86
+    infoflags	shift  67
+    attribswitch	shift  87
+
+
+
+state 53
+
+    infoflags  ->  infoflags . infoflags   (33)
+    fileswitch  ->  infoflags .   (42)
+    attribswitch  ->  infoflags .   (48)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    SLASH_LOG	[reduce  42  (fileswitch)]
+    SLASH_LOG	[reduce  48  (attribswitch)]
+    SLASH_NOLOG	[reduce  42  (fileswitch)]
+    SLASH_NOLOG	[reduce  48  (attribswitch)]
+    SLASH_QUIET	[reduce  42  (fileswitch)]
+    SLASH_QUIET	[reduce  48  (attribswitch)]
+    SLASH_NOQUIET	[reduce  42  (fileswitch)]
+    SLASH_NOQUIET	[reduce  48  (attribswitch)]
+    SLASH_CONFIRM	[reduce  42  (fileswitch)]
+    SLASH_CONFIRM	[reduce  48  (attribswitch)]
+    SLASH_NOCONFIRM	[reduce  42  (fileswitch)]
+    SLASH_NOCONFIRM	[reduce  48  (attribswitch)]
+    SLASH_POPOUT	[reduce  42  (fileswitch)]
+    SLASH_POPOUT	[reduce  48  (attribswitch)]
+    SLASH_NOPOPOUT	[reduce  42  (fileswitch)]
+    SLASH_NOPOPOUT	[reduce  48  (attribswitch)]
+    SLASH_GROUP	reduce  48  (attribswitch)
+    SLASH_LAYER	reduce  48  (attribswitch)
+    SLASH_PEN	reduce  48  (attribswitch)
+    SLASH_STYLE	reduce  48  (attribswitch)
+    SLASH_ROOT	[reduce  42  (fileswitch)]
+    SLASH_CURRENT	[reduce  42  (fileswitch)]
+    STRING	[reduce  42  (fileswitch)]
+    STRING	[reduce  48  (attribswitch)]
+    SIMPLE_NUMBER	[reduce  42  (fileswitch)]
+    SIMPLE_NUMBER	[reduce  48  (attribswitch)]
+    HEX_NUMBER	reduce  42  (fileswitch)
+    HEX_NUMBER	[reduce  48  (attribswitch)]
+    TEXT_STRING	reduce  42  (fileswitch)
+    TEXT_STRING	[reduce  48  (attribswitch)]
+    $default	reduce  42  (fileswitch)
+
+
+
+state 54
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    mergeswitch  ->  fileswitch .   (66)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    SLASH_LOG	[reduce  66  (mergeswitch)]
+    SLASH_NOLOG	[reduce  66  (mergeswitch)]
+    SLASH_QUIET	[reduce  66  (mergeswitch)]
+    SLASH_NOQUIET	[reduce  66  (mergeswitch)]
+    SLASH_CONFIRM	[reduce  66  (mergeswitch)]
+    SLASH_NOCONFIRM	[reduce  66  (mergeswitch)]
+    SLASH_POPOUT	[reduce  66  (mergeswitch)]
+    SLASH_NOPOPOUT	[reduce  66  (mergeswitch)]
+    SLASH_VIEW	[reduce  66  (mergeswitch)]
+    SLASH_LIBRARY	[reduce  66  (mergeswitch)]
+    SLASH_FONT	[reduce  66  (mergeswitch)]
+    SLASH_HATCH	[reduce  66  (mergeswitch)]
+    $default	reduce  66  (mergeswitch)
+
+
+
+state 55
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attribswitch . attrib_name attribswitch attrib_name attribswitch   (128)
+    changes  ->  MERGE attribswitch . attrib_name attrib_name attribswitch   (130)
+    changes  ->  MERGE attribswitch . attrib_name attribswitch attrib_name   (131)
+    changes  ->  MERGE attribswitch . attrib_name attrib_name   (133)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  88
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 56
+
+    mergefile  ->  MERGE mergeswitch . file_name mergeswitch   (62)
+    mergefile  ->  MERGE mergeswitch . file_name   (64)
+    mergeswitch  ->  mergeswitch . mergeswitch   (67)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  90
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  91
+
+
+
+state 57
+
+    usefile  ->  USE file_name . fileswitch   (71)
+    usefile  ->  USE file_name .   (73)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  92
+
+    $default	reduce  73  (usefile)
+
+
+
+state 58
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    usefile  ->  USE fileswitch . file_name fileswitch   (70)
+    usefile  ->  USE fileswitch . file_name   (72)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    STRING	shift  32
+    SIMPLE_NUMBER	shift  33
+    HEX_NUMBER	shift  34
+    TEXT_STRING	shift  35
+    file_name	shift  93
+    infoflags	shift  37
+    fileswitch	shift  82
+
+
+
+state 59
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    new  ->  NEW fileswitch .   (74)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  74  (new)
+
+
+
+state 60
+
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec infoflags   (142)
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec   (143)
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec infoflags   (144)
+    setcolor  ->  SET COLOR . infoflags color_number colorspec   (145)
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec infoflags   (146)
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec   (147)
+    setcolor  ->  SET COLOR . infoflags color_number infoflags colorspec infoflags   (148)
+    setcolor  ->  SET COLOR . color_number colorspec   (149)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SIMPLE_NUMBER	shift  94
+    color_number	shift  95
+    infoflags	shift  96
+
+
+
+state 61
+
+    setcurrent  ->  SET CURRENT . attribswitch attrib_name attribswitch   (76)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  97
+
+
+
+state 62
+
+    attrib_name  ->  STRING .   (15)
+
+    $default	reduce  15  (attrib_name)
+
+
+
+state 63
+
+    attrib_name  ->  SIMPLE_NUMBER .   (16)
+
+    $default	reduce  16  (attrib_name)
+
+
+
+state 64
+
+    attrib_name  ->  HEX_NUMBER .   (17)
+
+    $default	reduce  17  (attrib_name)
+
+
+
+state 65
+
+    attrib_name  ->  TEXT_STRING .   (14)
+
+    $default	reduce  14  (attrib_name)
+
+
+
+state 66
+
+    changes  ->  RENAME attrib_name . attribswitch attrib_name attribswitch   (121)
+    changes  ->  RENAME attrib_name . attrib_name attribswitch   (124)
+    changes  ->  RENAME attrib_name . attrib_name   (126)
+    changes  ->  RENAME attrib_name . attribswitch attrib_name   (127)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  98
+    infoflags	shift  67
+    attribswitch	shift  99
+
+
+
+state 67
+
+    infoflags  ->  infoflags . infoflags   (33)
+    attribswitch  ->  infoflags .   (48)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    SLASH_LOG	[reduce  48  (attribswitch)]
+    SLASH_NOLOG	[reduce  48  (attribswitch)]
+    SLASH_QUIET	[reduce  48  (attribswitch)]
+    SLASH_NOQUIET	[reduce  48  (attribswitch)]
+    SLASH_CONFIRM	[reduce  48  (attribswitch)]
+    SLASH_NOCONFIRM	[reduce  48  (attribswitch)]
+    SLASH_POPOUT	[reduce  48  (attribswitch)]
+    SLASH_NOPOPOUT	[reduce  48  (attribswitch)]
+    $default	reduce  48  (attribswitch)
+
+
+
+state 68
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attribswitch . attrib_name attribswitch attrib_name attribswitch   (120)
+    changes  ->  RENAME attribswitch . attrib_name attrib_name attribswitch   (122)
+    changes  ->  RENAME attribswitch . attrib_name attribswitch attrib_name   (123)
+    changes  ->  RENAME attribswitch . attrib_name attrib_name   (125)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  100
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 69
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  EXPUNGE attribswitch .   (136)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  136  (changes)
+
+
+
+state 70
+
+    changes  ->  DELETE attrib_name . attribswitch   (139)
+    changes  ->  DELETE attrib_name .   (141)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  101
+
+    $default	reduce  141  (changes)
+
+
+
+state 71
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  DELETE attribswitch . attrib_name attribswitch   (138)
+    changes  ->  DELETE attribswitch . attrib_name   (140)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  102
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 72
+
+    attribtype  ->  GROUP . gattribs   (110)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_ASSEMBLY	shift  103
+    SLASH_NOASSEMBLY	shift  104
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    gattribs	shift  116
+    cattribs	shift  117
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+
+
+state 73
+
+    attribtype  ->  LAYER . cattribs   (111)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  120
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+
+
+state 74
+
+    attribtype  ->  PEN . cattribs   (112)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  121
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+
+
+state 75
+
+    attribtype  ->  STYLE . sattribs   (113)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_FONT	shift  122
+    SLASH_COMMENT	shift  113
+    SLASH_HEIGHT	shift  123
+    SLASH_SHEET	shift  124
+    SLASH_SLANT	shift  125
+    SLASH_ASPECT	shift  126
+    infoflags	shift  127
+    commentswitch	shift  128
+    sattribs	shift  129
+    fontswitch	shift  130
+    heightswitch	shift  131
+    sheetswitch	shift  132
+    slantswitch	shift  133
+    aspectswitch	shift  134
+
+
+
+state 76
+
+    createattrib  ->  CREATE attrib_name . template   (115)
+    createattrib  ->  CREATE attrib_name .   (117)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    attribtype	shift  77
+    template	shift  135
+
+    $default	reduce  117  (createattrib)
+
+
+
+state 77
+
+    template  ->  attribtype .   (118)
+
+    $default	reduce  118  (template)
+
+
+
+state 78
+
+    createattrib  ->  CREATE template . attrib_name template   (114)
+    createattrib  ->  CREATE template . attrib_name   (116)
+    template  ->  template . template SLASH_TEMPLATE EQUALS attrib_name   (119)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  136
+    attribtype	shift  77
+    template	shift  137
+
+
+
+state 79
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    loadfile  ->  LOAD file_name fileswitch .   (55)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  55  (loadfile)
+
+
+
+state 80
+
+    infoflags  ->  infoflags . infoflags   (33)
+    infoflags  ->  infoflags infoflags .   (33)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    SLASH_LOG	[reduce  33  (infoflags)]
+    SLASH_NOLOG	[reduce  33  (infoflags)]
+    SLASH_QUIET	[reduce  33  (infoflags)]
+    SLASH_NOQUIET	[reduce  33  (infoflags)]
+    SLASH_CONFIRM	[reduce  33  (infoflags)]
+    SLASH_NOCONFIRM	[reduce  33  (infoflags)]
+    SLASH_POPOUT	[reduce  33  (infoflags)]
+    SLASH_NOPOPOUT	[reduce  33  (infoflags)]
+    $default	reduce  33  (infoflags)
+
+
+
+state 81
+
+    loadfile  ->  LOAD fileswitch file_name . fileswitch   (54)
+    loadfile  ->  LOAD fileswitch file_name .   (56)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  138
+
+    $default	reduce  56  (loadfile)
+
+
+
+state 82
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    fileswitch  ->  fileswitch fileswitch .   (43)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    SLASH_LOG	[reduce  43  (fileswitch)]
+    SLASH_NOLOG	[reduce  43  (fileswitch)]
+    SLASH_QUIET	[reduce  43  (fileswitch)]
+    SLASH_NOQUIET	[reduce  43  (fileswitch)]
+    SLASH_CONFIRM	[reduce  43  (fileswitch)]
+    SLASH_NOCONFIRM	[reduce  43  (fileswitch)]
+    SLASH_POPOUT	[reduce  43  (fileswitch)]
+    SLASH_NOPOPOUT	[reduce  43  (fileswitch)]
+    SLASH_VIEW	[reduce  43  (fileswitch)]
+    SLASH_LIBRARY	[reduce  43  (fileswitch)]
+    SLASH_FONT	[reduce  43  (fileswitch)]
+    SLASH_HATCH	[reduce  43  (fileswitch)]
+    $default	reduce  43  (fileswitch)
+
+
+
+state 83
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    savefile  ->  SAVE file_name fileswitch .   (59)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  59  (savefile)
+
+
+
+state 84
+
+    savefile  ->  SAVE fileswitch file_name . fileswitch   (58)
+    savefile  ->  SAVE fileswitch file_name .   (60)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  139
+
+    $default	reduce  60  (savefile)
+
+
+
+state 85
+
+    mergefile  ->  MERGE file_name mergeswitch .   (63)
+    mergeswitch  ->  mergeswitch . mergeswitch   (67)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  91
+
+    $default	reduce  63  (mergefile)
+
+
+
+state 86
+
+    changes  ->  MERGE attrib_name attrib_name . attribswitch   (132)
+    changes  ->  MERGE attrib_name attrib_name .   (134)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  140
+
+    $default	reduce  134  (changes)
+
+
+
+state 87
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attrib_name attribswitch . attrib_name attribswitch   (129)
+    changes  ->  MERGE attrib_name attribswitch . attrib_name   (135)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  141
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 88
+
+    changes  ->  MERGE attribswitch attrib_name . attribswitch attrib_name attribswitch   (128)
+    changes  ->  MERGE attribswitch attrib_name . attrib_name attribswitch   (130)
+    changes  ->  MERGE attribswitch attrib_name . attribswitch attrib_name   (131)
+    changes  ->  MERGE attribswitch attrib_name . attrib_name   (133)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  142
+    infoflags	shift  67
+    attribswitch	shift  143
+
+
+
+state 89
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    attribswitch  ->  attribswitch attribswitch .   (49)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    SLASH_LOG	[reduce  49  (attribswitch)]
+    SLASH_NOLOG	[reduce  49  (attribswitch)]
+    SLASH_QUIET	[reduce  49  (attribswitch)]
+    SLASH_NOQUIET	[reduce  49  (attribswitch)]
+    SLASH_CONFIRM	[reduce  49  (attribswitch)]
+    SLASH_NOCONFIRM	[reduce  49  (attribswitch)]
+    SLASH_POPOUT	[reduce  49  (attribswitch)]
+    SLASH_NOPOPOUT	[reduce  49  (attribswitch)]
+    SLASH_GROUP	[reduce  49  (attribswitch)]
+    SLASH_LAYER	[reduce  49  (attribswitch)]
+    SLASH_PEN	[reduce  49  (attribswitch)]
+    SLASH_STYLE	[reduce  49  (attribswitch)]
+    $default	reduce  49  (attribswitch)
+
+
+
+state 90
+
+    mergefile  ->  MERGE mergeswitch file_name . mergeswitch   (62)
+    mergefile  ->  MERGE mergeswitch file_name .   (64)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  144
+
+    $default	reduce  64  (mergefile)
+
+
+
+state 91
+
+    mergeswitch  ->  mergeswitch . mergeswitch   (67)
+    mergeswitch  ->  mergeswitch mergeswitch .   (67)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  91
+
+    SLASH_LOG	[reduce  67  (mergeswitch)]
+    SLASH_NOLOG	[reduce  67  (mergeswitch)]
+    SLASH_QUIET	[reduce  67  (mergeswitch)]
+    SLASH_NOQUIET	[reduce  67  (mergeswitch)]
+    SLASH_CONFIRM	[reduce  67  (mergeswitch)]
+    SLASH_NOCONFIRM	[reduce  67  (mergeswitch)]
+    SLASH_POPOUT	[reduce  67  (mergeswitch)]
+    SLASH_NOPOPOUT	[reduce  67  (mergeswitch)]
+    SLASH_VIEW	[reduce  67  (mergeswitch)]
+    SLASH_LIBRARY	[reduce  67  (mergeswitch)]
+    SLASH_FONT	[reduce  67  (mergeswitch)]
+    SLASH_HATCH	[reduce  67  (mergeswitch)]
+    SLASH_ROOT	[reduce  67  (mergeswitch)]
+    SLASH_CURRENT	[reduce  67  (mergeswitch)]
+    $default	reduce  67  (mergeswitch)
+
+
+
+state 92
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    usefile  ->  USE file_name fileswitch .   (71)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  71  (usefile)
+
+
+
+state 93
+
+    usefile  ->  USE fileswitch file_name . fileswitch   (70)
+    usefile  ->  USE fileswitch file_name .   (72)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  145
+
+    $default	reduce  72  (usefile)
+
+
+
+state 94
+
+    color_number  ->  SIMPLE_NUMBER .   (21)
+
+    $default	reduce  21  (color_number)
+
+
+
+state 95
+
+    setcolor  ->  SET COLOR color_number . colorspec   (149)
+
+    SIMPLE_NUMBER	shift  146
+    HEX_NUMBER	shift  147
+    colorspec	shift  148
+
+
+
+state 96
+
+    infoflags  ->  infoflags . infoflags   (33)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec infoflags   (142)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec   (143)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec infoflags   (144)
+    setcolor  ->  SET COLOR infoflags . color_number colorspec   (145)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec infoflags   (146)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec   (147)
+    setcolor  ->  SET COLOR infoflags . color_number infoflags colorspec infoflags   (148)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SIMPLE_NUMBER	shift  94
+    color_number	shift  149
+    infoflags	shift  80
+
+
+
+state 97
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    setcurrent  ->  SET CURRENT attribswitch . attrib_name attribswitch   (76)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  150
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 98
+
+    changes  ->  RENAME attrib_name attrib_name . attribswitch   (124)
+    changes  ->  RENAME attrib_name attrib_name .   (126)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  151
+
+    $default	reduce  126  (changes)
+
+
+
+state 99
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attrib_name attribswitch . attrib_name attribswitch   (121)
+    changes  ->  RENAME attrib_name attribswitch . attrib_name   (127)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  152
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 100
+
+    changes  ->  RENAME attribswitch attrib_name . attribswitch attrib_name attribswitch   (120)
+    changes  ->  RENAME attribswitch attrib_name . attrib_name attribswitch   (122)
+    changes  ->  RENAME attribswitch attrib_name . attribswitch attrib_name   (123)
+    changes  ->  RENAME attribswitch attrib_name . attrib_name   (125)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  153
+    infoflags	shift  67
+    attribswitch	shift  154
+
+
+
+state 101
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  DELETE attrib_name attribswitch .   (139)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  139  (changes)
+
+
+
+state 102
+
+    changes  ->  DELETE attribswitch attrib_name . attribswitch   (138)
+    changes  ->  DELETE attribswitch attrib_name .   (140)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  155
+
+    $default	reduce  140  (changes)
+
+
+
+state 103
+
+    gattribs  ->  SLASH_ASSEMBLY .   (81)
+
+    $default	reduce  81  (gattribs)
+
+
+
+state 104
+
+    gattribs  ->  SLASH_NOASSEMBLY .   (82)
+
+    $default	reduce  82  (gattribs)
+
+
+
+state 105
+
+    cattribs  ->  SLASH_LOCK .   (86)
+
+    $default	reduce  86  (cattribs)
+
+
+
+state 106
+
+    cattribs  ->  SLASH_NOLOCK .   (87)
+
+    $default	reduce  87  (cattribs)
+
+
+
+state 107
+
+    cattribs  ->  SLASH_GHOST .   (88)
+
+    $default	reduce  88  (cattribs)
+
+
+
+state 108
+
+    cattribs  ->  SLASH_NOGHOST .   (89)
+
+    $default	reduce  89  (cattribs)
+
+
+
+state 109
+
+    cattribs  ->  SLASH_PLOT .   (90)
+
+    $default	reduce  90  (cattribs)
+
+
+
+state 110
+
+    cattribs  ->  SLASH_NOPLOT .   (91)
+
+    $default	reduce  91  (cattribs)
+
+
+
+state 111
+
+    cattribs  ->  SLASH_DISPLAY .   (92)
+
+    $default	reduce  92  (cattribs)
+
+
+
+state 112
+
+    cattribs  ->  SLASH_NODISPLAY .   (93)
+
+    $default	reduce  93  (cattribs)
+
+
+
+state 113
+
+    commentswitch  ->  SLASH_COMMENT . EQUALS string   (95)
+
+    EQUALS	shift  156
+
+
+
+state 114
+
+    colorswitch  ->  SLASH_COLOR . EQUALS color_number   (96)
+
+    EQUALS	shift  157
+
+
+
+state 115
+
+    infoflags  ->  infoflags . infoflags   (33)
+    cattribs  ->  infoflags .   (83)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    SLASH_LOG	[reduce  83  (cattribs)]
+    SLASH_NOLOG	[reduce  83  (cattribs)]
+    SLASH_QUIET	[reduce  83  (cattribs)]
+    SLASH_NOQUIET	[reduce  83  (cattribs)]
+    SLASH_CONFIRM	[reduce  83  (cattribs)]
+    SLASH_NOCONFIRM	[reduce  83  (cattribs)]
+    SLASH_POPOUT	[reduce  83  (cattribs)]
+    SLASH_NOPOPOUT	[reduce  83  (cattribs)]
+    $default	reduce  83  (cattribs)
+
+
+
+state 116
+
+    attribtype  ->  GROUP gattribs .   (110)
+
+    $default	reduce  110  (attribtype)
+
+
+
+state 117
+
+    gattribs  ->  cattribs .   (80)
+    cattribs  ->  cattribs . cattribs   (84)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  158
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+    $default	reduce  80  (gattribs)
+
+
+
+state 118
+
+    cattribs  ->  commentswitch .   (85)
+
+    $default	reduce  85  (cattribs)
+
+
+
+state 119
+
+    cattribs  ->  colorswitch .   (94)
+
+    $default	reduce  94  (cattribs)
+
+
+
+state 120
+
+    cattribs  ->  cattribs . cattribs   (84)
+    attribtype  ->  LAYER cattribs .   (111)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  158
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+    $default	reduce  111  (attribtype)
+
+
+
+state 121
+
+    cattribs  ->  cattribs . cattribs   (84)
+    attribtype  ->  PEN cattribs .   (112)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  158
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+    $default	reduce  112  (attribtype)
+
+
+
+state 122
+
+    fontswitch  ->  SLASH_FONT . EQUALS attrib_name   (104)
+
+    EQUALS	shift  159
+
+
+
+state 123
+
+    heightswitch  ->  SLASH_HEIGHT . EQUALS linear_unit   (105)
+
+    EQUALS	shift  160
+
+
+
+state 124
+
+    sheetswitch  ->  SLASH_SHEET . EQUALS linear_unit   (106)
+
+    EQUALS	shift  161
+
+
+
+state 125
+
+    slantswitch  ->  SLASH_SLANT . EQUALS angular_unit   (107)
+
+    EQUALS	shift  162
+
+
+
+state 126
+
+    aspectswitch  ->  SLASH_ASPECT . EQUALS float_val   (108)
+
+    EQUALS	shift  163
+
+
+
+state 127
+
+    infoflags  ->  infoflags . infoflags   (33)
+    sattribs  ->  infoflags .   (97)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    $default	reduce  97  (sattribs)
+
+
+
+state 128
+
+    sattribs  ->  commentswitch .   (98)
+
+    $default	reduce  98  (sattribs)
+
+
+
+state 129
+
+    attribtype  ->  STYLE sattribs .   (113)
+
+    $default	reduce  113  (attribtype)
+
+
+
+state 130
+
+    sattribs  ->  fontswitch .   (99)
+
+    $default	reduce  99  (sattribs)
+
+
+
+state 131
+
+    sattribs  ->  heightswitch .   (100)
+
+    $default	reduce  100  (sattribs)
+
+
+
+state 132
+
+    sattribs  ->  sheetswitch .   (101)
+
+    $default	reduce  101  (sattribs)
+
+
+
+state 133
+
+    sattribs  ->  slantswitch .   (102)
+
+    $default	reduce  102  (sattribs)
+
+
+
+state 134
+
+    sattribs  ->  aspectswitch .   (103)
+
+    $default	reduce  103  (sattribs)
+
+
+
+state 135
+
+    createattrib  ->  CREATE attrib_name template .   (115)
+    template  ->  template . template SLASH_TEMPLATE EQUALS attrib_name   (119)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    attribtype	shift  77
+    template	shift  137
+
+    $default	reduce  115  (createattrib)
+
+
+
+state 136
+
+    createattrib  ->  CREATE template attrib_name . template   (114)
+    createattrib  ->  CREATE template attrib_name .   (116)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    attribtype	shift  77
+    template	shift  164
+
+    $default	reduce  116  (createattrib)
+
+
+
+state 137
+
+    template  ->  template . template SLASH_TEMPLATE EQUALS attrib_name   (119)
+    template  ->  template template . SLASH_TEMPLATE EQUALS attrib_name   (119)
+
+    SLASH_TEMPLATE	shift  165
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    attribtype	shift  77
+    template	shift  137
+
+
+
+state 138
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    loadfile  ->  LOAD fileswitch file_name fileswitch .   (54)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  54  (loadfile)
+
+
+
+state 139
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    savefile  ->  SAVE fileswitch file_name fileswitch .   (58)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  58  (savefile)
+
+
+
+state 140
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attrib_name attrib_name attribswitch .   (132)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  132  (changes)
+
+
+
+state 141
+
+    changes  ->  MERGE attrib_name attribswitch attrib_name . attribswitch   (129)
+    changes  ->  MERGE attrib_name attribswitch attrib_name .   (135)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  166
+
+    $default	reduce  135  (changes)
+
+
+
+state 142
+
+    changes  ->  MERGE attribswitch attrib_name attrib_name . attribswitch   (130)
+    changes  ->  MERGE attribswitch attrib_name attrib_name .   (133)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  167
+
+    $default	reduce  133  (changes)
+
+
+
+state 143
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attribswitch attrib_name attribswitch . attrib_name attribswitch   (128)
+    changes  ->  MERGE attribswitch attrib_name attribswitch . attrib_name   (131)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  168
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 144
+
+    mergefile  ->  MERGE mergeswitch file_name mergeswitch .   (62)
+    mergeswitch  ->  mergeswitch . mergeswitch   (67)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    SLASH_ROOT	shift  45
+    SLASH_CURRENT	shift  46
+    infoflags	shift  37
+    fileswitch	shift  54
+    mergeswitch	shift  91
+
+    $default	reduce  62  (mergefile)
+
+
+
+state 145
+
+    fileswitch  ->  fileswitch . fileswitch   (43)
+    usefile  ->  USE fileswitch file_name fileswitch .   (70)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_VIEW	shift  28
+    SLASH_LIBRARY	shift  29
+    SLASH_FONT	shift  30
+    SLASH_HATCH	shift  31
+    infoflags	shift  37
+    fileswitch	shift  82
+
+    $default	reduce  70  (usefile)
+
+
+
+state 146
+
+    colorspec  ->  SIMPLE_NUMBER .   (18)
+
+    $default	reduce  18  (colorspec)
+
+
+
+state 147
+
+    colorspec  ->  HEX_NUMBER .   (19)
+
+    $default	reduce  19  (colorspec)
+
+
+
+state 148
+
+    setcolor  ->  SET COLOR color_number colorspec .   (149)
+
+    $default	reduce  149  (setcolor)
+
+
+
+state 149
+
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec infoflags   (142)
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec   (143)
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec infoflags   (144)
+    setcolor  ->  SET COLOR infoflags color_number . colorspec   (145)
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec infoflags   (146)
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec   (147)
+    setcolor  ->  SET COLOR infoflags color_number . infoflags colorspec infoflags   (148)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SIMPLE_NUMBER	shift  146
+    HEX_NUMBER	shift  147
+    colorspec	shift  169
+    infoflags	shift  170
+
+
+
+state 150
+
+    setcurrent  ->  SET CURRENT attribswitch attrib_name . attribswitch   (76)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  171
+
+
+
+state 151
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attrib_name attrib_name attribswitch .   (124)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  124  (changes)
+
+
+
+state 152
+
+    changes  ->  RENAME attrib_name attribswitch attrib_name . attribswitch   (121)
+    changes  ->  RENAME attrib_name attribswitch attrib_name .   (127)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  172
+
+    $default	reduce  127  (changes)
+
+
+
+state 153
+
+    changes  ->  RENAME attribswitch attrib_name attrib_name . attribswitch   (122)
+    changes  ->  RENAME attribswitch attrib_name attrib_name .   (125)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  173
+
+    $default	reduce  125  (changes)
+
+
+
+state 154
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attribswitch attrib_name attribswitch . attrib_name attribswitch   (120)
+    changes  ->  RENAME attribswitch attrib_name attribswitch . attrib_name   (123)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  174
+    infoflags	shift  67
+    attribswitch	shift  89
+
+
+
+state 155
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  DELETE attribswitch attrib_name attribswitch .   (138)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  138  (changes)
+
+
+
+state 156
+
+    commentswitch  ->  SLASH_COMMENT EQUALS . string   (95)
+
+    STRING	shift  175
+    string	shift  176
+
+
+
+state 157
+
+    colorswitch  ->  SLASH_COLOR EQUALS . color_number   (96)
+
+    SIMPLE_NUMBER	shift  94
+    color_number	shift  177
+
+
+
+state 158
+
+    cattribs  ->  cattribs . cattribs   (84)
+    cattribs  ->  cattribs cattribs .   (84)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_LOCK	shift  105
+    SLASH_NOLOCK	shift  106
+    SLASH_GHOST	shift  107
+    SLASH_NOGHOST	shift  108
+    SLASH_PLOT	shift  109
+    SLASH_NOPLOT	shift  110
+    SLASH_DISPLAY	shift  111
+    SLASH_NODISPLAY	shift  112
+    SLASH_COMMENT	shift  113
+    SLASH_COLOR	shift  114
+    infoflags	shift  115
+    cattribs	shift  158
+    commentswitch	shift  118
+    colorswitch	shift  119
+
+    SLASH_LOG	[reduce  84  (cattribs)]
+    SLASH_NOLOG	[reduce  84  (cattribs)]
+    SLASH_QUIET	[reduce  84  (cattribs)]
+    SLASH_NOQUIET	[reduce  84  (cattribs)]
+    SLASH_CONFIRM	[reduce  84  (cattribs)]
+    SLASH_NOCONFIRM	[reduce  84  (cattribs)]
+    SLASH_POPOUT	[reduce  84  (cattribs)]
+    SLASH_NOPOPOUT	[reduce  84  (cattribs)]
+    SLASH_LOCK	[reduce  84  (cattribs)]
+    SLASH_NOLOCK	[reduce  84  (cattribs)]
+    SLASH_GHOST	[reduce  84  (cattribs)]
+    SLASH_NOGHOST	[reduce  84  (cattribs)]
+    SLASH_PLOT	[reduce  84  (cattribs)]
+    SLASH_NOPLOT	[reduce  84  (cattribs)]
+    SLASH_DISPLAY	[reduce  84  (cattribs)]
+    SLASH_NODISPLAY	[reduce  84  (cattribs)]
+    SLASH_COMMENT	[reduce  84  (cattribs)]
+    SLASH_COLOR	[reduce  84  (cattribs)]
+    $default	reduce  84  (cattribs)
+
+
+
+state 159
+
+    fontswitch  ->  SLASH_FONT EQUALS . attrib_name   (104)
+
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  178
+
+
+
+state 160
+
+    heightswitch  ->  SLASH_HEIGHT EQUALS . linear_unit   (105)
+
+    STRING	shift  179
+    SIMPLE_NUMBER	shift  180
+    FLOAT_NUMBER	shift  181
+    HEX_NUMBER	shift  182
+    linear_unit	shift  183
+
+
+
+state 161
+
+    sheetswitch  ->  SLASH_SHEET EQUALS . linear_unit   (106)
+
+    STRING	shift  179
+    SIMPLE_NUMBER	shift  180
+    FLOAT_NUMBER	shift  181
+    HEX_NUMBER	shift  182
+    linear_unit	shift  184
+
+
+
+state 162
+
+    slantswitch  ->  SLASH_SLANT EQUALS . angular_unit   (107)
+
+    STRING	shift  185
+    SIMPLE_NUMBER	shift  186
+    FLOAT_NUMBER	shift  187
+    HEX_NUMBER	shift  188
+    angular_unit	shift  189
+
+
+
+state 163
+
+    aspectswitch  ->  SLASH_ASPECT EQUALS . float_val   (108)
+
+    SIMPLE_NUMBER	shift  190
+    FLOAT_NUMBER	shift  191
+    HEX_NUMBER	shift  192
+    float_val	shift  193
+
+
+
+state 164
+
+    createattrib  ->  CREATE template attrib_name template .   (114)
+    template  ->  template . template SLASH_TEMPLATE EQUALS attrib_name   (119)
+
+    GROUP	shift  72
+    LAYER	shift  73
+    PEN 	shift  74
+    STYLE	shift  75
+    attribtype	shift  77
+    template	shift  137
+
+    $default	reduce  114  (createattrib)
+
+
+
+state 165
+
+    template  ->  template template SLASH_TEMPLATE . EQUALS attrib_name   (119)
+
+    EQUALS	shift  194
+
+
+
+state 166
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attrib_name attribswitch attrib_name attribswitch .   (129)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  129  (changes)
+
+
+
+state 167
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attribswitch attrib_name attrib_name attribswitch .   (130)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  130  (changes)
+
+
+
+state 168
+
+    changes  ->  MERGE attribswitch attrib_name attribswitch attrib_name . attribswitch   (128)
+    changes  ->  MERGE attribswitch attrib_name attribswitch attrib_name .   (131)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  195
+
+    $default	reduce  131  (changes)
+
+
+
+state 169
+
+    setcolor  ->  SET COLOR infoflags color_number colorspec .   (145)
+
+    $default	reduce  145  (setcolor)
+
+
+
+state 170
+
+    infoflags  ->  infoflags . infoflags   (33)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec infoflags   (142)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec   (143)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec infoflags   (144)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec infoflags   (146)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec   (147)
+    setcolor  ->  SET COLOR infoflags color_number infoflags . colorspec infoflags   (148)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SIMPLE_NUMBER	shift  146
+    HEX_NUMBER	shift  147
+    colorspec	shift  196
+    infoflags	shift  80
+
+
+
+state 171
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    setcurrent  ->  SET CURRENT attribswitch attrib_name attribswitch .   (76)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  76  (setcurrent)
+
+
+
+state 172
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attrib_name attribswitch attrib_name attribswitch .   (121)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  121  (changes)
+
+
+
+state 173
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attribswitch attrib_name attrib_name attribswitch .   (122)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  122  (changes)
+
+
+
+state 174
+
+    changes  ->  RENAME attribswitch attrib_name attribswitch attrib_name . attribswitch   (120)
+    changes  ->  RENAME attribswitch attrib_name attribswitch attrib_name .   (123)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  197
+
+    $default	reduce  123  (changes)
+
+
+
+state 175
+
+    string  ->  STRING .   (20)
+
+    $default	reduce  20  (string)
+
+
+
+state 176
+
+    commentswitch  ->  SLASH_COMMENT EQUALS string .   (95)
+
+    $default	reduce  95  (commentswitch)
+
+
+
+state 177
+
+    colorswitch  ->  SLASH_COLOR EQUALS color_number .   (96)
+
+    $default	reduce  96  (colorswitch)
+
+
+
+state 178
+
+    fontswitch  ->  SLASH_FONT EQUALS attrib_name .   (104)
+
+    $default	reduce  104  (fontswitch)
+
+
+
+state 179
+
+    linear_unit  ->  STRING .   (22)
+
+    $default	reduce  22  (linear_unit)
+
+
+
+state 180
+
+    linear_unit  ->  SIMPLE_NUMBER .   (23)
+
+    $default	reduce  23  (linear_unit)
+
+
+
+state 181
+
+    linear_unit  ->  FLOAT_NUMBER .   (25)
+
+    $default	reduce  25  (linear_unit)
+
+
+
+state 182
+
+    linear_unit  ->  HEX_NUMBER .   (24)
+
+    $default	reduce  24  (linear_unit)
+
+
+
+state 183
+
+    heightswitch  ->  SLASH_HEIGHT EQUALS linear_unit .   (105)
+
+    $default	reduce  105  (heightswitch)
+
+
+
+state 184
+
+    sheetswitch  ->  SLASH_SHEET EQUALS linear_unit .   (106)
+
+    $default	reduce  106  (sheetswitch)
+
+
+
+state 185
+
+    angular_unit  ->  STRING .   (26)
+
+    $default	reduce  26  (angular_unit)
+
+
+
+state 186
+
+    angular_unit  ->  SIMPLE_NUMBER .   (27)
+
+    $default	reduce  27  (angular_unit)
+
+
+
+state 187
+
+    angular_unit  ->  FLOAT_NUMBER .   (29)
+
+    $default	reduce  29  (angular_unit)
+
+
+
+state 188
+
+    angular_unit  ->  HEX_NUMBER .   (28)
+
+    $default	reduce  28  (angular_unit)
+
+
+
+state 189
+
+    slantswitch  ->  SLASH_SLANT EQUALS angular_unit .   (107)
+
+    $default	reduce  107  (slantswitch)
+
+
+
+state 190
+
+    float_val  ->  SIMPLE_NUMBER .   (30)
+
+    $default	reduce  30  (float_val)
+
+
+
+state 191
+
+    float_val  ->  FLOAT_NUMBER .   (32)
+
+    $default	reduce  32  (float_val)
+
+
+
+state 192
+
+    float_val  ->  HEX_NUMBER .   (31)
+
+    $default	reduce  31  (float_val)
+
+
+
+state 193
+
+    aspectswitch  ->  SLASH_ASPECT EQUALS float_val .   (108)
+
+    $default	reduce  108  (aspectswitch)
+
+
+
+state 194
+
+    template  ->  template template SLASH_TEMPLATE EQUALS . attrib_name   (119)
+
+    STRING	shift  62
+    SIMPLE_NUMBER	shift  63
+    HEX_NUMBER	shift  64
+    TEXT_STRING	shift  65
+    attrib_name	shift  198
+
+
+
+state 195
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  MERGE attribswitch attrib_name attribswitch attrib_name attribswitch .   (128)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  128  (changes)
+
+
+
+state 196
+
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec . infoflags   (142)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec .   (143)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec . infoflags   (144)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec . infoflags   (146)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec .   (147)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec . infoflags   (148)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  199
+
+    $   	reduce  143  (setcolor)
+    $   	[reduce  147  (setcolor)]
+    $default	reduce  143  (setcolor)
+
+
+
+state 197
+
+    attribswitch  ->  attribswitch . attribswitch   (49)
+    changes  ->  RENAME attribswitch attrib_name attribswitch attrib_name attribswitch .   (120)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    SLASH_GROUP	shift  41
+    SLASH_LAYER	shift  42
+    SLASH_PEN	shift  43
+    SLASH_STYLE	shift  44
+    infoflags	shift  67
+    attribswitch	shift  89
+
+    $default	reduce  120  (changes)
+
+
+
+state 198
+
+    template  ->  template template SLASH_TEMPLATE EQUALS attrib_name .   (119)
+
+    $default	reduce  119  (template)
+
+
+
+state 199
+
+    infoflags  ->  infoflags . infoflags   (33)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec infoflags .   (142)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec infoflags .   (144)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec infoflags .   (146)
+    setcolor  ->  SET COLOR infoflags color_number infoflags colorspec infoflags .   (148)
+
+    SLASH_LOG	shift  20
+    SLASH_NOLOG	shift  21
+    SLASH_QUIET	shift  22
+    SLASH_NOQUIET	shift  23
+    SLASH_CONFIRM	shift  24
+    SLASH_NOCONFIRM	shift  25
+    SLASH_POPOUT	shift  26
+    SLASH_NOPOPOUT	shift  27
+    infoflags	shift  80
+
+    $   	reduce  142  (setcolor)
+    $   	[reduce  144  (setcolor)]
+    $   	[reduce  146  (setcolor)]
+    $   	[reduce  148  (setcolor)]
+    $default	reduce  142  (setcolor)
+
+
+
+state 200
+
+    $   	shift  201
+
+
+
+state 201
+
+    $   	shift  202
+
+
+
+state 202
+
+    NO ACTIONS

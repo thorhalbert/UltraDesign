@@ -1,0 +1,134 @@
+echo "alert.c"
+diff fh1:ultradesign_v1/ucadsrc/alert.c fh1:ultradesign_v2/src/editor/alert.c
+echo "amigahooks.c"
+diff fh1:ultradesign_v1/ucadsrc/amigahooks.c fh1:ultradesign_v2/src/editor/amigahooks.c
+echo "attrib_basics.c"
+diff fh1:ultradesign_v1/ucadsrc/attrib_basics.c fh1:ultradesign_v2/src/editor/attrib_basics.c
+echo "att_icons.c"
+diff fh1:ultradesign_v1/ucadsrc/att_icons.c fh1:ultradesign_v2/src/editor/att_icons.c
+echo "boxreq.c"
+diff fh1:ultradesign_v1/ucadsrc/boxreq.c fh1:ultradesign_v2/src/editor/boxreq.c
+echo "clipboard.c"
+diff fh1:ultradesign_v1/ucadsrc/clipboard.c fh1:ultradesign_v2/src/editor/clipboard.c
+echo "clonedrag.c"
+diff fh1:ultradesign_v1/ucadsrc/clonedrag.c fh1:ultradesign_v2/src/editor/clonedrag.c
+echo "dialogue.c"
+diff fh1:ultradesign_v1/ucadsrc/dialogue.c fh1:ultradesign_v2/src/editor/dialogue.c
+echo "dimsicons.c"
+diff fh1:ultradesign_v1/ucadsrc/dimsicons.c fh1:ultradesign_v2/src/editor/dimsicons.c
+echo "dimsmode.c"
+diff fh1:ultradesign_v1/ucadsrc/dimsmode.c fh1:ultradesign_v2/src/editor/dimsmode.c
+echo "dimsreq.c"
+diff fh1:ultradesign_v1/ucadsrc/dimsreq.c fh1:ultradesign_v2/src/editor/dimsreq.c
+echo "eli_icons.c"
+diff fh1:ultradesign_v1/ucadsrc/eli_icons.c fh1:ultradesign_v2/src/editor/eli_icons.c
+echo "ellipses.c"
+diff fh1:ultradesign_v1/ucadsrc/ellipses.c fh1:ultradesign_v2/src/editor/ellipses.c
+echo "fancys.c"
+diff fh1:ultradesign_v1/ucadsrc/fancys.c fh1:ultradesign_v2/src/editor/fancys.c
+echo "filereq.c"
+diff fh1:ultradesign_v1/ucadsrc/filereq.c fh1:ultradesign_v2/src/editor/filereq.c
+echo "file_handle.c"
+diff fh1:ultradesign_v1/ucadsrc/file_handle.c fh1:ultradesign_v2/src/editor/file_handle.c
+echo "globsect.c"
+diff fh1:ultradesign_v1/ucadsrc/globsect.c fh1:ultradesign_v2/src/editor/globsect.c
+echo "grouphandle.c"
+diff fh1:ultradesign_v1/ucadsrc/grouphandle.c fh1:ultradesign_v2/src/editor/grouphandle.c
+echo "groupreq.c"
+diff fh1:ultradesign_v1/ucadsrc/groupreq.c fh1:ultradesign_v2/src/editor/groupreq.c
+echo "hatchhandle.c"
+diff fh1:ultradesign_v1/ucadsrc/hatchhandle.c fh1:ultradesign_v2/src/editor/hatchhandle.c
+echo "hatchicons.c"
+diff fh1:ultradesign_v1/ucadsrc/hatchicons.c fh1:ultradesign_v2/src/editor/hatchicons.c
+echo "hatchmode.c"
+diff fh1:ultradesign_v1/ucadsrc/hatchmode.c fh1:ultradesign_v2/src/editor/hatchmode.c
+echo "iffget0.c"
+diff fh1:ultradesign_v1/ucadsrc/iffget0.c fh1:ultradesign_v2/src/editor/iffget0.c
+echo "ifflib0.c"
+diff fh1:ultradesign_v1/ucadsrc/ifflib0.c fh1:ultradesign_v2/src/editor/ifflib0.c
+echo "iffput0.c"
+diff fh1:ultradesign_v1/ucadsrc/iffput0.c fh1:ultradesign_v2/src/editor/iffput0.c
+echo "iffr.c"
+diff fh1:ultradesign_v1/ucadsrc/iffr.c fh1:ultradesign_v2/src/editor/iffr.c
+echo "iffw.c"
+diff fh1:ultradesign_v1/ucadsrc/iffw.c fh1:ultradesign_v2/src/editor/iffw.c
+echo "interrupts.c"
+diff fh1:ultradesign_v1/ucadsrc/interrupts.c fh1:ultradesign_v2/src/editor/interrupts.c
+echo "layerhandle.c"
+diff fh1:ultradesign_v1/ucadsrc/layerhandle.c fh1:ultradesign_v2/src/editor/layerhandle.c
+echo "layerreq.c"
+diff fh1:ultradesign_v1/ucadsrc/layerreq.c fh1:ultradesign_v2/src/editor/layerreq.c
+echo "lineicons.c"
+diff fh1:ultradesign_v1/ucadsrc/lineicons.c fh1:ultradesign_v2/src/editor/lineicons.c
+echo "linemode.c"
+diff fh1:ultradesign_v1/ucadsrc/linemode.c fh1:ultradesign_v2/src/editor/linemode.c
+echo "loadhatch.c"
+diff fh1:ultradesign_v1/ucadsrc/loadhatch.c fh1:ultradesign_v2/src/editor/loadhatch.c
+echo "loadtext.c"
+diff fh1:ultradesign_v1/ucadsrc/loadtext.c fh1:ultradesign_v2/src/editor/loadtext.c
+echo "marginreq.c"
+diff fh1:ultradesign_v1/ucadsrc/marginreq.c fh1:ultradesign_v2/src/editor/marginreq.c
+echo "memutils.c"
+diff fh1:ultradesign_v1/ucadsrc/memutils.c fh1:ultradesign_v2/src/editor/memutils.c
+echo "menumapper.c"
+diff fh1:ultradesign_v1/ucadsrc/menumapper.c fh1:ultradesign_v2/src/editor/menumapper.c
+echo "miscicons.c"
+diff fh1:ultradesign_v1/ucadsrc/miscicons.c fh1:ultradesign_v2/src/editor/miscicons.c
+echo "objecticons.c"
+diff fh1:ultradesign_v1/ucadsrc/objecticons.c fh1:ultradesign_v2/src/editor/objecticons.c
+echo "object_editor.c"
+diff fh1:ultradesign_v1/ucadsrc/object_editor.c fh1:ultradesign_v2/src/editor/object_editor.c
+echo "origins.c"
+diff fh1:ultradesign_v1/ucadsrc/origins.c fh1:ultradesign_v2/src/editor/origins.c
+echo "painting.c"
+diff fh1:ultradesign_v1/ucadsrc/painting.c fh1:ultradesign_v2/src/editor/painting.c
+echo "palette.c"
+diff fh1:ultradesign_v1/ucadsrc/palette.c fh1:ultradesign_v2/src/editor/palette.c
+echo "penhandle.c"
+diff fh1:ultradesign_v1/ucadsrc/penhandle.c fh1:ultradesign_v2/src/editor/penhandle.c
+echo "penreq.c"
+diff fh1:ultradesign_v1/ucadsrc/penreq.c fh1:ultradesign_v2/src/editor/penreq.c
+echo "pointers.c"
+diff fh1:ultradesign_v1/ucadsrc/pointers.c fh1:ultradesign_v2/src/editor/pointers.c
+echo "pools.c"
+diff fh1:ultradesign_v1/ucadsrc/pools.c fh1:ultradesign_v2/src/editor/pools.c
+echo "portfloat.c"
+diff fh1:ultradesign_v1/ucadsrc/portfloat.c fh1:ultradesign_v2/src/editor/portfloat.c
+echo "razor.c"
+diff fh1:ultradesign_v1/ucadsrc/razor.c fh1:ultradesign_v2/src/editor/razor.c
+echo "rendcircle.c"
+diff fh1:ultradesign_v1/ucadsrc/rendcircle.c fh1:ultradesign_v2/src/editor/rendcircle.c
+echo "renderers.c"
+diff fh1:ultradesign_v1/ucadsrc/renderers.c fh1:ultradesign_v2/src/editor/renderers.c
+echo "rexxhooks.c"
+diff fh1:ultradesign_v1/ucadsrc/rexxhooks.c fh1:ultradesign_v2/src/editor/rexxhooks.c
+echo "rollem.c"
+diff fh1:ultradesign_v1/ucadsrc/rollem.c fh1:ultradesign_v2/src/editor/rollem.c
+echo "screens.c"
+diff fh1:ultradesign_v1/ucadsrc/screens.c fh1:ultradesign_v2/src/editor/screens.c
+echo "screensaver.c"
+diff fh1:ultradesign_v1/ucadsrc/screensaver.c fh1:ultradesign_v2/src/editor/screensaver.c
+echo "scroller.c"
+diff fh1:ultradesign_v1/ucadsrc/scroller.c fh1:ultradesign_v2/src/editor/scroller.c
+echo "searcher.c"
+diff fh1:ultradesign_v1/ucadsrc/searcher.c fh1:ultradesign_v2/src/editor/searcher.c
+echo "snaps.c"
+diff fh1:ultradesign_v1/ucadsrc/snaps.c fh1:ultradesign_v2/src/editor/snaps.c
+echo "startdefs.c"
+diff fh1:ultradesign_v1/ucadsrc/startdefs.c fh1:ultradesign_v2/src/editor/startdefs.c
+echo "stylehandle.c"
+diff fh1:ultradesign_v1/ucadsrc/stylehandle.c fh1:ultradesign_v2/src/editor/stylehandle.c
+echo "stylereq.c"
+diff fh1:ultradesign_v1/ucadsrc/stylereq.c fh1:ultradesign_v2/src/editor/stylereq.c
+echo "texticons.c"
+diff fh1:ultradesign_v1/ucadsrc/texticons.c fh1:ultradesign_v2/src/editor/texticons.c
+echo "textmode.c"
+diff fh1:ultradesign_v1/ucadsrc/textmode.c fh1:ultradesign_v2/src/editor/textmode.c
+echo "ucad1.c"
+diff fh1:ultradesign_v1/ucadsrc/ucad1.c fh1:ultradesign_v2/src/editor/ucad1.c
+echo "units.c"
+diff fh1:ultradesign_v1/ucadsrc/units.c fh1:ultradesign_v2/src/editor/units.c
+echo "virwindow.c"
+diff fh1:ultradesign_v1/ucadsrc/virwindow.c fh1:ultradesign_v2/src/editor/virwindow.c
+echo "zooms.c"
+diff fh1:ultradesign_v1/ucadsrc/zooms.c fh1:ultradesign_v2/src/editor/zooms.c

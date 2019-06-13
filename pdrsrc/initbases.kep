@@ -1,0 +1,126 @@
+	SECTION		"basesetup"
+
+*------ Included Files -----------------------------------------------
+
+	INCLUDE		"exec/types.i"
+	INCLUDE		"exec/nodes.i"
+	INCLUDE		"exec/lists.i"
+	INCLUDE		"exec/memory.i"
+	INCLUDE		"exec/ports.i"
+	INCLUDE		"exec/libraries.i"
+
+	INCLUDE		"/defs/macros.i"
+
+*------ Imported Functions -------------------------------------------
+
+	XREF		CloseLibrary
+	XREF		OpenLibrary
+	XREF		_AbsExecBase
+
+*------ Exported Globals ---------------------------------------------
+
+	XDEF		_InitBases
+	XDEF		_ExpungeBases
+	XDEF		_Open
+	XDEF		_Close
+	XDEF		_SysBase
+	XDEF		_DOSBase
+	XDEF		_GfxBase
+	XDEF		_IntuitionBase
+
+
+**********************************************************************
+	SECTION		"initbases",DATA
+_SysBase	DS.L	1
+_DOSBase	DS.L	1
+_GfxBase	DS.L	1
+_IntuitionBase	DS.L	1
+
+
+**********************************************************************
+	SECTION		"initbases",CODE
+_InitBases:
+		MOVE.L	A6,-(A7)
+		MOVE.L	_AbsExecBase,A6
+		MOVE.L	A6,_SysBase
+
+*	    ;------ open the dos library
+		LEA	DLName,A1
+		MOVEQ	#0,D0
+		jsr	-408(a6)		;open the library any version
+		MOVE.L	D0,_DOSBase
+		BEQ	initDLErr
+
+
+*	    ;------ open the graphics library
+		LEA	GLName,A1
+		MOVEQ	#0,D0
+		jsr	-408(a6)		;open the library any version
+		MOVE.L	D0,_GfxBase
+		BEQ	initGLErr
+
+*	    ;------ open the intuition library
+		LEA	ILName,A1
+		MOVEQ	#0,D0
+		jsr	-408(a6)		;open the library any version
+		MOVE.L	D0,_IntuitionBase
+		BEQ	initILErr
+
+		MOVEQ	#0,D0
+pdiRts:
+		MOVE.L	(A7)+,A6
+		RTS
+
+initPAErr:
+		MOVE.L	_IntuitionBase,A1
+		LINKEXE	CloseLibrary
+
+initILErr:
+		MOVE.L	_GfxBase,A1
+		LINKEXE	CloseLibrary
+
+initGLErr:
+		MOVE.L	_DOSBase,A1
+		LINKEXE	CloseLibrary
+
+initDLErr:
+		MOVEQ	#-1,D0
+		BRA.S	pdiRts
+
+ILName:
+		DC.B	'intuition.library'
+		DC.B	0
+DLName:
+		DC.B	'dos.library'
+		DC.B	0
+GLName:
+		DC.B	'graphics.library'
+		DC.B	0
+		DS.W	0
+
+
+*---------------------------------------------------------------------
+_ExpungeBases:
+		MOVE.L	_IntuitionBase,A1
+		LINKEXE	CloseLibrary
+
+		MOVE.L	_GfxBase,A1
+		LINKEXE	CloseLibrary
+
+		MOVE.L	_DOSBase,A1
+		LINKEXE	CloseLibrary
+
+
+*---------------------------------------------------------------------
+_Open:
+		MOVEQ	#0,D0
+		RTS
+
+
+
+*---------------------------------------------------------------------
+_Close:
+		MOVEQ	#0,D0
+		RTS
+
+		END

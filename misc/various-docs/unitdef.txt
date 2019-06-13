@@ -1,0 +1,25 @@
+Global Dimensional Binding (Paper Dimensions)		XMin XMax YMin YMax
+ 	Linear:	Units	Snap+Margin   ±Tolerance  Skew	(X/Y)
+	Angle:	Units	Snap+Margin   ±Tolerance
+
+Local Dimensional Binding  "Name"
+	Scale(Global/Local)	AxisR  XOrigin YOrigin  XMin XMax YMin YMax
+	Linear:	Units	Snap+Margin	±Tolerance  Skew (X/Y)	
+	Angle:	Units	Snap+Margin	±Tolerance	
+
+Linear Units:	
+	Metric		mm (NN.N mm) 	cm (NN.N cm)	meters (NN.N m)
+	English		Decimal (NN' NN.NNN")	Fractional (NN' NN 1/8")
+	Custom Decimal	#mm per unit/Unit name
+
+Angular Units:
+	Degrees		HMS (NN° NN' NN") or decimal (NN.NNN°)	0-360
+	Radians		NN.NN	0-2PI
+	Grads		NN.NN	0-400
+	Rad/PI		NN.NN	0-2
+	Percent		Decimal (NN.NN) 0-1, Percent (NN.N%) 0-100, 
+			or Fractional (1/30) 0/0-1/1
+	Custom Decimal	#radians per unit/Unit name
+
+
+

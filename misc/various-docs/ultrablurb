@@ -1,0 +1,65 @@
+UltraCAD - A high end General-Purpose CAD system for the Commodore AMIGA
+
+A very user-friendly package for the generation of high quality
+artwork on many commonly available plotters, laser printers, and
+dot matrix printers.
+
+Drawing objects can be grouped by different attributes, the number of 
+which are limited only by memory.  All attributes can have names of
+up to 30 characters.  Attributes allow the user to extensively organize
+their drawings and provides flexible mechanisms for manipulating, 
+updating and storing drawing elements.  Attributes include:
+
+	Lettering Styles - For the sizing, slant, aspect, and font used
+		for classes of text.  Text sizes can be scaled to the
+		drawing scale or to the output sheet size. 
+
+	Layers - For the segregation of items by subject.  
+
+	Groups - Groups allow objects to be organized hierarchically by
+		assembly or class.  Any level of the drawing can be
+		delcared the beginning of a drawing assembly.
+
+	Pen Style - Used to determine the appearance of display and plotted
+		lines.  This data is also used by the plotting program
+		to specify how the output will appear.
+	
+UltraCAD has a powerful editing tool called the Clipboard.  Drawing elements
+can be placed in the clipboard, and then can be deleted, moved, copied, 
+rotated, scaled, flipped and stretched.  Items in the clipboard can also
+be quickly moved from one attribute type to another, allowing the drawing
+organization to be rapidly changed.  Clipboards can also be saved to disk,
+and merged into the current drawing from disk.
+
+Text can be positioned anywhere in the drawing, and its appearance is controlled
+by its lettering style attribute.  The style allows standardized drafting
+procedures to be utilized which call for lettering to be drawn at given
+sizes and arrangements.  Different type styles are available from simple
+drawing fonts to complex multiple stroke fonts which enhance the appearance
+of any drawing and give them a truly professional touch.
+
+Drawing size units can be converted automatically back and forth from metric
+to english units for both lengths and angles.   Includes standard english
+architectural units as well and engineering english and metric units.
+
+Often used drawing elements can be assembled into template libraries, which 
+can then be inserted into new drawings as they are composed.  Libraries can
+be used to reduce effort, and can be used to standardize your drafting 
+procedures as well.  Canned standard libraries and additional fonts 
+will soon be available as separate product offerings.
+
+The zoom and pan feature allows the drawing to be viewed to whatever detail
+is desired, and like drawing a picture of the earth to scale allows work to
+be done from huge strokes down to microscopic detail.
+
+Items on the screen can either be colored by their attributes.  Objects
+can be colored by layer, group, or pen.  This can be switched back and
+forth and can provide useful presentation possibilities.  Items can
+also be ghosted (displayed with a dim grey dotted line), or can be
+turned off altogether if desired.  This allows comments, registration
+lines, or multiple option drawings (such as metric/english, or multi language)
+to be created and maintained.  This also allows parts of the drawing which
+are not currently being maintained to be turned off, to reduce clutter or
+redraw time.  Items can also be turned on or off on the plotter for the 
+same effect.  Layers, Groups, and Pen Styles can also be locked so that no 
+changes can be accidentally made to finished drawing segments.

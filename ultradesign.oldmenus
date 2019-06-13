@@ -1,0 +1,183 @@
+# UltraDesign menu file	(25-Mar-89/SH)
+#
+# Fields as follows:
+#   level | menu text | key binding | command
+#
+#	if command begins with a $ it is a dialog command
+#		otherwise it is an internal command
+#
+#	Level 1 uses these fields differently
+#		key binding = intuition Menu struct LeftEdge override (optional)
+#		command = intuition Menu struct Width override (optional)
+#
+#	Amigas only allow 1 sublevel so level commands can be from 1 to 3
+#
+#	Bindings are formatted as follows:
+#	
+#		LRAC-key
+#		
+#		L = Left Amiga
+#		R = Right Amiga
+#		C = Control Key
+#		A = Alt Key(s)
+#
+#		key = key designations; all normal characters plus:
+#
+#		(keypad keys) K0 K1 K2 K3 K4 K5 K6 K7 K8 K9
+#			K. KE (enter) K- 
+#		 	(on 500/2000) K( K) K+ K* K/
+#			
+#		(arrow keys) AL AR AU AD
+#		
+#		(special keys) ESC TAB BS CR (return) DEL HELP
+#
+#		(function keys) F1 F2 F3 F4 F5 F6 F7 F8 F9 F10
+#
+#	You can leave out the fields right of the menu text if this is
+#	simply the header for a lower level.  It's a nice convention to
+#	put "..." at the end of sublevel headers.
+
+1|View
+	2|Load				|-K7	|LVW
+	2|Save As			|-K8	|SVW
+	2|Save				|-K9	|UVW
+	2|Merge...
+		3|At Root		|A-M	|MVR
+		3|At Current		|	|MVC
+	2|New				|	|CVW
+	2|Quit				|-Q	|QUT
+1|Library
+	2|Use Library			|-K1	|DLB
+	2|Setup				|-K2	|ISL
+	2|Select Item			|-K3	|SEL
+	2|Place Item			|-K0	|PLI
+	2|Maintenance...
+		3|Load			|-K4	|LLB
+		3|Save As		|-K5	|SLB
+		3|Save			|-K6	|ULB
+		3|New			|	|CLB
+1|Screen
+	2|Repaint			|-R	|REP
+	2|Zoom...
+		3|In			|-Z	|ZIN
+		3|Full			|-F	|ZFU
+		3|Center		|A-C	|ZCN
+		3|50%			|-5	|Z50
+		3|100%			|-1	|Z10
+		3|200%			|-2	|Z20
+	2|Palette			|C-E	|EPL
+	2|Color By...
+		3|   Layer Color	|C-K7	|CBL
+		3|   Group Color	|C-K8	|CBG
+		3|   Pen Color		|C-K9	|CBP
+	2|Origins...
+		3|Set Temporary		|-O	|STO
+		3|Restore		|C-K5	|RTO
+		3|Set Permanent		|C-K6	|SPO
+1|Draw
+	2|   Lines			|-F1	|CLN
+	2|   Ellipse/Circles		|-F2	|CEL
+	2|   Text			|-F3	|CTX
+	2|   Dimensioning		|-F4	|CDM
+	2|   Hatching/Filling		|-F5	|CHF
+1|Edit
+	2|Seek...
+		3|EndPoint		|A-E	|SKE
+		3|MidPoint		|A-M	|SKM
+		3|Perpendicular		|A-P	|SKP
+		3|Center		|A-C	|SKC
+		3|Intersection		|A-X	|SKI
+	2|Attributes...
+		3|Layers		|C-L	|ALY
+		3|Pen Styles		|C-P	|APS
+		3|Groups		|C-G	|AGR
+		3|Lettering Styles	|C-S	|ALS
+	2|Scanner...
+		3|Delete Item		|C-D	|DLI
+		3|Add To Clip		|-A	|ATC
+		3|Remove From Clip	|C-R	|RFC
+		3|Select Item		|-I	|SLI
+	2|Razor				|A-Z	|RAZ
+	2|Scan Scope...
+		3|   Scan In Clip	|C-1	|SIC
+		3|   Scan Same Layer	|C-3	|SSL
+		3|   Scan Same Pen	|C-4	|SSP
+		3|   Scan Same Group	|C-2	|SSG
+		3|   Scan Same Style	|C-5	|SSS
+	2|Edit Text			|-T	|EDT
+	2|Line...
+		3|Hook			|-H	|LNH
+		3|Unhook		|-U	|LNU
+		3|Move Point		|-P	|LMP
+		3|Move Co-linear	|	|LMC
+	2|Dialog...
+		3|On Workbench		|-W	|DIA
+		3|On Main Screen	|C-W	|DIM
+1|Clip
+	2|Box...
+		3|In			|-B	|BXI
+		3|All			|A-B	|BXA
+		3|Out			|C-B	|BXO
+	2|String...
+#		3|Clip			|	|CLP
+		3|Clip=Open String	|	|CES
+		3|Clip=Closed String	|	|CEO
+	2|Group...
+		3|Clip=Cur Layer	|-7	|CCL
+		3|Clip=Cur Pen		|-8	|CCP
+		3|Clip=Cur Group	|-9	|CCG
+		3|Clip=Cur Style	|-0	|CCS
+	2|Paint Order...
+		3|Clip To First		|	|CTF
+		3|Clip To Last		|	|CTL
+	2|Save Clip			|A-K7	|SVC
+	2|Clear				|-E	|CLR
+	2|Kill				|-K	|KLC
+	2|Drag				|-M	|DRC
+	2|Clone				|-C	|CLC
+	2|Scale				|A-S	|SCC
+	2|Rotate			|A-R	|ROC
+	2|Sort				|	|CSR
+	2|Flip...
+		3|X Flip		|-X	|XFL
+		3|Y Flip		|-Y	|YFL
+1|Settings
+	2|Margins			|-S	|MAR
+	2|Options...
+		3|   Centers		|C-F1	|SHC
+		3|   Auto Sel		|C-F2	|ATS
+		3|   Coord Disp		|C-F3	|COD
+		3|   Draw Info		|C-F4	|DRI
+		3|   Curs Snap		|C-F5	|CUS
+		3|   Grids		|C-F6	|GRI
+		3|   Bound Lock		|C-F7	|BNL
+		3|   Ortho Swit		|C-F8	|OTS
+		3|   Q Hatching		|C-F9	|QHA
+	2|Linear...
+		3|   Eng X' X.X"	|	|EDC
+		3|   Eng X' X-X/X"	|	|ENA
+		3|   Eng Feet X.X'	|	|ENF
+		3|   Eng Inch X.X"	|	|ENI
+		3|   Miles		|	|ENM
+		3|   Millimeters	|	|MMM
+		3|   Centimeters	|	|MCM
+		3|   Meters		|	|MTR
+		3|   Kilometers		|	|MKM
+	2|Angular...
+		3|   Degrees X.X°	|	|DDC
+		3|   Deg X° X.X'	|	|DHM
+		3|   Deg X° X' X"	|	|DMS
+		3|   Radians		|	|RAD
+		3|   Gradians		|	|GRD
+#		3|   Percent		|	|PCT
+	2|Reports...
+		3|Menus			|	|RPM
+#		3|Key Bindings		|	|RKB
+		3|Margins		|	|RMR
+		3|Layers		|	|RLY
+		3|Pens			|	|RPN
+		3|Groups		|	|RPG
+		3|Styles		|	|RPS
+#1|Testing
+#	2|All Layers On			|	|$SET LAYER/DISPLAY *
+#	2|All Pens On			|	|$SET PEN/DISPLAY *

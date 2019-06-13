@@ -1,0 +1,150 @@
+PROJECTS
+
+	Load View
+	Save View
+	Merge View
+	Load Library
+	Save Library
+	Use Library
+	Save Clipboard
+	Load Font
+	Quit				Q
+
+ATTRIBUTES
+
+	Lettering Styles
+		Current			S
+		Add			^S
+		Rename
+		Merge
+		Kill
+	Layer Tables
+		Current			L
+		Add			^L
+		Rename
+		Merge
+		Kill
+	Group Tables
+		Current			G
+		Add			^G
+		Rename
+		Merge
+		Prune
+		Graft
+	Pen Styles
+		Current			P
+		Add			^P
+		Rename
+		Merge
+		Kill
+	Color With
+		Layer Colors
+		Group Colors
+		Pen Colors
+
+SCREEN
+
+	Repaint	 			r
+	Zoom
+		In			z
+		All			A
+		Full			F
+		Out 50%			h
+		Out 100%		1
+		Out 200%		2
+	Margins				m
+	Palette				p
+	Origin
+		Temp Set		O
+		Restore			
+		Perm Set
+
+DRAW
+
+	Line				f1
+	Ellipse				f2
+	Text				f3
+	Dimension			f4
+
+EDIT
+
+	Seek
+		Line-Midpoint		ALT-M
+		Line-Endpoint		ALT-E
+		Line-Perpendicular	ALT-P
+		Ellipse-Center		ALT-C
+		Ellipse-Tangent		ALT-T
+		Text-Handle		ALT-H
+	Scanner
+		Delete			d
+		Add to Clip		a
+		Remove from Clip 	M
+		Select Item		I
+		Box In			b
+		Box All			B
+		Box Out			o
+	Group
+		Clip-->Current Group
+		Clip-->Current Layer
+		Clip-->Current Pen
+		Clip-->Current Lettering
+	Razor
+		Box			v
+		Box Clip		V
+		Line			Z
+	Set Scope
+		Scan On Screen
+		Scan in Clip
+		Scan Same Group
+		Scan Same Layer
+		Scan Same Pen
+		Scan Same Lettering
+	Edit Text			T
+	Line Hook			H
+	Libraries
+		Select Item
+		Insert Setup
+		Place/Insert		i
+
+CLIPBOARD
+	
+	Clear				c
+	Kill				k
+	Drag				D
+	Clone				C
+	Rotate				R
+	Scale
+		Even Scale		s
+		X Stretch		x
+		Y Stretch		y
+	Flip
+		X Flip			X
+		Y Flip			Y
+
+SETTINGS
+
+	Grid
+	Symmetry
+	Options
+		Show Centers		F1
+		Show Handles		F2
+		Coordinates		F3
+		Draw Info		F4
+		Snaps			F5
+		Grid			F6
+		Bounds Lock		F7
+		Ortho Switch		F8
+	Angular
+		Degrees XX.XX
+		Degrees XX° XX'
+		Degs XX° XX' XX"
+		Radians
+		Gradians
+	Linear
+		Eng XX' XX.XX"
+		Eng XX' XX X/X"
+		Eng Feet XX.XX
+		Eng Inch XX.XX
+		Millimeters
+		Centimeters
+		Meters

@@ -1,0 +1,23 @@
+Repaired the problem with editing *anything* in hatch patterns with
+the object editor.  Also noticed that you could not change the angle.
+This was fixed.  Keep an eye out for other requester popup-dismiss problems.
+
+The other patch was done in UltraDesign and Cadverter.  There is now a new
+field in ultradesign.config
+
+	ASPECT/1.14285
+	
+This factor is the current default value.  If it is left out, this value
+will be used, but if included, will override the aspect.  This is the
+X/Y size of the pixel.  You should be able to draw a large circle (with
+circle lock on) and measure the height and width with a ruler.  A new aspect
+can be calculated by 
+
+	new_aspect = old_aspect * (circle_width/circle_height)
+	
+Need a value for the PAL display and a number for these new commodore 
+1080? monitors.
+
+---5-Jun-90/SH
+
+

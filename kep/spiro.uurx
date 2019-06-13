@@ -1,0 +1,5 @@
+/* Another rexx */
+'line 200,150 171.23422,50/tur'
+do i=1 to 1000
+	'line/cont 171.23422,50/tur'
+end

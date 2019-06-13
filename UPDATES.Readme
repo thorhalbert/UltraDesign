@@ -1,0 +1,13 @@
+ *	1(44)	17-Dec-89 SH	The Release version
+ *	1(45)	22-Feb-90 SH	Post-Release Bug fixes
+ *				  1. iffput0 was writing files in group
+ *				     order instead of paint order - also
+ *				     affects cadverter
+ *				  2. clonedrag was not rotating text
+ *				     properly, full new flip algorithm and
+ *				     move handle to center of box and back
+ *				  3. painting - DoArrow would guru when
+ *				     Arrow_Angle was 90 (/0 error)
+ *				  4. pasteup - postscript printer driver
+ *				     was putting parens around last showpage
+ *				     command

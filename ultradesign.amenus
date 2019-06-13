@@ -1,0 +1,186 @@
+# UltraDesign menu file	(17-Jul-89/SH)
+#
+# Fields as follows:
+#   level | menu text | key binding | command
+#
+#	if command begins with a $ it is a dialog command
+#		otherwise it is an internal command
+#
+#	Level 1 uses these fields differently
+#		key binding = intuition Menu struct LeftEdge override (optional)
+#		command = intuition Menu struct Width override (optional)
+#
+#	Amigas only allow 1 sublevel so level commands can be from 1 to 3
+#
+#	Bindings are formatted as follows:
+#	
+#		LRAC-key
+#		
+#		L = Left Amiga
+#		R = Right Amiga
+#		C = Control Key
+#		A = Alt Key(s)
+#
+#		key = key designations; all normal characters plus:
+#
+#		(keypad keys) K0 K1 K2 K3 K4 K5 K6 K7 K8 K9
+#			K. KE (enter) K- 
+#		 	(on 500/2000) K( K) K+ K* K/
+#			
+#		(arrow keys) AL AR AU AD
+#		
+#		(special keys) ESC TAB BS CR (return) DEL HELP
+#
+#		(function keys) F1 F2 F3 F4 F5 F6 F7 F8 F9 F10
+#
+#	You can leave out the fields right of the menu text if this is
+#	simply the header for a lower level.  It's a nice convention to
+#	put "..." at the end of sublevel headers.
+
+1|File
+	2|Load				|L-L	|LVW
+	2|Save As			|L-S	|SVW
+	2|Save				|L-R	|UVW
+	2|Merge...
+		3|At Root		|L-M	|MVR
+		3|At Current		|	|MVC
+	2|New				|L-N	|CVW
+	2|Quit				|-Q	|QUT
+1|Display
+	2|Repaint			|-R	|REP
+	2|Zoom...
+		3|In			|-Z	|ZIN
+		3|Full			|-F	|ZFU
+		3|Center		|-C	|ZCN
+		3|50%			|-5	|Z50
+		3|100%			|-1	|Z10
+		3|200%			|-2	|Z20
+	2|Palette			|	|EPL
+	2|Color By...
+		3|   Pen Color		|	|CBP
+		3|   Layer Color	|	|CBL
+		3|   Group Color	|	|CBG
+1|Draw
+	2|Seek To...
+		3|EndPoint		|A-F1	|SKE
+		3|MidPoint		|A-F2	|SKM
+		3|Perpendicular		|A-F3	|SKP
+		3|Center		|A-F4	|SKC
+		3|Intersection		|A-F5	|SKI
+	2|   Lines			|-F1	|CLN
+	2|   Ellipse/Circles		|-F2	|CEL
+	2|   Text			|-F3	|CTX
+	2|   Dimensioning		|-F4	|CDM
+	2|   Hatching/Filling		|-F5	|CHF
+1|Edit
+	2|Current Obj...
+		3|Kill Obj		|A-K	|DLI
+		3|Find Obj		|A-F	|SLI
+		3|Add to Clip		|C-A	|ATC
+		3|Remove from Clip	|C-R	|RFC
+	2|Line...
+		3|Hook			|A-H	|LNH
+		3|Unhook		|A-U	|LNU
+		3|Move Vertex		|A-V	|LMP
+		3|Extend		|A-X	|LMC
+		3|Filet			|A-C	|FIL
+	2|Razor				|A-R	|RAZ
+	2|Edit Text			|A-E	|EDT
+1|Clip Buffer
+	2|Current Obj...
+		3|Add			|C-A	|ATC
+		3|Remove		|C-R	|RFC
+	2|Clipping Box...
+		3|Box In		|-B	|BXI
+		3|Box All		|A-B	|BXA
+		3|Box Out		|C-B	|BXO
+	2|Empty				|C-E	|CLR
+	2|Kill 				|C-K	|KLC
+	2|Save				|C-Z	|SVC
+	2|Drag				|C-D	|DRC
+	2|Clone				|C-C	|CLC
+	2|Scale				|C-S	|SCC
+	2|Rotate			|C-R	|ROC
+	2|Flip...
+		3|Horizontal		|C-H	|XFL
+		3|Vertical		|C-V	|YFL
+	2|Set Attrib...
+		3|Clip=Cur Pen		|C-P	|CCP
+		3|Clip=Cur Layer	|C-L	|CCL
+		3|Clip=Cur Group	|C-G	|CCG
+		3|Clip=Cur Style	|C-F	|CCS
+	2|String...
+		3|Clip=Open String	|R-O	|CES
+		3|Clip=Closed String	|R-C	|CEO
+	2|Sort				|	|CSR
+	2|Paint Order...
+		3|Beginning		|	|CTF
+		3|End			|	|CTL
+1|Setup
+	2|Margins			|-M	|MAR
+	2|Dimensioning			|-D	|DMM
+	2|Attributes...
+		3|Pen Styles		|-P	|APS
+		3|Layers		|-L	|ALY
+		3|Groups		|-G	|AGR
+		3|Lettering Styles	|-S	|ALS
+	2|Origins...
+		3|Set Temporary		|C-T	|STO
+		3|Restore		|C-R	|RTO
+		3|Set Permanent		|C-O	|SPO
+	2|Scan Limits...
+		3|   In Clip		|	|SIC
+		3|   Same Pen		|	|SSP
+		3|   Same Layer		|	|SSL
+		3|   Same Group		|	|SSG
+		3|   Same Style		|	|SSS
+	2|Options...
+		3|   Centers		|C-F1	|SHC
+		3|   Auto Sel		|C-F2	|ATS
+		3|   Coord Disp		|C-F3	|COD
+		3|   Draw Info		|C-F4	|DRI
+		3|   XY Snap		|C-F5	|CUS
+		3|   Grids		|C-F6	|GRI
+		3|   Bound Lock		|C-F7	|BNL
+		3|   Ortho Swit		|C-F8	|OTS
+		3|   Q Hatching		|C-F9	|QHA
+	2|Linear...
+		3|   Eng X' X.X"	|	|EDC
+		3|   Eng X' X-X/X"	|	|ENA
+		3|   Eng Feet X.X'	|	|ENF
+		3|   Eng Inch X.X"	|	|ENI
+		3|   Miles		|	|ENM
+		3|   Millimeters	|	|MMM
+		3|   Centimeters	|	|MCM
+		3|   Meters		|	|MTR
+		3|   Kilometers		|	|MKM
+	2|Angular...
+		3|   Degrees X.X°	|	|DDC
+		3|   Deg X° X.X'	|	|DHM
+		3|   Deg X° X' X"	|	|DMS
+		3|   Radians		|	|RAD
+		3|   Gradians		|	|GRD
+	2|Reports...
+		3|Menus			|	|RPM
+		3|Margins		|	|RMR
+		3|Pens			|	|RPN
+		3|Layers		|	|RLY
+		3|Groups		|	|RPG
+		3|Styles		|	|RPS
+1|Dialog
+	2|On Workbench			|-W	|DIA
+	2|On Main Screen		|A-W	|DIM
+	2|Close Dialog			|C-W	|DIC
+	2|Cmds...
+		3|Pens On		|	|$SET PEN/DISPLAY *
+		3|Layers On		|	|$SET LAYER/DISPLAY *
+1|Parts
+	2|Use Library			|R-U	|DLB
+	2|Setup				|R-S	|ISL
+	2|Select Item			|R-I	|SEL
+	2|Place Item			|R-P	|PLI
+	2|Maintenance...
+		3|Load			|	|LLB
+		3|Save As		|	|SLB
+		3|Save			|	|ULB
+		3|New			|	|CLB

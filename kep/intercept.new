@@ -1,0 +1,128 @@
+
+#define COORDS struct coordnates
+
+COORDS {
+	STDFLT x,y;
+};
+
+#define V_BUCKET struct vectorbucket		/* Gimme a bucket */
+#define MAXVBUCK 1000
+
+V_BUCKET {
+	V_BUCKET *next;
+	UWORD	Population;		/* How many residents so far? */
+	COORDS	Vectors[MAXVBUCK];	/* Home of the residents */
+};
+
+LOCAL STDFLT tsp;
+#define swp(x,y) tsp = x; x = y; y = tsp
+tagint(intx,inty)
+STDFLT intx,inty;
+{
+	STDFLT t;
+
+	t = xpixsize * 2.0;
+
+	GI_DrawSetup(1,0);			
+	v_move(intx-t,inty);
+	v_draw(intx+t,inty);
+	v_move(intx,inty-t);
+	v_draw(intx,inty+t);
+}
+
+BOOL linesegment(pointx,pointy,linex1,liney1,linex2,liney2)
+STDFLT pointx,pointy,linex1,liney1,linex2,liney2;
+{
+
+	int ck;
+	
+	if (linex1>linex2) swp(linex1,linex2);
+	if (liney1>liney2) swp(liney1,liney2);
+	
+	ck=0;
+	
+	if (linex1==linex2&&pointx==linex1) ck |= 0x01;
+	else if (pointx>=linex1&&pointx<=linex2) ck |= 0x01;
+	
+	if (liney1==liney2&&pointy==liney1) ck |= 0x02;
+	else if (pointy>=liney1&&pointy<=liney2) ck |= 0x02;
+	
+	return(ck==0x03);
+}
+
+BOOL CalcIntercept(lineAx1,lineAy1,lineAx2,lineAy2,
+		   lineBx1,lineBy1,lineBx2,lineBy2,	outX,outY)
+		   
+STDFLT lineAx1,lineAy1,lineAx2,lineAy2,lineBx1,lineBy1,
+	lineBx2,lineBy2,outX,outY)
+
+{
+
+	STDFLT	m0,b0,m1,b1;
+		
+	STDFLT	deltaAx,deltaAy,deltaBy,deltaBy;
+
+	deltaAx = lineAx1-lineAx2;	/* Calc rise/runs for lines */
+	deltaAy = lineAy1-lineAy2;
+	deltaBx = lineBx1-lineBx2;
+	deltaBy = lineBy1-lineBy2;
+
+	/* Switch line B with A if B is horiz or vertical */
+
+	if (deltaBx==0.0||deltaBy==0.0) {
+		swp(lineAx1,lineBx1);
+		swp(lineAx2,lineBx2);
+		swp(lineAy1,lineBy1);
+		swp(lineAy2,lineBy2);
+		swp(deltaAx,deltaBx);
+		swp(deltaAy,deltaBy);
+	}
+
+	/* Is line A vertical?  Special case */
+	
+	if (deltaAx==0.0) {
+		if (deltaBx==0.0) return(FALSE);/* Both are vertical */
+		if (deltaBy==0.0) {
+		*outX = lineAx1;
+		if (iyd==0.0) {			/* 90 degree intersection */
+			*outY = lineBy1;
+			return(TRUE);
+		}
+		m0 = deltaBy/deltaBx;		/* Cal slope */
+		b0 = deltaB - (m0 * lineBx1);
+		*outy = (m0 * (*outx)) + b0;	/* Cal intercept */
+		return(TRUE);
+	}
+
+	/* Is line A horizontal? Special case */
+
+	if (deltaAy==0.0) {			
+		*outY = lineAy1;
+		if (deltaBy==0.0) return(FALSE);/* Lines both horizontal */
+		if (deltaBx==0.0) {		/* 90 degree intercept */
+			*outX = lineBx1;
+			return(TRUE);
+		}
+		m0 = deltaBy/deltaBx;			/* Cal slope */
+		b0 = lineBy1 - (m0 * lineBx1);
+		if (m0==0.0) return(FALSE);	/* How did this happen? */
+		*outX = ((*outY) - b0) / m0;	/* Calculate intercept */
+		return(TRUE);
+	}
+
+	m0 = deltaBy/deltaBx;			/* Cal slope of B */
+	b0 = lineBy1 - (m0 * lineBx1);		/* Y intercept of B */
+
+	m1 = deltaAy/deltaAx;			/* Cal slope of A */
+	b1 = lineAy1 - (m1 * lineAx1);		/* Y intercept of A */
+
+	if ((m0-m1)==0.0&&(m1-m0)==0.0) return(FALSE);	/* Huh? /0 check */
+
+	if ((m0-m1)!=0.0) 	*outX = (b1 - b0) / (m0 - m1); /* Calc Int */
+	else			*outX = (b0 - b1) / (m1 - m0); /* Alt Calc */
+
+	*outY = (m0 * (*outX)) + b0;		/* Set value */
+
+	return(TRUE);
+
+}

@@ -1,0 +1,11 @@
+
+UltraDesign	Dialog		.uucm
+		Arexx		.uurx
+		
+Pasteup		Dialog		.upcm
+		Arexx		.uprx
+		
+Cadverter	Dialog		.uccm
+		Arexx		.ucrx
+		
+

@@ -1,0 +1,33 @@
+This version of pasteup V1.1(49) should work for any range of negative
+(or positive) MIN coordinates (before they had to be 0.0).
+
+I could only test this writing out to NIL:, I have no plotter hardware.
+Please check to see if it works in different configurations.  Especially
+check band mode in preferences.
+
+I recompiled the drivers, but I don't really think that they changed, you
+might check to see if they are needed.
+
+--------------------
+
+I am trying to get a baseline version of DEVO V2 together to send.  I have
+done much underneath, but you cannot really see it.  I have a few crashers
+to get out.
+
+I have got the code running under Lattice V5.04, but I have found some
+problems with Lattice.  Maybe someone there knows what the problem is.
+I will call Lattice tech support sometime.
+
+	I can generate my precompiled header file, but when I try to
+	use it, lc gurus.
+	
+	When I try to use codeprobe, it gives me a CXERR: 350 error
+	every time, and in many configurations.  Oh Well...
+	
+There are no real problems except for this, it generates good code in
+its different optimizations.  Excellent error reporting.  I think I can
+really improve the code quality.  Also, it does accept ANSI subroutine
+definitions, so I can start making it compatible with C++ for whenever
+I can get a real C++ cross-compiler.
+
+---SH/29-Jul-90

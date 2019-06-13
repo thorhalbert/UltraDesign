@@ -1,0 +1,19 @@
+/* Ultradesign Arexx program to set y snap same as x snap */
+
+	'$$DEBUG = 1'
+			
+	options				/* Turn off returned results */
+	
+	'$$INTERN_UNIT = 0'		/* Set units to user units */
+	
+	options results			/* Turn on returned results */
+	
+	'RESULT $$SNAP_X'		/* Get variable from udesign */
+	
+	parse var result type snapv
+		/* Parse the result, the variable type goes in 'type',
+		   and your value goes into 'snapv' */
+		   
+	options				/* Turn off return results again */
+	
+	'$$SNAP_Y = ' snapv		/* Set snap_y to snap_x */

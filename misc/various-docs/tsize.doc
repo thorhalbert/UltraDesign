@@ -1,0 +1,71 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* |_o_o|\\ Copyright (c) 1986 The Software Distillery.  All Rights Reserved */
+/* |. o.| || This program may not be distributed without the permission of   */
+/* | .  | || the authors.                                                    */
+/* | o  | ||    Dave Baker     Ed Burnette  Stan Chow    Jay Denebeim        */
+/* |  . |//     Gordon Keener  Jack Rouse   John Toebes  Doug Walker         */
+/* ======          BBS:(919)-471-6436      VOICE:(919)-469-4210              */ 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+TSIZE v1.2 by Edmund Burnette
+ 210 Willoughby Lane, Cary NC 27511   (919)-469-2402
+© 1986 The Software Distillery.  All Rights Reserved.
+ 235 Trillingham Lane, Cary NC 27511  (919)-469-4210  BBS(919)-471-6436
+
+Permission is hereby granted to distribute this program provided both this
+documentation accompanies the executable and that no charge is made for its
+distribution.
+
+TSIZE is a simple utility to print directory tree sizes.  It displays the
+total size of all files and subdirectories within a given directory.  The
+format of the TSIZE command is:
+
+   TSIZE directoryname       or
+   TSIZE filename            or
+   TSIZE
+
+The first format displays the size of the given directory.  The second
+does the same for a single file.  The last form does the same for the
+current directory.
+
+Note that the sizes reported by TSIZE will be less that the size actually
+taken by the files on the disk.  This is because AmigaDOS (like most
+operating systems) allocates disk space a block at a time (as opposed to
+a byte at a time).  The sizes displayed will be the same as those given by
+the LIST command.
+
+EXAMPLE:
+   Suppose your df1: disk has a directory called foo on it.  This directory
+   has a few files in it, along with two subdirectories called ed and john.
+   The ed directory has no subdirectories, but the john directory has
+   two subdirectories called v1 and v2.  The v2 directory happens to be
+   empty.  Here's what might happen if you ran tsize on foo:
+
+      1> tsize df1:foo
+
+      df1:foo/ed 1205          <- total for ed
+      df1:foo/john/v1 1532
+      df1:foo/john/v2 0
+      df1:foo/john 1532        <- total for john (includes v1 and v2)
+      df1:foo 5076             <- final total (includes everything above)
+
+   Note that the john directory does not have any files in it, just more
+   directories.  We know this because the total given for john is the
+   same as the total of all of its subdirectories.
+
+In order to reduce the size of the executable, I took the following steps:
+
+   1. Compiled _main with the -dTINY option and linked with that.
+   2. Specified amiga.lib before lc.lib on the LIBRARY statement of ALINK.
+      The purpose of this is to get the version of printf from amiga.lib
+      (which is only 2.5k).  This version does not handle floating point and
+      expects %d numbers to be 16 bits (use %ld instead).  It also required
+      me to initialize an external variable called stdout.
+   3. Used Amiga functions directly to handle control-c instead of the
+      Lattice functions (like onbreak).
+   4. Compiled tsize.c with the -v option to get rid of stack checking
+      code.
+
+By doing all these things, I reduced the final size from 12k to 5k using
+3.04 beta.  After all, a short utility out to be short, right?  Thanks to
+Jack Rouse who suggested these tricks.

@@ -1,0 +1,7 @@
+/* A ultradesign rolling text demo */
+do i=0 to 360
+	'set current/layer white'
+	'text ' 10.0+(i/2.0) ',40 "S"/rot=' i
+	'set current/layer black'
+	'text ' 10.0+(i/2.0) ',40 "S"/rot=' i
+end

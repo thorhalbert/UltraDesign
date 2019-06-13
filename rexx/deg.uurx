@@ -1,0 +1,10 @@
+/* UltraDesign convert to degrees from deg,min,sec */
+
+options
+
+options prompt "Enter angle (deg min sec)? "
+parse pull deg min sec
+
+ang = deg + (min * (1.0/60.0)) + (sec * (1/3600.00))
+
+say ang

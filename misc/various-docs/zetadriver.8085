@@ -1,0 +1,60 @@
+8085	Test program for reading input from amiga and displaying data slowly
+
+This is the production version of this program.
+
+Port A assignments:
+	0	Input bit 0
+	1	Input bit 1
+	2	Input bit 2
+	3	Input bit 3
+	4	Input bit 4
+	5	Input bit 5
+	6	Input bit 6
+	7	Unused
+Port B assignments:
+	0	Plotter +X
+	1	Plotter -X
+	2	Plotter +Y
+	3	Plotter -Y
+	4	Plotter Pen up
+	5	Plotter Pen down
+	6	Parallel Selected
+	7	/Acknowledge
+
+2000	31 80 20	LXI SP, 2080H	; Initialize stack
+2003	3e 00		MVI A,0		; Set all port A for read
+2005	d3 02		OUT 02		; Set 8355 port a
+2007	3e ff		MVI A,FF	; Set all port B for write
+2009	d3 03		OUT 03		; Set 8355 port b
+		Gsts:
+200b	3e 40		MVI A,40	; Selected / Ack Ready
+200d	d3 01		OUT 01		; Write out
+200f	3e 08		MVI A,08	; Setup interupts
+2011	30		SIM		; Turn on interesting interupts
+2012	FB		EI		; Enable Interupts
+2013	c3 0b 20 	JMP GSTS	; Infinite loop
+
+		Reget:
+2016	db 00		IN 00		; Get the current data
+2018	47		MOV B,A		; Save the input
+
+2019	3e c0		MVI A,C0	; Set Selected / Ack Not Ready
+201b	d3 01		OUT 01		; Write Out
+201d	78		MOV A,B		; Get byte back from save
+201e	c5		PUSH B		; Save B for later
+201f	cd 6e 03	CALL UPDDT	; Update data field
+2022	c1		POP B		; Get B back
+2023	78		MOV A,B		; Get back to A
+2024	f6 c0		ORI C0		; Set the ready and select bits
+2026	d3 01		OUT 01		; Send the plotter command
+2028	11 05 00	LXI D,0005H	; Load small delay
+202b	cd f1 05	CALL DELAY	; Make small delay
+202e	3e 00		MVI A,00	; No plotter action/idle
+2030	d3 01		OUT 01		; Put to plotter
+2032	11 00 01	LXI d,0100H	; Big step delay
+2035	cd f1 05	CALL DELAY	; Do Big delay
+2038	c9		RET		; Return from interupt
+
+20c8	c3 16 20	JMP REGET	; Service interrupt
+20cb	c3 16 20	JMP REGET	; Service interrupt
+20ce	c3 16 20	JMP REGET	; Service interrupt

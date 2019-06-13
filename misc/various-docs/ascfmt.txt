@@ -1,0 +1,10 @@
+AM x,y
+AD x,y;x,y...
+RM x,y
+RD x,y;x,y...
+LYR Name:Flags
+PEN Name:Flags
+GRP Path:Flags
+CI cx,cy,rx,ry,rot
+STY Name/font:Flags
+TX hx,hy,rot,text,flags

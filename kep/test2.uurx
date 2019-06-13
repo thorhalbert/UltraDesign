@@ -1,0 +1,3 @@
+/* Another rexx */
+say 'a launch from a launch!!!'
+'set current/pen *'

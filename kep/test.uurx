@@ -1,0 +1,6 @@
+/* UltraDesign Test Prog */
+options results
+'RESULT @'
+say rc
+say result
+

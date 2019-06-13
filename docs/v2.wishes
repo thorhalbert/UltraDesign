@@ -1,0 +1,38 @@
+Blocks with multiple handles
+
+Splines
+
+Hatching with patterns in a block
+
+Hatching against spline bounded polygons
+
+1 or 2 point perspective skew of hatching patterns
+
+Full dialog mode programming language - lisp or custom
+
+Segment loaded extentions in C, Modula or ASM
+
+Multiple views and viewports on one screen
+
+Overlay control
+
+Autocad font conversion
+
+Libraries with Blocks
+
+Font Stroke-Bitmap conversion for faster repaint
+
+Possible Polyline extensions
+
+Lines with width specification
+
+Draw through command in line mode
+
+1 or 2 point perspective stretches
+
+-------------------------------------Internal considerations
+
+Generic Linked List Handling
+Better Dynamic Memory Handling
+Multiple Viewport handling
+Multiple View/Library handling

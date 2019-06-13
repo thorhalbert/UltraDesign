@@ -1,0 +1,26 @@
+/* Get user linear value and trans to mm */
+		
+	'$$DEBUG = 1'
+	
+	options prompt "Enter linear value? "
+	pull linv		/* Prompt and get value in linv */
+		
+	options			/* Turn off prompt */
+		
+	'$$INTERN_UNIT = 0'	/* Turn on internal units */
+		
+	'$$TEST_LINEAR = ' linv	/* Set test value to users val */
+		
+	'$$INTERN_UNIT = 1'	/* Set udesign to internal units */
+		
+	options results		/* turn on result */
+		
+	'RESULT $$TEST_LINEAR'	/* Get test value back */
+		
+	parse var result type ilinv
+		/* Parse result, linear type is a 1, ilinv is the 
+		   internal (mm) version of linv above */
+			   
+	options			/* Turn off result option */
+
+	say linv ilinv

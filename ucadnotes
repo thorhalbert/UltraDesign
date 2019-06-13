@@ -1,0 +1,255 @@
+Variable types and their possible values.  Values on the same line
+are equivalent.  (You can use the number or the text)
+
+BOOL
+	ON	T		YES	TRUE	OK	1
+	OFF	NIL	NILL	NO	FALSE		0
+
+LINTYPE
+	EDI	1
+	EFI	2
+	DF	3
+	DI	4
+	MM	5
+	CM	6
+	M	7
+	MILE	8
+	KM	9
+
+ANGTYPE
+	DEGD	1
+	DEGM	2
+	DEGMS	3
+	RAD	4
+	GRAD	5
+
+
+--------------------------------------------------------------------
+
+COMMAND
+	RESULT	$$variable
+	
+PARAMETERS
+
+	$$variable	
+		
+		One of the variables from the list of internal ultradesign
+		variables.
+		
+DESCRIPTION
+
+	Return the contents of the variable back to an Arexx program which
+	has executed the proper sequence to request a response.
+
+	The Arexx Command "options results" will turn on results for 
+	subsequent commands to the host program.  Ultradesign will always
+	return a value of "0" except for the "RESULT" command.
+		
+	If the variable $$INTERNAL_UNIT is set to 0, result will always return
+	the variable in the currently selected linear or angular units 
+	(if it is linear or angular).  If it is 1, it will always return
+	the internal representation, which for linear measurements is in
+	millimeters, and for angles is radians.
+
+RETURNS
+
+	variable-type <space> requested-value
+	
+	Variable-type is the data type of the variable the user requested.
+	It is one of the following:
+						
+           LINEAR 	1
+           ANGULAR	2
+           COORD	3
+           BOOL		4
+           FLOAT	7
+           WORD		9
+
+           LINTYPE	50
+           ANGTYPE	51
+
+	Requested-value is the ascii text representing the value the
+	user requested.
+	
+EXAMPLE (in arexx)
+
+	/* Ultradesign Arexx program to set y snap same as x snap */
+	
+	options				/* Turn off returned results */
+	
+	'$$INTERNAL_UNIT = 0'		/* Set units to user units */
+	
+	options result			/* Turn on returned results */
+	
+	'RESULT $$SNAP_X'		/* Get variable from udesign */
+	
+	parse var result type snapv
+		/* Parse the result, the variable type goes in 'type',
+		   and your value goes into 'snapv' */
+		   
+	options				/* Turn off return results again */
+	
+	'$$SNAP_Y = ' snapv		/* Set snap_y to snap_x */
+		
+
+--------------------------------------------------------------------
+
+COMMAND
+	RESULT	@
+			
+DESCRIPTION
+
+	Just like the RESULT command for variables but gets a mouse
+	click from the current screen and returns the x and y coordinate
+	pair (type COORD=3) for it.
+
+RETURNS
+
+	3 <space> x-value,y-value
+	
+EXAMPLE (in arexx)
+
+	/* Ultradesign Arexx program fetch mouse click from screen */
+	
+	options				/* Turn off returned results */
+	
+	'$$INTERNAL_UNIT = 0'		/* Set units to user units */
+	
+	options result			/* Turn on returned results */
+	
+	'RESULT @'			/* Get mouse click from udesign */
+	
+	parse var result type xv ',' yv
+		/* Parse the result, the variable type goes in 'type',
+		   and your value goes into xv and yv (note the comma) */
+		   
+	options				/* Turn off return results again */
+
+
+----------------------------------------------------------------------
+New variables and description of internal/default unit selections
+
+
+	$$INTERNAL_UNIT		BOOL
+	
+	$$TEST_LINEAR		LINEAR
+	$$TEST_ANGULAR		ANGULAR
+	
+	Use default linear and angular units to represent values in
+	dialog commands ($$INTERNAL_UNIT=FALSE), or represent them as
+	internal UltraDesign units millimeters and radians 
+	($$INTERNAL_UNIT=TRUE).
+	
+	Some of the default variable types are very difficult to parse
+	and manipulate.  Coordinate math is much easier to manipulate
+	if it is a simple number.  This system gives you the capability
+	to switch translate back and forth and keep your code simple.
+	
+	EXAMPLE (in arexx):
+	
+		/* Get user linear value and trans to mm */
+		
+		options prompt "Enter linear value? "
+		pull linv		/* Prompt and get value in linv */
+		
+		options			/* Turn off prompt */
+		
+		'$$INTERNAL_UNIT = 0'	/* Turn on internal units */
+		
+		'$$TEST_LINEAR = ' linv	/* Set test value to users val */
+		
+		'$$INTERNAL_UNIT = 1'	/* Set udesign to internal units */
+		
+		options result		/* turn on result */
+		
+		'RESULT $$TEST_LINEAR'	/* Get test value back */
+		
+		parse var result type ilinv
+			/* Parse result, linear type is a 1, ilinv is the 
+			   internal (mm) version of linv above */
+			   
+		options			/* Turn off result option */
+
+
+
+****************************COLOR MAPS IN INTROCAD
+
+Icad	Ucad
+0	0
+1	1
+2	2
+3	3
+4	6
+5	7
+6	8
+7	9
+8	10
+9	11
+10	12
+11	13
+12	14
+13	15
+14	6
+15	7
+
+cadverter.rgb
+ddd 0 df 666 ddd c0 f00 90f a30 ff0 ff f7f f f00 fda fff 
+
+
+****************************PASTEUP DOCUMENT FOR DOTTED LINES
+
+PLOT_DOT_SIZE/.5
+
+Number is the actual dot size in mm.  .5 seems to work pretty well,
+but a range from .3 to 1.0 would not be too unusual depending on the
+plotter and the user's preferences.
+
+
+****************************FILL AS HATCH
+
+Pasteup (version 1 anyway) does not support filling directly but converts
+them to a hatch pattern.  With a small enough grid, this can simulate
+solid filling.  You still cannot overlay one hatch with another, they
+will overplot each other, where on the screen the top one would erase
+the one on the bottom.
+
+FILL_HATCH_FILE/Hatch_Lib_One
+
+	Hatching file to be used when filling is seen.
+
+FILL_HATCH_NAME/Grid
+	
+	Hatching pattern name to be used.
+
+FILL_HATCH_SCALE/1.0
+
+	The scale to be used.   1.0 is probably much to big for normal
+	use.  We might actually want to go with .25 or .5
+
+****************************Menu box offset
+
+I was wrong about the values for menu start and menu width.
+Negative values are not allowed.  When the menu start is greater
+than 1, this is the ABSOLUTE pixel location of the menu from the
+left edge, not the relative position.  When the width field is
+>0, is specifies the width of the text box.
+
+*****ROY ROY ROY ROY ROY ROY*****
+
+None of the above arexx code is tested....  We should before we finalize
+things.  You might play with it, and I'll try to test them.
+
+
+BTW.   	UltraDesign always sets the Arexx host address to its own port
+ 	when it launches an Arexx program.   You can get this address 
+	with the ADDRESS() function in arexx.  So, since it is current,
+	all host commands from the launch command (.uurx) will go to
+	the proper UltraDesign.
+	
+	Hey, with fat chip memory, you probably can start more than one
+	UltraDesign.  Udesign is supposed to automatically create a unique
+	port name even if there are more than one running, so multiple
+	arexx streams should work too.
+
+
+

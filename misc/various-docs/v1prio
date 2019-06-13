@@ -1,0 +1,51 @@
+Last Priorities for UltraCAD V1.0 for the Amiga
+
+Must Do Items (do or die)
+
+	Attribute Housekeeping (kill, merge, rename)
+
+Toss or Implement Items (do or dump)
+
+	Decide how to stretch ellipses
+
+	Make locks work or get rid of
+
+	Comments
+
+	Finish Other Seek Modes or Get rid of them
+		Ellipse-Tangent
+		Text Handle
+
+	Decide on razor mode
+		Get rid of 
+		Implement only on lines
+		full implementation
+
+	Do scan scope or get rid of it
+
+	Do Edit Text or get rid of it
+
+	Decide on Undo function or get rid of it
+
+	Do array copy modes or get rid of them
+
+	Implement some dimension mode or get rid of it
+
+Paste-up Priorities
+
+	Design universal driver interface
+		HPGL graphics
+		Houston graphics
+		Roland graphics
+		Generic Amiga Dot Matrix Driver
+		PostScript Driver
+
+	Virtual Sheet Layout
+
+	View Placement Layout
+
+	Virtual Pen Mapping
+
+	Plotting Algorithm
+		Multi-Pass Clip Algorithm
+		Multi-File Algorithm

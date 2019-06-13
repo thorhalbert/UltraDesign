@@ -1,0 +1,16 @@
+In Margins:
+
+	Left Boundary
+	Right Boundary
+	
+	Top Boundary
+	Bottom Boundary
+
+	Spell out Tolerance
+
+Check the checkmark in margins:
+	Linear and Angular unit changing
+	
+Set IDCMP to all off until window open:
+
+Load hatch says load font

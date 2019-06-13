@@ -1,0 +1,8 @@
+*BEGIN SETUP
+DRIVER/$drivers/Preferences.Pdr
+PLOTTER/preferences
+COMMENT/EpsonQ 35(32)
+AUTOPENS/0
+TYPE/1
+FLAGS/18000
+*END SETUP

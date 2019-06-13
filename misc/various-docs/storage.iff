@@ -1,0 +1,121 @@
+FORM	2DGF
+
+	LIMS				Drawing Limits/Boundaries
+
+		PORTFLOAT	minx,miny	
+		PORTFLOAT	maxx,maxy
+
+	UNIT				Drawing Units
+
+		PORTFLOAT	millimetersperunit
+		PORTFLOAT	tolerance (smallest increment in units)
+		USHORT		length of unit text
+		char		text of unit name
+
+	(c)				Copyright Specification
+
+	LYER				Layer Definition
+
+		ULONG		Layer ID
+		USHORT		length of layer name
+		char		text of layer name
+
+
+	LBRY				Library Definition
+
+		ULONG		library entry id
+		USHORT		library entry type
+
+			LBRY_TEXT 	1	Text stroke font table
+			LBRY_HATCH	2	Hatch pattern 
+			LBRY_LINE	3	Simple line pattern
+			LBRY_POLYLINE	4	Complex (multi) line pattern
+
+			LBRY_ASSEMB	100	Sub-Assembly drawing
+
+		USHORT		library name file length
+		USHORT		library drawer file length
+		char		file name text
+		char		drawer name text
+
+	SLAY			Set the current layer ID
+
+		ULONG		current layer id
+
+	SGRO			Set the current group ID
+
+		ULONG		current group id
+
+	CLIB			Set current library entry 
+	
+		USHORT		above library entry type
+		ULONG		library entry id
+		
+	VECT			series of vectors
+
+		ULONG		vector flags
+
+			VECT_LINES	0x0001	Use current linestyle library
+			VECT_POLY	0x0002	Use current polyline library
+
+		ULONG		number of vector pairs
+		PORTFLOAT	line1x,line1y
+
+	CIRC				series of circles/ellipses
+		ULONG		circle flags	
+
+			CIRC_LINES	0x0001	User linestyle
+			CIRC_POLY	0x0002	User polyline
+
+		USHORT		parameter flags
+
+						Xcenter is always param 1
+						Ycenter is always param 2
+						Xradius is always param 3
+			CIRPAR_YRADIUS	0x0001	Yradius will be param 4
+			CIRPAR_ELIPROT	0x0002	Ellipse rotation is param 5
+			CIRPAR_STARTANG 0x0004	Starting angle is param 6
+			CIRPAR_ENDANG	0x0008	Ending angle is param 7
+
+		ULONG		number of circle parameter sets
+		PORTFLOAT	from 3 to 7 (above) parameter pieces
+
+	TEXT				Stroke font text definition
+
+		ULONG		text flags
+			TEXT_XFLIP	0x0001	Flip x coordinate
+			TEXT_YFLIP	0x0002	Flip y coordinate
+		PORTFLOAT	x,y	Left lower corner of text box baseline
+		PORTFLOAT	width,height	Height and width of text box
+		USHORT		lentext
+		char		text to go in the box
+		
+	GPID				Group Definition
+
+		ULONG		group id
+		USHORT		group name length
+		char		text of group name
+
+
+
+	FORM 2DVI				2D graphics view
+		(c)				copyright of file
+		LIMS				limits of file
+		UNIT				graphic units
+		LYER				layer defintions
+		LBRY				library entry definitions
+		FORM GRUP			group form
+			GPID			group name
+			SLAY			set layer id
+			CLIB			set library settings
+			VECT			set of line vectors
+			CIRC			set of circles/ellipses
+			TEXT			text box
+			ELIB			embed a library image
+
+
+	typedef	struct	_portfloat {
+		WORD	exponent;	/* 2^exponent multiplier */
+		LONG	mantissa;	/* 32 bits of mantissa (fraction);
+	} PORTFLOAT;
+

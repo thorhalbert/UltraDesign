@@ -1,0 +1,5 @@
+Roy!  This is a fixed cadverter, the one in the other file has a screwed up
+autoconfigure for PAL....  That all needs to be tested on a real PAL machine,
+but they look ok in normal NTSC mode.
+
+---Scott

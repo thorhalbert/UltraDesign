@@ -1,0 +1,40 @@
+/* UltraDesign array copy in ARexx */
+
+options
+
+'$$INTERN_UNIT = 0'
+
+options prompt "   Enter columns (X)? "
+parse pull xnum
+
+options prompt "Enter column spacing? "
+parse pull xspace
+
+options prompt "      Enter rows (Y)? "
+parse pull ynum
+
+options prompt "  Enter rows spacing? "
+parse pull yspace
+
+options results
+
+say "Click on the left lower corner"
+
+'RESULT @'
+parse var result type xm ',' ym
+
+options
+
+'CLIP/CLONE/FROM=' xm ',' ym
+
+xl = xm
+do x = 1 to xnum
+	yl = ym
+	do y = 1 to ynum
+	
+		'CLIP/CLONE/TO=' xl ',' yl
+		
+		yl = yl + yspace
+	end
+	xl = xl + xspace
+end

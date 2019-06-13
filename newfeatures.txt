@@ -1,0 +1,35 @@
+Features for V2
+
+	Recode Pointer Interface
+	
+		Remove as much FP code as possible
+		Add code for various styles of input devices
+		Coord and snap lookup tables
+		Cvt tight code to assembler
+
+	Downconvert Fonts
+	
+		Setup font caching memory structure
+		Setup downconvert code - preferably multitasking
+		Setup garbage collector - preferably multitasking
+		
+	Recode renderer
+	
+		Recode all line code in assembler
+			Avoid amiga calls if poss
+		Tight loops in assembler
+		
+	Block Code
+	
+		Hatching Shortcuts
+		Possible Recursion?
+		Hatch Via Block
+		X & Y Stretching now possible
+		
+	Spline Code
+	
+	2DOF IFF File
+	
+		Generic Parameter Sections
+		Packed Line Chunk
+

@@ -1,0 +1,40 @@
+Introcad to UltraDesign file conversion
+
+	o Introcad files can usually store vectors more efficiently than a
+	  UltraDesign file (since that is all that it uses) so UltraDesign
+	  files are about twice as big.
+	  
+	o CADverter brings over the layer information, the linestyle 
+	  information and the color information.  The bit patterns are
+	  properly reproduced.  Layers are created for each layer, and
+	  a pen is created for each color, linestyle combination. 
+	  
+	o Thick lines are not directly supported, but are noted in the
+	  pen style name.
+	  
+	o The original color number becomes the pen order number for 
+	  pasteup.
+	  
+	o IntroCAD colors 0-3 are mapped to UD colors 0-3.  4-13 are mapped
+	  to colors 6-15 and colors 14-15 are duplicated to 6-7.
+	  
+	o A file CADverter.rgb is read automatically to get the colormap.
+	  This is in IntroCAD rgb format.  If this file is not present, 
+	  introcad.rgb is searched for.  If this does not exist a default
+	  table is used.
+	  
+	o Most IntroCAD configurations use a black on white display. 
+	  UltraDesign usually uses a white on black display.  This can cause
+	  problems with color selection and conversion.  This might need
+	  to be hand tuned.  The user can doctor the cadverter.rgb file
+	  so that this is automatic.
+
+	o IntroCAD drawings are placed in inches and margins are selected
+	  5% over the original drawing extents.  The origin is still at 0,0.
+	  Grids are turned off, and the snaps are set to .1"
+	 
+	o IntroCAD stores text and circles as a series of lines, so they do
+	  not become discrete text or ellipse objects in UltraDesign.  They
+	  must be edited as little lines.  It is possible to add new ellipse
+	  or text items to an IntroCAD file once it has been converted.
+

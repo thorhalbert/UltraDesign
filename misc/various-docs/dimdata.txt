@@ -1,0 +1,20 @@
+	Witness Pen		Use Current
+	Witness Layer		Use Current
+	Witness Group		Use Current
+
+	Dim Line Pen		Use Current
+	Dim Line Layer		Use Current
+	Dim Line Group		Use Current
+
+	Dim Box Pen		Use Current
+	Dim Box Layer		Use Current
+	Dim Box Group		Use Current
+	Dim Box Style		Use Current
+
+	Witness Offset from Pick
+	Witness Overshoot
+
+	Dim Line Offset
+
+	Box Rotation Angle or Moving Angle
+	Angle From-To Reversal Range

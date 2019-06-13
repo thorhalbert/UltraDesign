@@ -1,0 +1,17 @@
+1) Make all keys operational in Ultradesign.menus
+   ---Andy has looked at this and has a new menu file
+   
+2) Repair Radians --- Done
+3) Scroller Problems --- Testing, this will not fail for me on the 2500
+4) VIEW=DRAWING --- This works for me, I will check
+5) Launch and take do not open a window --- Window automatically created
+   and eliminated after command finishes
+6) Reference in hatch window --- Done
+7) Singularity checker --- In progress
+8) Stored Points --- Not done yet, but small problem
+9) CADVerter.rgb now affects all register --- Done, Remember to put
+   this file on the distribution disk (cadverter disk);
+10) Crash when using a library when no defaults --- Fixed
+11) ULtradesign.menus, and ultradesign.config, give a message when
+    they are not present.
+ 

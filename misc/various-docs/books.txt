@@ -1,0 +1,3 @@
+Foley, James D. and Van Dam, Andries.  Fundamentals of Interactive Computer
+Graphics.  Addison-Wesley, Reading, Massachusetts, 1982.
+

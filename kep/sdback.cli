@@ -1,0 +1,33 @@
+format drive df0: name "Ucad_1"
+failat 25
+wait 5
+makedir ram:backtemp
+makedir ram:backtemp/ucadsrc
+makedir ram:backtemp/ucaddefs
+makedir ram:backtemp/pusrc
+makedir ram:backtemp/pudefs
+makedir ram:backtemp/pdrsrc
+makedir ram:backtemp/setups
+makedir ram:backtemp/converters
+makedir ram:backtemp/templates
+failat 10
+copy ucadsrc/#?.c ram:backtemp/ucadsrc
+copy ucadsrc/#?.menu ram:backtemp/ucadsrc
+copy ucadsrc/makefile ram:backtemp/ucadsrc
+copy ucaddefs ram:backtemp/ucaddefs
+copy pusrc/#?.c ram:backtemp/pusrc
+copy pusrc/#?.menu ram:backtemp/pusrc
+copy pusrc/makefile ram:backtemp/pusrc
+copy pudefs ram:backtemp/pudefs
+copy pdrsrc/#?.c ram:backtemp/pdrsrc
+copy pdrsrc/#?.asm ram:backtemp/pdrsrc
+copy pdrsrc/makefile ram:backtemp/pdrsrc
+copy converters/#?.c ram:backtemp/converters
+copy converters/makefile ram:backtemp/converters
+copy templates ram:backtemp/templates
+copy makefile ram:backtemp/setups
+copy #?.config ram:backtemp/setups
+copy #?.info ram:backtemp/setups
+copy dh0:usr/amiga/utilities/sdbackup Ucad_1:
+copy dh0:usr/amiga/utilities/sdbackup.doc Ucad_1:
+sdbackup ram:backtemp Ucad_1:

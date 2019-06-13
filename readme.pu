@@ -1,0 +1,6 @@
+The PasteUp bug was:
+
+Whenever an Ellipse (unhatched) appears after in the display list immediately
+after an object hatched with lines, it will be hatched too in the same pattern.
+1-Jul-90/SH
+

@@ -1,0 +1,218 @@
+UltraCAD - An extremely user-friendly, personalizable, professional 
+computer aided design package for the Amiga.  It combines a high-powered 
+drawing utility with great simplicity of operation.  A computer neophyte can 
+learn its basic operations in a few minutes and can be producing high 
+quality drawings within an afternoon, yet UltraCAD also has many sophisticated 
+features typically available only in expensive CAD programs which will appeal 
+to the advanced user.  This, combined with an attractive format, unlocks
+the full creative power of the Amiga and the mind that wields that it...
+
+Hardware Requirements:
+
+	An Amiga 500, 1000 or 2000
+	1 Megabyte of RAM (total CHIP+FAST)
+	1 Floppy Drive (2 drives recommended)
+
+	Supports expansion memory (extra memory is recommended 
+	for very large drawings).
+
+	Can be loaded onto any hard drive.
+
+	Not Copy Protected
+	Not Dongle Protected
+
+Capabilities:
+
+	Full Object Oriented Drawing Editor
+
+	Real World Coordinate System (English, Metric) and 
+		automatic unit conversion (Linear, and Angular)
+
+	Line drawing mode, with axis lock, box drawing, and
+		arrowhead generation
+
+	Ellipse drawing mode, arc generation, and rotation
+
+	Text Mode, with multiple fonts, including high resolution
+		multiple stroke fonts.  Various text handles
+		and flip settings
+
+	Full Automatic Dimensioning Mode, with many customizable
+		parameters
+
+	Completely configurable cursor snap.  X and Y steps and offsets can
+	be set separately.
+
+	Full display grid.  Can be set independently of the cursor snap.
+
+	Items can be inserted from user definable symbol libraries.  Items
+	can be scaled or flipped at insertion time.
+	
+Attributes:
+
+	Drawing objects can be colored on the screen either by their
+	Layer color, Group Color, or Pen Color.
+
+	The number of attributes which can be created is limited only
+	by memory.  All attributes can be given names of up to 30
+	characters in length which are sorted alphabetically.
+	Attributes can also be given an optional comment of up to
+	80 characters which aids the the organization of drawings.
+
+	All attributes except lettering styles specify a drawing color
+	selected from a fully adjustable palette colors.
+
+	Drawings can be organized in discrete layers.  Layers can
+	be turned off, or ghosted.  Layers can also be supressed on
+	the hardcopy.
+
+	Drawings can also be organized heirarchically with the group facility.
+	Groups are typically used to estabilish the directory structure of 
+	user symbol libraries, but can be used for any user organizational
+	scheme.  The group attribute can be used to organize bill of materials
+	type data and exploded parts list data.
+
+	Objects in the drawing can also be organized by pen style.  Pens
+	designate line drawing patterns and configure the physical drawing
+	pens for hardcopy plotters.
+
+	There is a last attribute which is used to organize text objects
+	called the Lettering Style.  This allows the specification of the
+	font and various parameters such as the height, slant and aspect.
+
+	All object have their own Layer, Group, and Pen Attributes (text objects
+	also have the Lettering Style), so drawings can be organized in
+	diverse ways which enhance the users ability to manage large
+	projects.
+
+Editing/Manipulation:
+
+	There are two main tools for editing drawings: the selector, and
+	the clipboard.
+
+	The selector allows to pick objects from the screen, delete them,
+	or place them in the clipboard.
+
+	The clipboard is a mechanism for manipulating large numbers of
+	objects as a unit.  Objects enter the clipboard through the
+	selector or by being boxed on the screen.
+
+	The clipboard can be used to move, copy, rotate, mass delete, 
+	scale, and flip large sections of the drawing.   The clipboard
+	also provides a quick method for mass changing object attributes.
+
+	Objects in clipboards can be saved to disk separately from the
+	rest of the drawing.
+
+	This facility provides one of the most diverse and powerful object
+	editing systems found on any CAD systems available anywhere.
+
+Other useful editing features:
+
+	The drawing origins can be temporarily placed to aid in drawing
+	measurment, or can be permanently reset to a new location.
+
+	The Hook/Unhook tool provides rubber-banding capability for lines.
+	Hook stretches a line, and Unhook will remove intermediate points
+	from a line sequence.
+
+	Scan scope allows the selector to only operate on certain
+	layer, group, style, pen combinations which aids in large scale
+	manipulations.
+
+	The view window of UltraCAD can be zoomed in or out to any degree.
+	View window configurations can be saved and recalled.
+
+	Razor mode allows lines to be broken into separate objects.
+
+	The cursor can be made to snap to existing objects on the screen for
+	precise drawing alignment.   Snaps can be done to line/arc
+	midpoint, line/arc endpoint, line perpendicular, and ellipse/arc
+	center.
+	
+Symbol Libraries:
+
+	Symbol libraries can be generated by the user with UltraCAD.  These
+	symbols can be made as complex as desired.  Symbols are organized
+	heirarchically (files within drawers within drawers...) to provide
+	any level of flexibility which is required.
+
+Workspace Management:
+
+	Views (drawing files) can be loaded or saved to disk via standard
+	Amiga file requesters.
+
+	Symbol Libraries can be loaded, edited and saved with UltraCAD in 
+	the same way that view files are composed.
+
+	Views can be merged into the current drawing.
+
+User Configurable Features:
+
+	The Margins requester allows the user to select parameters to
+	define the current drawing view boundaries and defaults such
+	as the measurement tolerances and the arrowhead configuration.
+
+	The Automatic Dimensioning feature has several customizable 
+	parameters which can be tailored to the drafting styles and
+	specifications of the draftsman.
+
+	Several options are available for the coordinate units of the
+	drawing.  The unit style for anglular measurements is also
+	settable.
+
+	The Amiga color palette can be adjusted to any legal Amiga
+	color configuration. 
+	
+	Several switches can be set to turn options on or off.  These
+	include display of ellipse centers, grid on/off, snaps on/off,
+	boundary lock on/off.
+
+	Most user specified defaults, options and parameters are saved 
+	to disk with the drawing and reloaded with the file.
+
+PasteUp Facillity:
+
+	Renders UltraCAD view files into final hardcopy output.
+
+	Views can be combined in any scale or orientation on the
+	virtual drawing sheet.
+
+	The virtual drawing sheet can be a single plotter or printer
+	sheet or can be arranged as a poster (multiple X and Y sheets).
+
+	Support for the following plotter languages:
+		HP/GL
+		Roland DMP
+		Houston DM/PL
+
+	PasteUp supports multiple physical pens in the plotter and will
+	also use automatic carousels if they are present.
+
+	Support for most dot matrix printers with the preferences drivers
+	on the Amiga.  UltraCAD's PasteUp uses the AmigaDOS V1.3 drivers
+	which allow the use of the maximum resolution of the printer
+	(the old preferences drivers had rather poor resolution) to provide
+	very high quality printed plots.
+
+	Plot configuration can be saved to disk and reused.
+
+Planned Near Term Future Extensions:
+
+	A number of symbol libraries for electronics, architecturual,
+	landscaping, interior decorating, process control, flowcharting,
+	or anything else we can think of...
+
+	A large selection of standard fonts.
+
+	A font editor attachment for UltraCAD.
+
+	A tool for reading and writing AUTOCAD  .DXF interchange files
+	which also allows support for VERSACAD and DESIGNCAD on the IBM PC.
+
+	Tool for inporting drawings from AEGIS-DRAW (TM), INTRO-CAD, and
+	possibly from X-CAD.
+
+	Hatching and Fill Patterns.
+
+	PostScript laser printer driver for PasteUp.

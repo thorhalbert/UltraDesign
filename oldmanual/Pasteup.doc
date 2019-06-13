@@ -1,0 +1,85 @@
+.lm=10
+.rm=70
+
+
+Pasteup:
+
+   Introduction.
+
+     Pasteup is the output to hardcopy section of UltraDesign. It is a rather Powerful Subpackage and has quite a few features and capabilities of its own. So a little time spent going over this chapter to familiarize yourself with it will be time well spent.
+
+General Discription;
+
+ The Virtual Page.
+
+     Pasteup uses a concept which allows the user to not only determine how the final product will look, but „h„o„w„ „b„i„g„ the page will be. We call this T„h„e„ „V„i„r„t„u„a„l„ „P„a„g„e„.„ Essentially, the virtual page is the purple area on the Pasteup screen described by the page size defaults contained in the Driver Pesets. The page size can be modified, either by changing the defaults in Change setup or by using the P„o„s„t„e„r„m„o„d„e„ string gadgets.
+
+ Icons.
+
+   The Pasteup Icon.
+
+     Entry into Pasteup is gained from the boot disk window by clicking on the Icon of the printed page next to the UltraDesign icon. This brings up the program without the drivers and setups loaded. It is used when you are just beginning and setting up your driver and data file configurations.
+
+   The Pasteup Data Files Icon.
+
+     This is the Icon that represents the printed page being assembled. It can also be found in the boot disk window. This icon will be assigned to e„a„c„h„ „pasteup configuration that you save out to disk.
+
+   Screen Icons.
+
+     When the pasteup window comes up, please take note of the icons in the lower right corner of the screen. These are the M„o„u„s„e„ „I„n„t„e„r„f„a„c„e„ „V„i„e„w„ „p„o„s„i„t„i„o„n„i„n„g„ „i„c„o„n„s„.„ On the left of the screen you will find the K„e„y„b„o„a„r„d„ „I„n„t„e„r„f„a„c„e„ and „P„o„s„t„e„r„m„o„d„e„ data entry gadgets. First, the mouse icons. The box with the arrows going in         all directions from the center is a nine part icon for absolute positioning on the virtual page.( more on this later) Each part of the box represents a position to which your current view will be placed when clicked. ( when a view is first brought up in pasteup it defaults to the lower left corner of the screen. If you have a very tiny drawing in relation to the page, you may find that there is just the hint of a strobing green dot there and you will need to scale the drawing up.)
+
+     Immediately to the left of these icons you will see five more icons. Three on top and two on the bottom. (These are, from right to left top to bottom ) „ „V„i„e„w„ „r„o„t„a„t„e„,„ „A„u„t„o„s„c„a„l„e„,„ „R„e„l„a„t„i„v„e„ „p„o„s„i„t„i„o„n„ „h„a„n„d„l„e„,„ „S„h„e„e„t„ „l„o„c„k„ and  the „R„o„t„a„t„e„ „9„0„ „d„e„g„r„e„e„s„ „i„c„o„n„. A word about each of these in their turn.
+
+   View Rotate.
+
+     This allow you to rotate the chosen view in any direction about the axis of the crosshairs. Simply click with the left button on this icon, move your cursor to the virtual page and rotate until the up arrow on the view is pointed in the desired orientation and then affix the placement with a second click of the left button.
+
+   Autoscale.
+
+     This feature is provided for quick and easy relative  scaling of the current view. It operates in the same fashion as View rotate.i.e. one mouse click to activate and a second to complete the operation. When activated, the current view will turn colors from green to white and when completed will return to      the strobing green image.
+
+   View Relative Position Handle.
+
+     When activated this feature permits you to move the current view around the virtual page and position it anywhere you desire. It operates in the same fashion as above and is particularly useful when there is more than one view to be positioned on the same page.
+
+   Rotate 90 Degrees.
+
+     Just like it says... rotate the current view by 90 degrees.
+
+   Sheet Lock.
+
+       
+   Up/Down/Delete Icons.
+
+     A little to the left of the other icons you will find three small icons. An „u„p„ arrow, a d„o„w„n„ arrow and a „D„e„l„ icon. these are for when there is more than one view pasted up on the same page. The arrows will allow the user to cycle through the views in order to make any last minute modifications that may be needed before printing. The Del icon will delete the current view after a "are you sure?" type of message pops out.
+
+ Keyboard Data Entry Gadgets.
+
+     For more precise placing of views, pasteup provides a number of string gadgets in order to give the user exact control over the appearance of the final output. „T„h„e„s„e„ „a„r„e„;„ „R„o„t„a„t„i„o„n„,„ „S„c„a„l„e„,„ „X„ „o„r„i„g„i„n„ „a„n„d„ „Y„ „o„r„i„g„i„n„.„ To use, click on the box with the mouse cursor and enter the numbers needed. Hit return when finished.
+
+   Plot File.
+
+      This tells you what type of output device you are using. Weather serial or parallel or whatever .
+
+   View Name.
+
+ „ „ „ „ Shows the name of the c„u„r„r„e„n„t„l„y„ selected view.
+
+   Poster X/Y.
+
+     This is the data entry point for postermode. it tells the output device to break up the information into as many pages as are defined in the gadgets i.e. 2X and 3Y would indicate a output that is two pages long and three pages wide. the final page being defined in your page setup (AA,A,B,C,D,F,) This allows the user to put together a drawing that may be many times larger than the paper size the printer is able to handle.
+
+ Menus.
+
+   Plotter.
+
+     This is the first menu on the pasteup menu bar. it contains all of the functions needed in order to configure pasteup to your particular output device or devices. Including the ability to save out any combination of paper size, plotter type, setup defaul„t„s ect. The plotter menu contains five operations, L„o„a„d„ „s„e„t„u„p„,„ „S„a„v„e„ „s„e„t„u„p„ „a„s„.„.„.„,„ „C„h„a„n„g„e„ „S„e„t„u„p„,„ „L„o„a„d„ „D„r„i„v„e„r„ „a„n„d„ „Q„u„i„t„. To use, go into Load driver and choose the driver (hopefully it will be one of those provided) that your printer speaks. All the requesters in Pasteup with the exception of Change Setup are handled in the same way. Use the mouse to click on the desired item in the scroller and it will appear in the selection entry box at the bottom. hit return or "load" with the mouse and it will be loaded. Next, go into change setup and click on the S„e„l„e„c„t„ „D„r„i„v„e„r„ „P„r„e„s„e„t„s„ entry. this will load in the canned step size, origin and paper sizes for your machine. If these are not what your device uses, click on the appropriate box with the mouse and enter the new information. You will find several boxes to the right of the string gadgets that say „"„s„a„v„e„/„d„o„n„'„t„ „s„a„v„e„"„ "„l„o„a„d„/„d„o„n„'„t„ „l„o„a„d„"„. These buttons are for saving out the configuration that you have put together. Set them according to your needs and then save out your config. to the Save Setup As... requester. When you need that particular setup again refer to the  setup name you gave it.
+
+   View Pasteup.
+
+    The actual business of putting together „your pages and load/saving their configurations is done in „V„i„e„w„ „P„a„s„t„e„u„p„.„ The menu consists of three entrys; „P„a„s„t„e„ „N„e„w„ „V„i„e„w„,„ „L„o„a„d„ „P„a„s„t„e„u„p„,„ „S„a„v„e„ „P„a„s„t„e„u„p„.„ Paste New View is for bringing up drawings to go on to the Virtual page. Load/Save Pasteup is for bringing up or saving out  already configured pasteup data files. These files retain all of the pertinent information in regards to the placement, scale, rotation, ect. As well as the total information contained in „e„a„c„h„ „view that is pasted up on that particular page. Use of Paste New View and the icons at the bottom of the screen is where  the actual composition of your finished drawings will take place. The purple rectangle that is shown in the center of the screen is your V„i„r„t„u„a„l„ „P„a„g„e„. This is where you will be placing your views. Use the Paste New View to bring up the drawing that you wish, and use any of the positioning features to place it where you want it. If you have any more drawings to add to the  pasteup, repeat this step. When complete, the entire arrangement can be saved out to disk by using the Save Pasteup as... section of this menu. Included in the save routine will be the assignment of a P„a„s„t„e„u„p„ „D„a„t„a„ „F„i„l„e„ „I„c„o„n„ with the file name attached to it so that when you want to bring up that file all you need to do is go into your disk window and click on the appropriate icon. this will bring up pasteup plus all of the views that entail your composition.
+
+   Plot.
+
+     P„l„o„t„ has only two entrys. P„l„o„t„ „O„u„t„ „and P„r„e„v„i„e„w„.„ Plot Out is just like it sounds, this is the command that starts the output. In the case of a plotter, there will be a pop out requester which will ask you to mount pens or carousels. Perform the operation and either use the mouse or hit return to proceed. Preview will paint a low res version of what your page will look like when done. This is to give you the option of changing something in order to improve the final appearance of the page.
+ 

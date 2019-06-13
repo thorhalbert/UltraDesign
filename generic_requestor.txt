@@ -1,0 +1,69 @@
+CLASS name {
+	
+	COLOR	background;
+
+	COLOCATED name {
+	}
+			
+	HORIZONTAL name {
+	
+		COLOR	box-background;
+	
+		GADGET gadget_id {
+			BUTTON {
+				ICON	iconname;
+				TEXT	"text string";
+				STORE	variable;
+				MASK	vmask;
+				INVERT;
+				EXCLUDE	class/gadget,
+					class/gadget;
+			}
+			JUSTIFY	CENTER|RIGHT|LEFT, UP|DOWN|CENTER;
+			SERVICE	subroutine_name;
+			VALID	subroutine_name;
+			LABEL	"Label:";
+			ENABLED; DISABLED;
+		}
+	}
+	
+	VERTICAL name {
+
+		TITLE	"Text",color;
+		IMAGE	imagename;
+			
+		GADGET gadget_id {
+			STRING	{
+				STORE	variable_name,len;
+				VISIBLE	chars;
+				JUSTIFY	CENTER|RIGHT|LEFT;
+			}
+		}
+		
+		NOMARGINS;
+		
+		GADGET gadget_id {
+			PROPORTIONAL {
+				HORIZONTAL	position,size;
+				VERTICAL	position,size;
+				KNOB		imagename;
+			}
+		}
+	}
+}
+
+
+-----------------------------------------------------------------
+
+	GW_DisconnectGadgets(class,window);
+	GW_ConnectGadgets(class,window);
+	
+	overloaded GW_GetGadgetValue(gadget_id);
+	
+		value = gadget_id;
+
+	GW_SetGadgetValue(gadget_id,(overloaded) value);
+
+		gadget_id = value;
+	
+	GW_QSetGadgetValue(gadget_id,(overloaded) value);

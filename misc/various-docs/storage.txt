@@ -1,0 +1,31 @@
+Determine how storage structures will look, either on screen, or disk:
+
+	LINE_ELEMENT
+	ELLIPSE_ELEMENT
+	TEXT_ELEMENT
+	ENTITY_ELEMENT
+	HATCH_ELEMENT
+
+
+struct BoundsBox {
+	CADFLT	boxX,boxY,boxXS,boxYS;
+}
+
+struct DrawingElement {
+
+	UWORD	DE_storsize;	/* Number of bytes for whole thing
+				   including this word */
+	UWORD	DE_drawtype;	/* The type of this drawing */
+
+	struct DrawingView  *DE_view;
+	struct DrawingLayer *DE_layer;
+
+	struct BoundsBox DE_bounds;
+
+	BOOL	DE_onscreen;	/* Is the piece onscreen */
+	BOOL	DE_selected;	/* Is piece selected for group or editing */
+
+	struct DrawingElement *DE_prev,*DE_post; /* Before and after point */
+
+}
+

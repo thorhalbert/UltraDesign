@@ -1,0 +1,31 @@
+V0.6
+
+	Make the version number more reasonable.
+
+	defsreq.c - add the definitions requester so we can edit our
+	non-friendly numbers in peace.  Options for optionally saving
+	different parts of the definitions.
+	
+	drivreq.c - totally change display.  Split definitions out to 
+	defsreq.
+
+	filesaves.c - create definition and pasteup save and restore.
+	Implement startup relative '$' notation in file names.  Add
+	Icons to pasteup files.
+
+	pasteup.c - add automatic startup capability.
+	
+	startdefs.c - set autostartup - reads Ultradesign.config file.
+	
+	renderers.c - fix poster mode.  It just kept repeating first
+	page.
+
+	dmpl.c - Create, add IOLINE presets
+
+	preferences.c - Make band mode work, make work with fast memory
+
+	renderers.c - modifications for band printing
+
+	Convert to Aztec
+
+V0.3

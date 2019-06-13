@@ -1,0 +1,53 @@
+Some Discussion of some normal PostScript routines to implement ucad output
+PenStyles Setup
+
+/PS_ID {
+	<wid> setlinewidth		% Line width is <wid>
+	[<on> <off> <on> <off> ...] 0 setdash	% Define pattern
+	<type> setlinecap		% 0=Butt,1=Round,2=Projecting
+	<type> setlinejoin		% 0=Miter,1=Round,2=Bevel
+	<limit> miterlimit		% max miter size
+
+	<red> <green> <blue> setrgbcolor	or
+	<hue> <sat> <brt> sethsbcolor		or
+	<gray> setgray					% 0 to 1, 0 black
+
+} bind def
+	
+Ellipse Draw
+
+	gsave
+	<cx> <cy> translate		% Move to the center in question
+	<radx>/rootxunit <rady>/rootyunit scale		% Skew box
+	<rot> rotate			% Rotate the box
+	0 0 1 <bega> <enda> arc		% Draw the arc
+	grestore
+
+Text Shorthand
+
+TF_F_CI {		% F=short font id, CI=short char id
+	newpath
+	x y moveto x y lineto x y lineto x y lineto x y lineto
+	.....
+	stroke
+	newpath
+	x y moveto x y lineto x y lineto x y lineto x y lineto
+	.....
+	stroke
+} bind def		% define the stroke info
+
+use:
+	gsave
+	<begx> <begy> translate		% Beginning of each char
+	<rot> rotate			% Character rotation
+	TF_F_C1				% Draw 1st char
+	TF_F_C2				% Draw 2nd char
+	...
+	grestore
+
+Other Suggestions:
+
+	Arrowhead function
+	Named Postscript file include for non-ucad postscript
+		files to be inserted, for letterhead, or custom
+		graphics

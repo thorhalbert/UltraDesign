@@ -1,0 +1,75 @@
+	X1	Y1
+	X2	Y2
+	
+	[]	[]		From Arrow-To Arrow
+	
+	Layer
+	Pen
+	Group
+	
+-----------------------------------------------------------------------------
+
+	Center X	Y
+	
+	Radius X	Y
+	
+	Start Angle	End
+	
+	Rotation
+	
+	Layer
+	Pen
+	Group
+	
+---------------------------------------------------------------------------
+
+	Handle X	Y
+	
+	Angle
+	
+	Text
+	
+	[]	[]	[]	Left-Center-Right
+	
+	[]	[]	[]	Flip-Flags
+
+	Text Style
+	
+	Layer
+	Pen
+	Group
+
+--------------------------------------------------------------------------
+
+	Filled
+	
+	.. or ..
+	
+	Hatched File/Pattern
+	
+		Scale
+	
+		Rotation
+
+	Layer
+	Pen
+	Group
+
+
+-----------------------------------------------------------------------
+
+	Lines	Ellipses   Text	  Hatch
+
+
+
+
+
+
+
+
+
+
+
+
+
+       Next  Prev  Change  Create  Cancel

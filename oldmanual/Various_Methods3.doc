@@ -1,0 +1,48 @@
+.lm=10
+.rm=75
+Various Methods 3 
+
+Hatching: Solid fill.
+
+Creating solid fill patterns in UDesign can be approached in several ways. There is however in this version, two small constraints in terms of how the drawing will appear when it is  output to a plotter. The first of these  is this: D„o„ „n„o„t„ „c„o„n„s„t„r„u„c„t„ „a„ „d„r„a„w„i„n„g„ „w„i„t„h„ „h„a„t„c„h„i„n„g„ „o„n„ „t„o„p„ „o„f„ „h„a„t„c„h„i„n„g„ „i„f„ „y„o„u„ „i„n„t„e„n„d„ „t„o„ „p„l„o„t„ „i„t„ „o„u„t„.„ The reason for this is that „the program will not differentiate between one fill and the next and the plotter will simply overwrite the previous fill. The second is: „T„h„e„ „f„i„l„l„ „r„o„u„t„i„n„e„ „r„e„q„u„i„r„e„s„ „A„L„L„ „h„a„t„c„h„i„n„g„ „t„o„ „h„a„v„e„ „i„t„'„s„ „O„W„N„ „b„o„u„n„d„a„r„i„e„s„.„ That is, it is not possible to use a common line to fill two related polygons.
+
+Now, having said that. This is how to get around them.
+
+1) Construct your drawings with your drawing objects on a separate layer than your fill objects.
+
+2) Set the N„o„ „P„l„o„t„ „flag on those fill layers that would be overwritten or just turn them all off.
+
+If this is not desirable, then try this (which  incidentally, will also take care of the second constraint also.)
+
+1) Set up your drawing objects on a different layer than your fill objects.
+
+2) When drawing, make sure that the areas that would be overwritten are razored out (or not drawn in) and the resulting open  polygons are closed  with their o„w„n„ „drawing objects.
+
+R„e„m„e„m„b„e„r„:„ All fills or hatching MUST have discrete boundaries.
+
+Saving time and/or retrofitting files in hatch mode:
+
+T„h„e„ „S…c…a…n… …i…n… …C…l…i…p…b…o…a…r…d… …/… …S…o…r…t… …procedure:
+
+1) Go into s„c„a„n„ „s„c„o„p„e„ and set the s„c„a„n„ „i„n„ „c„l„i„p„ flag.
+
+2) Add all all the drawing objects that you wish to fill with this particular hatch into the clipboard.
+
+3) Go into the C„l„i„p„b„o„a„r„d„ „menu and highlight the  C„l„i„p„=„ „C„l„o„s„e„d„ „s„t„r„i„n„g„ „or the C„l„i„p„ „=„ „O„p„e„n„ „s„t„r„i„n„g„ „ functions.) This will cause all of the drawing objects in the clipboard to be sorted and placed in sequential order, which is a prerequsite for hatching or filling anything.
+
+4) Hatch and render each polygon separately.
+ 
+5) Clear Clipboard.
+
+An easier way to do it would be to set up the drawings and hatch as you go this will eliminate the long and tedious computations of the  „C„l„i„p„=„ functions.
+
+
+Patterned Hatching:
+
+     Patterned hatching is similer to solid fill in operation but  not in appearance. it's primary role is to produce T„e„x„t„u„r„e„s„ in a given drawing. These textures are used to represent certian types  of materials, products, terrain, or merely to create a visual distinction between one area and another. UltraDesign comes with a number of hatching patterns. Also, the C„a„d„v„e„r„t„e„r„ utility of UltraDesign will enable you to import or  produce your own patterns and save them out as a  Hatch file.
+
+Using Patterned Hatching.
+
+   Icons.
+
+     There are four icons on the hatching screen. S„e„l„e„c„t„ „B„o„u„n„d„r„i„e„s„,„ „S„o„l„i„d„ „F„i„l„l„/„P„a„t„t„e„r„n„e„d„ „H„a„t„c„h„i„n„g„,„ „D„e„f„a„u„l„t„s„ „and „R„e„n„d„e„r„.„ „In  „ „ „     order to use a hatch pattern it is nessescary to click on the second icon. When this is done, it will change from a solid polygon (default) to a banded one. Next click on the Def icon once, this brings up the H„a„t„c„h„ „S„t„a„t„u„s„ „R„e„q„u„e„s„t„e„r„.„ „ This requester is where you configure the s„c„a„l„e„,„r„o„t„a„t„i„o„n„ and t„y„p„e„ of pattern you   „wish to use. Before you can get to this step however, you must load in a hatch file and then a specific hatch pattern. Click on the button that reads "L„o„a„d„ „i„n„ „a„ „H„a„t„c„h„ „p„a„t„t„e„r„n„"„ a requester will pop out that will display the available default hatch files that Udesign comes with. select one of these just as you would a view file and it will be loaded for use. To select a pattern, click on the H„a„t„c„h„ „N„a„m„e„ button and a third requester will pop out. This is the H„a„t„c„h„ „P„a„t„t„e„r„n„ „requester. Click on the pattern you wish and the name will appear in the hatch name button. Now you are ready to set scale and rotation. These are standard string gadgets, merely click in the box and enter the appropiate information. A little experimentation will give you a good idea of the relative scales and rotations that you will find most useful.

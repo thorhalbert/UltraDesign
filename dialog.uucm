@@ -1,0 +1,28 @@
+! Dialog command file to produce small drawing
+
+! Setup boundaries and settings in drawing
+$$linear_units=mm
+$$bound_x_min=0.0
+$$bound_x_max=10.0
+$$bound_y_min=0.0
+$$bound_y_max=10.0
+! Setup color map
+set color 6 C00
+set color 7 0C0
+set color 8 00C
+! Create layers
+create layer red/color=6
+create layer green/color=7
+create layer blue/color=8
+! Draw a red box
+set current/layer red
+line 1,1 1,2.5 2.5,2.5 2.5,1 1,1
+! Draw a green box
+set current/layer green
+line 2,2 2,3.5 3.5,3.5 3.5,2 2,2
+! Draw a blue box
+set current/layer blue
+line 3,3 3,4.5 4.5,4.5 4.5,3 3,3
+
+! end of file
+

@@ -1,0 +1,153 @@
+V.28
+	Removed some debugging statements in the Aztec C link and reduced
+	UltraDesign in size by 35K (yeah!!)
+			
+	iffput0.c - the default tool name of a newly created icon is
+	forced to be the name and path of the starting program.  The
+	tool in the template icon is ignored.
+	
+	fancys.c - added "(Initializing Software)" to startup screen.
+	
+	searcher.c - All seek modes can now operate at any level.
+	
+	clonedrag.c - Redid the paint order of cloning so that the 
+	most recently cloned item becomes clipped and the previous
+	becomes clear.  This allows the user to undo a misplaced clone
+	easier.
+	
+	Changed all major requesters to allow cr=accept esc=cancel.
+	
+	virwindow.c - Rewrote the "complain" requester handler so that
+	it uses "BuildSysReq()" instead of "AutoRequest()" so I get complete
+	gadget control.  All requesters appearing in the left top corner
+	of the display now allow (return/enter) affirmation or 
+	escape/delete cancellation.  Added code so that seek modes can
+	operate at any time.
+	
+	scroller.c - Made color box scroll work.  Made scroller actually
+	scroll instead of repainting.  Sped up redisplay and scrolling.
+	
+	dialogue.c - Added neat stuff.  Window pops out when dialog selected
+	on menu.  Has close button to shut down.  Draws lines and ellipses
+	with a CLI style interface.  Hint: when line entry asks for 
+	"Next X,Y:" there are four options:
+	
+		x,y		Absolute coordinate entry
+		Rx,y		Relative entry (last +/- x and y)
+		Pa,d		Enter angle and distance
+		Ta,d		Enter angle relative to last and distance
+		
+		So: to draw a hexagon type:
+		
+			l
+			100,100
+			T60,20
+			T60,20
+			T60,20
+			T60,20
+			T60,20
+			T60,20
+			<cr to finish>
+
+V.27
+	Prettied up various requester borders.
+
+	interrupts.c - mute down the flashing select and clip strobe so
+	it is not quite so obnoxious.
+		
+	newmenus.c - total new menu layout.  Rearrange functions.  Add
+	auto menu configuration stuff.  Add some possible new functions.
+	
+	dispatchtab.c - replace dispatch.c - new menu handling - automatic
+	configuratable menus.  Name driven tables.  Change view memory and
+	point memory so they use left and right amiga keys so keypad is free
+	for definitions.  Add the menus report option.
+
+	stylereq.c, layerreq.c, groupreq.c, penreq.c - Add new pretty
+	icons for CLImate type operation, eliminate old menu entries.
+	
+	startdefs.c - Automatic startup table parser.  Read key definitions
+	and other defaults from ".config" file.
+	
+	ucad1.c - eliminate the parameter from the incoming icons - now
+	use auto startup.  This module now automatically recognizes the
+	origin of the binary at startup time (workbench or CLI) for 
+	auto startup.
+	
+	filereq.c - minor changes to facilitate binary self location.
+
+V.26
+	
+	virwindow.c - you can now hit escape or click right mouse to
+		abort repainting the screen.
+
+	fancystartup.c - made use simplex2 instead of simplex1 - prettier
+
+	stroke_lib - added gobs of fonts (total of 18 now)
+
+	menus.c - modify menus per PP&S recomendations
+
+	dispatch.c - now uses a RAWKEY table instead of just hard-coded
+		key numbers.
+
+	virwindow.c - If you turned off bounds lock and managed to zoom into
+		an area where the main bounded display was not present...
+		attack of the killer blitter!  Ocasionally crashed system,
+		usually got nice fireworks.
+
+	ifflib0.c - drop item created a bad group link list - bad root link
+		and desc_last pointer - caused crash when saving file when
+		drop item was used.
+
+	iffget0.c - Merge created a bogus root link for the group
+		structure - repair - caused crash when merging (under aztec)
+		made incorrect group structure under lattice
+
+V.25
+
+	_main.c - get rid of this - aztec does this for us
+	
+	scroller.c - use repaint instead of updategadget to speed up rendering.
+		now gets a double repaint - need to fix this.
+
+	renderers.c - v_move and v_draw macros need fixes to work with aztec
+
+	zooms.c - use floating point input from mousemove, not int as it
+		is not implemented any more.
+
+	interrupts.c - do SetRGB4 for clip and select and countdown timer
+		for screensaver
+
+	pointers.c - implement timer module - get rid of INTUITICKS - use
+		output of interrupts.c for oscillate and screensaver - this
+		smooths out mouse response and keeps ucad from hogging machine
+		as much
+
+	port all to aztec C
+
+V.24
+
+	_main.c - Set up so there is now no console window with workbench.
+
+	pointers.c - Don't look at MOUSEMOVEs at all any more.
+
+	razor.c - Fix razored line selection.  Fix potential infinite loops.
+
+	renderers.c - Ellipse render painted centers and fast ellipses whether
+		they should be painted or not.
+
+	iffput0.c - The ifferror variable was never reset after an error
+		so errors repeat even if the condition is corrected.
+
+	penreq.c - Display the penord/carrousel/autopen numbers on
+		the scroller requester.
+
+	linemode.c - add AttachLine routine for razor and line hook mod
+		below.
+
+	razor.c - make razor insert new section into linked list next to
+		the razored line.
+
+	searcher.c - make line hook create new line adjacently like razor.
+
+V.23

@@ -1,0 +1,478 @@
+ One of the questions that is often asked about the Amiga is: 
+  
+         HOW DO I USE THE MULTI-TASKING CAPABILITIES? 
+  
+ There are actually two different levels of multi-tasking that are 
+ possible on the Amiga, and which of these that you use depends on 
+ the nature of the subtask you wish to perform. 
+  
+ o       If your code is largely self-contained, and does no I/O and 
+         uses no disk-resident library code, you can probably spawn 
+         a task, as is demonstrated in the task-spawning message. 
+  
+ o       If your code needs to do I/O, (or uses AmigaDOS functions 
+         in ANY way), it will have to be spawned as a process rather 
+         than as a task.  MULTI-PROCESSING is shown here. 
+  
+  
+ WHAT IS COVERED HERE? 
+  
+ There are two programs contained in this message: 
+  
+ o littleproc.c - a demonstration routine that is spawned by 
+  another process.  The normal start-up code with which it 
+  is linked automatically waits for a workbench start-up message 
+  before it gets going.  Using the same message port that was 
+  provided when the process was initiated, it again goes to 
+  sleep waiting for a message that contains specific information... 
+  in this case, the parameters that the master program is using, 
+  namely its stdout and stderr file handles.  Thus, this spawned 
+  process can be made to output to the same window from which 
+  the originating process was begun. 
+  
+ o proctest.c - a demo program that loads and starts littleproc, 
+  and unloads its code and data when it finishes. 
+  
+ A process is a superset of a task, and the various AmigaDOS routines 
+ require that a process control block and its associated information 
+ be available in order to run.  Thus this code is provided to allow 
+ a user who requires a process rather than a task to have an example 
+ on which to build. 
+  
+ The example was tested from the CLI, and compiled under Amiga C,  
+ (Lattice 3.03).   
+  
+ Link information: 
+ ; "process.with" 
+  
+ FROM lib:Astartup.obj process.o 
+ TO process 
+ LIBRARY lib:amiga.lib 
+  
+ ; "littleproc.with" 
+  
+ FROM lib:Astartup.obj littleproc.o 
+ TO littleproc 
+ LIBRARY lib:amiga.lib 
+  
+ DISCLAIMER: 
+  
+         This program is provided as a service to the programmer 
+         community to demonstrate one or more features of the Amiga 
+         personal computer.  These code samples may be freely used 
+         for commercial or noncommercial purposes. 
+  
+         Commodore Electronics, Ltd ("Commodore") makes no 
+         warranties, either expressed or implied, with respect 
+         to the program described herein, its quality, performance, 
+         merchantability, or fitness for any particular purpose. 
+         This program is provided "as is" and the entire risk 
+         as to its quality and performance is with the user. 
+         Should the program prove defective following its 
+         purchase, the user (and not the creator of the program, 
+         Commodore, their distributors or their retailers) 
+         assumes the entire cost of all consequent damages.  In  
+         no event will Commodore be liable for direct, indirect, 
+         incidental or consequential damages resulting from any 
+         defect in the program even if it has been advised of the  
+         possibility of such damages.  Some laws do not allow 
+         the exclusion or limitation of implied warranties or 
+         liabilities for incidental or consequential damages, 
+         so the above limitation or exclusion may not apply. 
+  
+  
+ Program dependencies: 
+  
+   Use c-devel:examples/makesimple on proctest.c and 
+  littleproc.c BUT modify makesimple to use: 
+  
+   Astartup.obj and amiga.lib only instead of 
+   Lstartup.obj and lc.lib+amiga.lib.   
+  
+  AND specify "-v" option (delete stack checking) 
+  for lc2.  This eliminates any need to link with 
+  lc.lib or Lstartup.obj for this particular example. 
+  
+  Note:  I haven't tried to make this compatible with 
+  the Lattice start-up code.... the only point of 
+  incompatibility is my own use of stdout/stderr. 
+  Lattirovide "printf" at link time, 
+  printf internally uses the AmigaDOS version of stdout. 
+  If you link with lc.lib specified first, then it  
+  uses its own interpretation of stdout, so they 
+  will not be compatible with the values received from 
+  the Open() function ("O"pen() is AmigaDOS, "o"pen is Lattice). 
+  
+  Lattice defines stdout/stderr as the address of an i/o block. 
+  If the main process is compiled under Lattice and 
+  the slave process is also compiled under Lattice, 
+  then the values passed for stdout and stderr 
+  will be compatible.  If not, then there is probably 
+  something a person could do to make them compatible. 
+  
+  Perhaps some other person would care to investigate 
+  this and provide a translation method between the 
+  two.  (Its a problem when one tries to mix two 
+  different manufacturer's idea of underlying code 
+  support.) 
+  
+   
+ The purpose of the program is to allow you to see how a slave process 
+ can be initialized and started.  Please ignore the stdout/stderr 
+ difficulties, and utilize whatever methods you wish for I/O. 
+  
+  
+  
+  
+ /* proctest.c *************************************************** */ 
+  
+ /* author:  Rob Peck   3/14/86                 */ 
+ /* system software version: V1.1               */ 
+  
+ #include "exec/types.h" 
+ #include "exec/nodes.h" 
+ #include "exec/lists.h" 
+ #include "exec/libraries.h" 
+ #include "exec/ports.h" 
+ #include "exec/interrupts.h" 
+ #include "exec/io.h" 
+ #include "exec/memory.h" 
+ #include "libraries/dos.h" 
+ #include "libraries/dosextens.h" 
+  
+ #include "workbench/startup.h" 
+  
+ #define PRIORITY 0 
+ #define STACKSIZE 5000 
+  
+ extern struct Message *GetMsg(); 
+ extern int LoadSeg(); 
+ extern struct MsgPort *CreateProc(); 
+  
+ struct MyMess {  
+    struct Message mm_Message; 
+    int     mm_OutPointer; 
+    int     mm_ErrPointer;  
+ }; 
+  
+ extern int stdout; 
+ extern int stderr;  
+  
+ main() 
+ { 
+  struct Message *reply; 
+  struct Process *myprocess; 
+  
+  /* Message that we send to the process to wake it up */ 
+  
+  struct WBStartup *msg;   
+   
+  /* Message to contain my own parameters to pass on to spawned  
+   * process, sample only.  Just to prove that we correctly 
+   * create a process, we are giving it something other than nil:  
+   * as its stdout and stderr... in fact, giving it OUR values  
+   * so we can share the same output window.   
+   */ 
+  struct MyMess *parms;  
+  
+  /* Because main() is itself started as a process, it automatically 
+   * has a message port allocated for itself.  Located at 
+   *  &((struct Process *)FindTask(0))->pr_MsgPort  
+   */ 
+  
+  int littleSeg;  
+  
+  /* Actually littleSeg is a BPTR, but the int declaration 
+   * keeps the compiler happy and we don't use the 
+   * value ourselves anyhow... just pass it on. 
+   */ 
+  
+  char *startname, *parmname; 
+  
+  struct MsgPort *mainmp;   /* pointer to main's msg port */ 
+  struct MsgPort *littleProc; /* pointer to spawned proc's msg port */ 
+  
+ /* Provide names for the messages we are passing so we can check the returned 
+  * messages at the message ports.... that is if we choose to do so. 
+  */ 
+  startname = "startermessage"; 
+  parmname  = "parameterpass"; 
+   
+ /* LOAD THE PROGRAM TO BE STARTED FROM MAIN ****************************** */ 
+  
+  littleSeg = LoadSeg("littleproc"); 
+  if(littleSeg == 0)  
+  { 
+   printf("\nlittleproc not found"); 
+   exit(999); 
+  } 
+  
+ /* CREATE A PROCESS FOR THIS OTHER PROGRAM ******************************* */ 
+  
+  littleProc = CreateProc("littleguy",PRIORITY, littleSeg, STACKSIZE); 
+  if( littleProc == 0 )  
+  { 
+   printf("\Couldn't create the process"); 
+   UnLoadSeg(littleSeg); 
+   exit( 1000 ); 
+  } 
+  
+ /* ********************************************************************** */ 
+ /* Locate the message port that is allocated as part of the process 
+    that started main() in the first place */ 
+  
+  myprocess = (struct Process *)FindTask(0); 
+  
+  mainmp = &myprocess->pr_MsgPort; 
+  
+ /* ********************************************************************** */ 
+ /* THE FOLLOWING CODE BLOCK STARTS THE PROCESS RUNNING,  
+      AS THOUGH CALLED FROM WORKBENCH */ 
+  
+ /*   In fact, because we created the process the way that is shown 
+  here, if you use the standard start-up code, the program must 
+  be started as though called from Workbench.  It is now waiting for 
+  a start-up message.    
+  
+  (There is, in fact, another way to call a loaded program's code, 
+  but it does not entail starting another process.  Rather it 
+  uses a direct call (as a subroutine) to the loaded code.  The 
+  other program runs on your own stack, so your program must 
+  have sufficient stack to handle both of you.  It also runs 
+  under your own process, so your own program does not get 
+  control until that other program has completed.  The program 
+  return()'s or exit()'s to you, providing the appropriate 
+  return code.  This run-loaded-subroutine topic is covered in  
+  a separate code sample.) 
+  
+ ********************************************************************** */ 
+   
+  /* This message block is a wakeup call to the process we created. */ 
+  msg = (struct WBStartup *)AllocMem(sizeof(struct WBStartup),  
+   MEMF_CLEAR); 
+  if(msg) 
+  { 
+   /* Preset the necessary arguments for message passing */ 
+  
+   msg->sm_Message.mn_ReplyPort = mainmp; 
+   msg->sm_Message.mn_Length = sizeof(struct WBStartup); 
+   msg->sm_Message.mn_Node.ln_Name = startname;  
+   
+   /* Passing no workbench arguments to this process;  
+    * we are not WBench.  Of course, if we want to pass  
+    * workbench-style arguments this way, we can. 
+     */ 
+   
+   msg->sm_ArgList = NULL; 
+   
+   /* If the process is being opened without a ToolWindow  
+    * (Workbench sets this up) as a parent, slave will simply 
+    * go on to do its own main()  ... as shown in Astartup.asm 
+    */ 
+   
+   msg->sm_ToolWindow = NULL; 
+   
+   /* Send the start-up message */ 
+   
+   PutMsg(littleProc,msg);  
+  } 
+  else 
+  { 
+   printf("\nCouldnt allocate mem for WBStartup!\n"); 
+   goto aarrgghh; /* Oh no, a "goto" ! */ 
+  }  
+  /* *************************************************************** */ 
+  /* Just a sample message, still using the same message and  
+   * reply ports 
+   * 
+   * Littleproc is a cooperating process...it KNOWS it must wait  
+   * until a message arrives at its port, containing the parameters  
+   * it should use for output.   
+   * 
+   * The startup message is handled by the standard startup code.   
+   * This parameter message is handled by the program code itself.    
+   * The startup message is returned to the replyport by the startup  
+   * code, after the program code exits or returns. 
+    */   
+  
+  parms = (struct MyMess *)AllocMem(sizeof(struct MyMess),MEMF_CLEAR); 
+  if(parms) 
+  { 
+   parms->mm_Message.mn_ReplyPort = mainmp; 
+   parms->mm_Message.mn_Length = sizeof(struct mymess); 
+   parms->mm_Message.mn_Node.ln_Name = parmname; 
+  
+   /* NOTE THAT THESE ARE THE AStartup.asm stdout and stderr;  
+    * the example works only if both master and slave are 
+    * compiled and linked with the same startup code. */ 
+  
+   parms->mm_OutPointer = (int)stdout; 
+   parms->mm_ErrPointer = (int)stderr; 
+   /* send him our parameters */ 
+  
+   PutMsg(littleProc,parms);  
+   
+   /* wait for the reply from parameter pass. */ 
+  
+   WaitPort(mainmp);  
+   
+   reply = GetMsg(mainmp);  
+  
+   /* Message node name should contain the address of the  
+    * string "parms" if error checking was included. 
+       * 
+     *  
+    * User should probably allocate separate ports for  
+    * parameter passing different from the main port  
+    * automatically allocated by the system when a  
+    * process is initiated.  It would alleviate 
+     * some of the checking that is appropriate to do  
+    * when multiple kinds of messages arrive at the same port. 
+     * 
+    *  
+    * NOW MAIN CAN GO ON AND DO SOMETHING USEFUL, 
+    * LATER CAN COME BACK AND SEE IF SPAWNED PROCESS 
+    * HAS COMPLETED AND IS READY TO BE UNLOADED. 
+     * 
+    *  
+    * Wait for the return of the wbstartup message before  
+    * main itself is allowed to exit.   
+    */ 
+  
+   WaitPort(mainmp);  
+  
+   reply = GetMsg(mainmp);  
+  
+   /* Message node name should be  
+    * address of "startermessage"  */ 
+  
+   /* NOTE: there should be checking here to see if the message 
+     * received at this port was the string, or the wakeup call. 
+     * This sample code only assumes that the string is received 
+     * and replied first, then the wakeup call message is returned 
+     * as the little task is exiting.   
+     */ 
+  
+   UnLoadSeg(littleSeg); 
+  
+   printf("\nSlave exited; Master unloaded its code and data\n"); 
+  } 
+  else 
+  { 
+   printf("\nCouldn't allocate memory for parameter message\n"); 
+  } 
+     aarrgghh: 
+   /* arrive here on good or bad exit */ 
+   
+  if(parms) { FreeMem( parms, sizeof(struct MyMess));    } 
+  if(msg)   { FreeMem( msg,   sizeof(struct WBStartup)); } 
+  
+ } /* end of main */ 
+  
+  
+  
+  
+ /* littleproc.c ******************************************************** */ 
+  
+ /* Sample slave code for create process test */ 
+  
+ /* author: Rob Peck   3/4/86  */ 
+  
+ /* system software version: V1.1               */ 
+  
+ #include "exec/types.h" 
+ #include "exec/nodes.h" 
+ #include "exec/lists.h" 
+ #include "exec/libraries.h" 
+ #include "exec/ports.h" 
+ #include "exec/interrupts.h" 
+ #include "exec/io.h" 
+  
+ #include "libraries/dos.h" 
+ #include "libraries/dosextens.h" 
+  
+ #include "workbench/startup.h" 
+  
+ /* these are going to be supplied to the slave by the starter */ 
+ /* they are actually defined in the startup code (Astartup.asm) */ 
+  
+ extern int stdout; 
+ extern int stderr; 
+  
+ struct MyMess { 
+    struct Message mm_Message; 
+    int mm_OutPointer; 
+    int mm_ErrPointer; 
+ }; 
+  
+ extern struct Message *GetMsg(); 
+ extern struct Task *FindTask(); 
+ extern struct FileHandle *Open(); 
+  
+ main() 
+ {  
+  struct MyMess *msg; 
+  struct MsgPort *myport; 
+  struct Process *myprocess; 
+  
+  struct FileHandle *myOwnOutput; 
+  
+  myprocess = (struct Process *)FindTask(0); 
+  
+  myport = &myprocess->pr_MsgPort; 
+  
+  /* Wait for starter to post a message.  Special sample message  
+   * has his stderr, stdout so we can both post stuff to the  
+   * same CLI window as he started from */ 
+  
+  WaitPort(myport);  
+  
+  msg = (struct MyMess *)GetMsg(myport); 
+  
+   
+  stdout = msg->mm_OutPointer; 
+  
+  /* Use printf to prove that it is really a process...  
+   * a simple task cannot do this without crashing! */ 
+  
+  printf("\nHere I am, that slave process you started!!!"); 
+  printf("\nNow going to open MY OWN window.\n"); 
+  
+  /* NOW DO SOMETHING USEFUL... DO WHATEVER THE PROCESS WAS DESIGNED 
+    * TO ACCOMPLISH. 
+   */ 
+  
+  myOwnOutput = Open("CON:10/10/320/150/SlaveProcess",MODE_NEWFILE); 
+  if(myOwnOutput == 0) 
+  { 
+   ReplyMsg(msg); /* tell main I'm done */ 
+   exit(0); /* can't return an error code anyhow */ 
+  } 
+  else 
+  { 
+   stdout = (int)myOwnOutput;  
+   /* reset my output file handle */ 
+   printf("See, I can do AmigaDOS!"); 
+   Delay(250); /* 250/50 = 5 seconds */ 
+   stdout = msg->mm_OutPointer; 
+   Close(myOwnOutput); 
+   ReplyMsg(msg); 
+  } 
+  
+  /* Now simply fall off the end of the world,  
+   * returns to the startup code, and should exit cleanly */ 
+  
+ }  
+  
+ /* *******************************************************************  
+  
+ As a final note, one could have created and started another process by  
+ using the Execute command of AmigaDOS: 
+  
+  success = Execute("someprogram",0,0); 
+  
+ but I went through this exercise to show interprocess communication 
+ setup and message passing.  I hope that the sample code provides some 
+ insight into the multi-processing capabilities of AmigaDOS. 
+  
+ ******************************************************************* */ 

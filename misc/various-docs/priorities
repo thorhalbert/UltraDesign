@@ -1,0 +1,71 @@
+UltraCAD Essential Functions Map and Critical Path
+
+	Load Fonts Requester			Done
+	Load/Save Requester			Done
+	Load Font Requester			Done
+	Layer Requester				Minor Touchups Needed
+	Group Requester				Minor Touchups Needed
+	Pen Requester 				
+	Dimensions/Units Menu			Out Done, Need Input
+	Pallete Requester			Under Construction	
+	Merge Drawing				Finished
+	Save Clipboard				Done
+	New Scope Requester			
+	Switches Menu				Done
+	Attribute kill,merge,prune,graft	
+	Box Clip Modes				Done (Needs Testing)
+	Scale					Done 
+	X & Y Stretches				
+	Rotate					
+	X & Y Flips				
+	Object Search/Select Item		Line Mode Begun
+	Seek Mode				Line Mode Done
+	Razor Mode				
+	Clip Attribute Mass Change		Done
+	Orthogonal Lines			Normal 90° Done
+	Undo/Undelete Stack			
+	Enhanced Key Commands			Done
+	Rotated Ellipses			Done
+	New Ellipse Clipper			Done
+	Line Mode Arrows			Paint Mode Done
+	Line Mode Boxes				Done
+	Double-Click Menus			Done
+	IFF Final Version			
+	Text FlipFlags				Done
+	Text Aspect				Done
+	In/Out Units Routines			Out Linear Units Done
+	Final Menu Cleanup			First Pass Done
+	Icons and Icon Code			
+	Library Editing				Done - Needs Testing
+	Library Extraction			Done - Needs Testing
+	Line Hook				Done
+	Line Unhook				
+	Text Edit				
+	Grids					
+	Dimensioning				
+	Storage of View Keys			
+	Storage of Coordinate Keys				
+
+	Documentation!!
+
+New Ideas
+
+	Fillet Lines
+	Array Copy
+	Delete Last Line (in set)
+	Rotated Viewport
+	
+Optional Items and Subjective Rating
+
+	Arrows for prop icons			6
+	Editing Mode				5
+	Alternate Ellipse Modes			5
+	Hatching/Fill				4
+	Fillet Mode				3
+	PolyArc Mode				3
+	Symmetry				3
+	Perspective				3
+	Multi-Screen				2
+	Multiple Files				1
+	Attribute Reports			1
+	Clip Bob Sprite				1

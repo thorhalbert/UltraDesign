@@ -1,0 +1,73 @@
+.lm=10
+.rm=70
+
+Hatching:
+
+ Introduction;
+
+     H„a„t„c„h„i„n„g„ „is the ability to fill a selected area with either a s„o„l„i„d„ „c„o„l„o„r„ or a r„e„p„e„a„t„i„n„g„ „p„a„t„t„e„r„n„.„ Having the capacity to hatch, especially complex drawings can save the artist or draftsperson large quantitys of time that would otherwise have to be spent in drawing or rendering tedious patterns. UltraDesign provides the user with a versatile and highly configurable method for producing desired effects in a fraction of the time. As well as the patterns that are provided, the C„a„d„v„e„r„t„e„r„ section of the package allows the user to import other patterns from other packages or, create their own patterns in UltraDesign and then  save them out to be used in drawings.
+
+   Some Rules of the Road.  
+
+     Before attempting to do a hatch, it would be wise to learn some of the basic constraints that this feature operates under. UltraDesign makes some fundamental assumptions based upon the way it handles the data in your drawings and this in turn affects the way the hatch will work.
+
+     1) A…l…l… …h„a„t„c„h„e„d„ „a„r„e„a„s„ „M…U…S…T… …h„a„v„e„ „t„h„e„i„r„ „O„W„N„ …D„i„s„c„r„e„t„e„ „C…O…N…T…I…G…U…O…U…S… „b„o„u„n„d„a„r„i„e„s„.„ „   This is the most important concept to get across. There is only one exception to this and it will be discussed in the section describing O„p„e„n„ „ and C„l„o„s„e„d„ S„t„r„i„n„g„s„ later in this chapter. Hatching requires something to hatch against. Therefore, you need to make sure that in the event of two or more  hatching areas bounding one another,E„a„c„h„ „a„r„e„a„ has its own drawing object to define the hatch. You C„a„n„n„o„t„ use a common line, say, to determine two separate hatching areas.
+ 
+     2) W„h„e„n„ „D„e„l„e„t„i„n„g„ „a„ „h„a„t„c„h„ „b„o„u„n„d„a„r„y„, „y„o„u„ „M…U…S…T… …d„e„l„e„t„e„ „t„h„e„ „h„a„t„c„h„ „F…I…R…S…T….… …Simply select the hatch using S„e„l„e„c„t„ „I„t„e„m„ „and then delete it. You may then proceed to remove whichever relevant boundaries you wish.
+
+     3) U„l„t„r„a„D„e„s„i„g„n„ „d„o„e„s„ …N…O…T… …r„e„c„o„g„n„i„z„e„ „t„h„e„ „c„o„n„c„e„p„t„ „o„f„A…b…o…v…e… …o„r„ „B…e…l…o…w….„ „O„n„l„y„ „P…a…i…n…t… …O…r…d…e…r….… Which means that if you have a hatch that overwrites a hatch you are going to get some very interesting effects when it comes time to ouput your drawings. Now if you W„a„n„t„ an area to have a pattern overwrite another, (such as in the case of some methods of representing number set data) no problem. But if not, please take care how you set up your drawings and keep this in mind.
+
+     4) S…C…A…L…E… …I…S… …V…E…R…Y… …I…M…P…O…R…T…A…N…T…!… …It is quite possible to hatch an area Miles across. However, the hatch pattern defaults are based on 10 and 20 millimeters respectivly...need I say more?.
+
+
+
+
+ Icons.
+
+     There are five distinct icons in the hatch feature. They are (From top to bottom); S„e„l„e„c„t„ „B„o„u„n„d„a„r„i„e„s„,„ „S„o„l„i„d„ „F„i„l„l„ „/„ P„a„t„t„e„r„n„e„d„ „H„a„t„c„h„,„ „D„e„f„a„u„l„t„s„ „and R„e„n„d„e„r„.„ 
+ 
+   Select Boundries.
+
+     To use, click the left button in the area that you wish to hatch. A green s„c„e„t„c„h„ fill will appear in the area chosen. This is also a good way to test to see if everything is satisfactory with the boundary area. Click the right button to abort.
+
+   Solid Fill/Patterned Hatch.
+
+     This is an either/or kind of icon. The default is S„o„l„i„d„ „F„i„l„l„. Which shows as a solid color inside of the polygon. To use, click on the icon. It will change to a banded polygon. This is the P„a„t„t„e„r„n„e„d„ „H„a„t„c„h„ side of the icon. T„h„i„s„ „M…U…S…T… …b„e„ „s„e„t„ „to use the hatch pattern files.
+
+   Defaults.
+   
+     The third icon pops out the H„a„t„c„h„ „f„i„l„e„ „and H„a„t„c„h„ „P„a„t„t„e„r„n„ „requesters. These are the requesters to be used when selecting which hatch, what rotation and what scale to be used in the drawing.(UltraDesign comes with fourty different patterns).
+        
+   Render.
+
+     Just like all of the other render icons. Use it to complete the hatch operation. The hatch will then render and become the currently selected item.
+
+ Solid Fill.
+
+     Solid Fill is used to totally flood the selected area with a selected color. If no color is specified,(as in say, a seperate layer) the currently selected pallett color will be used.
+
+ Patterned Hatch.
+
+     This is the function most used by Draftspersons, Architects and Engineers. Each profession has a need to represent materials in such a way as to be readily understandable to other trades who will be responsible for the actual construction of the item shown on the drawing. Most of the time,  standard pattern symbols, common within the respective industries are used in order to facilitate this.
+
+
+
+
+   Q Hatch.
+
+     Q Hatch is an item in O„p„t„i„o„n„s„ under the S„e„t„t„i„n„g„s„ menu. There are many occasions where a great deal of hatching needs to be done. this can greatly slow down repaint time. Q„ „H„a„t„c„h„ „sets up a rapid repaint pattern to show that an area h„a„s„ been hatched  without the need to repaint it every time the screen repaints. All hatching is retained. Each pattern remains in memory and is stored out to disk.
+
+   Loading a File.
+
+   Rotation.
+
+   Scale.
+
+ Clipboard Features.
+
+   Open String.
+
+   Closed String.
+
+   Sort.
+     

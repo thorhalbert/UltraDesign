@@ -1,0 +1,92 @@
+/*------------------------UltraDesign array copy in ARexx---------------------*/
+
+/*
+	Make a rectangular array copy of the items currently in the clipboard
+	in UltraDesign.  User is prompted for parameters on the dialog
+	window.  Row and column spacing are specified in the currently
+	selected linear units. 
+*/
+
+/*-----------------------------Setup section----------------------------------*/
+
+options						/* Turn off all arexx options */
+'$$INTERN_UNIT = 0'				/* Set to default units */
+
+/*-------------------------Prompt for column information----------------------*/
+
+options prompt "   Enter columns (X)? "		/* Set prompt */
+parse pull xnum					/* Get columns from user */
+
+	/* xnum now contains the number columns (x) */
+
+options prompt "Enter column spacing? "		/* Set prompt */
+parse pull xspace				/* Get spaces in user unit */
+
+	/* xspace now contains the column spacing in the default units */
+
+/*-------Convert column spacing from default units to internal units (mm)-----*/
+
+'$$TEST_LINEAR = ' xspace			/* set test to spacing */
+
+'$$INTERN_UNIT = 1'				/* Switch to internal units */
+options results					/* Turn on results */
+'RESULT $$TEST_LINEAR'				/* Request test be returned */
+parse var result type xspace			/* Get spacing back */
+options						/* Turn options back off */
+
+	/* xspace now contains the column spacing in internal units (mm) */
+
+/*-------------------------Prompt for row information-------------------------*/
+
+options prompt "      Enter rows (Y)? "		/* Set prompt */
+parse pull ynum					/* Get rows from user */
+
+	/* ynum now contains the number of rows (y) */
+
+options prompt "  Enter rows spacing? "		/* Set prompt */
+parse pull yspace				/* Get spacing from user */
+options						/* Turn options off */
+
+	/* yspace now contains row spacing in default units */
+			
+/*--------Convert row spacing from default units to internal units------------*/
+
+'$$INTERN_UNIT = 0'				/* Switch to default units */
+'$$TEST_LINEAR = ' yspace			/* Set test to row spacing */
+
+'$$INTERN_UNIT = 1'				/* Switch to internal units */
+options results					/* Turn on results */
+'RESULT $$TEST_LINEAR'				/* Request test be returned */
+parse var result type xspace			/* Get spacing back */
+options						/* Turn off options */
+
+	/* yspace now has row spacing in internal units (mm) */
+
+/*----------Get mouse click from user (in internal units) for handle----------*/
+
+say "Click on the left lower corner"		/* Prompt user for handle */
+
+options results					/* Turn results on */
+'RESULT @'					/* Request mouse click */
+parse var result type xmouse ',' ymouse		/* Retrieve coordinates */
+options						/* Turn options off */
+
+        /* xmouse and ymouse now have the click point in internal units */
+
+/*----------------Array Clone the items in the clipboard----------------------*/
+
+'CLIP/CLONE/FROM=' xmouse ',' ymouse		/* Set the handle point */
+
+xpos = xmouse					/* X coord of first column */
+do xloop = 1 to xnum				/* Loop column to column */
+	ypos = ymouse				/* Y coord of first row */
+	do yloop = 1 to ynum			/* Loop row to row */
+	
+		'CLIP/CLONE/TO=' xpos ',' ypos	/* Clone off given row,col */
+		
+		ypos = ypos + yspace		/* increment to next row */
+	end					/* end of row loop */
+	xpos = xpos + xspace			/* increment to next column */
+end						/* end of column loop */
+
+/* End of arraycopy.uurx */

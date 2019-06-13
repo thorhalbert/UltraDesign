@@ -1,0 +1,17 @@
+.lm=10
+.rm=75
+
+Various methods 2
+
+Using the requesters:
+
+     There are six main  types of input  requesters in Udesign. These are: F„i„l„e„ „requesters, for loading, saving, merging,adding ect... A„c„c„e„s„s„ requesters, for customizing and organizing the way your drawings are stored and displayed. S„e„t„u„p„ „requesters, there are two of these. One is for determining how Library assemblies will be input into a view and the other is for determining the way that dimensioning will be represented. T„e„x„t„ „requesters, there are two of these as well. One is for inputting text into a view and the other is for editing it. C„o„o„r„d„i„n„a„t„e„ „e„n„t„r„y„, this is for entering line and arc information directly on the screen without the use of the mouse. C„o„m„p„l„a„i„n„ requesters. these are for your own  „  protection... they will only pop up when you are about to do somthing irrevocable to your view. And they will let you know about it. This gives you the chance to decide wether or not you r„e„a„l„l„l„l„y„ want to do this or if you have made a serious mess of things. All of them are fairly easy to use and when used in conjunction with each other, give the user a vast array of ways to organize, use and display the drawings made in Udesign.
+
+
+File requesters:
+
+     There are three types of entry into these requesters. Mouse, keyboard or from a pop out requester. The first two methods are for L„o„a„d„i„n„g„,„ „S„a„v„i„n„g„ or M„e„r„g„i„n„g„ „files. the third is for file managment, such as A„d„d„,„ „R„e„n„a„m„e„,„ „K„i„l„l„,„ „E„x„p„u„n„g„e„,„ „or in library mode  P„r„u„n„e„ „and „G„r„a„f„t„.„ „these last functions are accessed by buttons on the pop out menus. 
+
+     These file requesters are very generic. With the exception of what they do and the instructions that they give, they all look pretty much the same. So care must be taken to pay attention         to the instructions in blue lettering at the top left of the requester. To the right of the requester name is the M„a„s„k„:„ „box. When there are tremendos amounts fo files to be reviewed or if you wish to configure your bookkeeping that way. Use this box to mask out or in only the files you wish to have displayed under the F„i„l„e„ „N„a„m„e„ section.<<<<*** instructions here****>>>
+
+     Under the requester name is the P„a„t„h„:„ „box. This is for calling up the specific area you wish to get to your files. If you are using the Amiga's internal disk drive you would first click on the box by using the mouse cursor and then by clearing the box by the command: R„i„g„h„t„ „A„m„i„g„a„ „x„. That is, first press the right Amiga key and then press the "x" key. Then use the command D„F„0„:„ to have the machine access the files on your drawing disk. If you are using an external drive or a hard disk, the commands would be D„F„1„:„ „or D„h„0„:„ „respectivly.
